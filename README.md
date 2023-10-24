@@ -83,32 +83,37 @@ Automated findings output for the audit can be found [here](https://github.com/c
 
 _Note for C4 wardens: Anything included in the 4naly3er **or** the automated findings output is considered a publicly known issue and is ineligible for awards._
 
-[ ⭐️ SPONSORS: Are there any known issues or risks deemed acceptable that shouldn't lead to a valid finding? If so, list them here. ]
-
 
 # Overview
 
-[ ⭐️ SPONSORS: add info here ]
+## NextGen Platform
+
+NextGen is a platform that provides artists with the ability to launch generative creations using advanced preexisting smart contracts and rendering infrastructure.\
+NextGen hosts projects that create unique outputs using generative scripts that are stored on the Ethereum blockchain.\
+When users want to acquire an iteration from a project, they buy a ERC721 compliant NFT (non-fungible token) that "fills in the variables" in the script, which then produces a finalized output.
+
+## NextGen Smart Contracts architecture
+
+The NextGen smart contract architecture is as follows:
+1. Core: The Core is the contract where the ERC721 tokens are minted and includes all the core functions of the ERC721 standard as well as additional setter & getter functions. The Core  holds the data of a collection such as name, artist's name, library, script as well as the total supply of a collection. The Core contract integrates with the other contracts to provide flexible, adjustable, and scalable functionality.
+2. Minter: The Minter contract is used to mint an ERC721 token for a collection on the Core contract based on certain requirements that are set on it. The Minter contract holds all the information regards to an upcoming drop such as starting/ending times of various phases, Merkle roots, sales model, funds and the primary and secondary addresses of artists. 
+3. Admin: The Admin contract is responsible for adding or removing global or function-based admins who are allow to call certain functions in both the Core and Minter contracts.
+4. Randomizer: The Randomizer contract is responsible for generating a random hash for each token during the minting process. Once the hash is generated is being sent to the Core contract that stores it in order to be used to generate the generative art token. NextGen currently considers 3 different Randomizer contracts that can be used for generating the tokenHash.
+  a) A Randomizer contract that uses the Chainlink VRF.
+  b) A Randomizer contract that uses ARRNG.
+  c ) Custom-made implementation Randomizer contract
 
 ## Links
 
-- **Previous audits:** 
-- **Documentation:**
-- **Website:**
-- **Twitter:** 
-- **Discord:** 
+- **Documentation:** https://seize-io.gitbook.io/nextgen/
+- **Website:** https://www.seize.io/
+- **Twitter:** https://twitter.com/6529Collections / https://twitter.com/punk6529
+- **Discord:** https://discord.gg/nQDAkHt3
 
 
 # Scope
 
-[ ⭐️ SPONSORS: add scoping and technical details here ]
-
-- [ ] In the table format shown below, provide the name of each contract and:
-  - [ ] source lines of code (excluding blank lines and comments) in each *For line of code counts, we recommend running prettier with a 100-character line length, and using [cloc](https://github.com/AlDanial/cloc).* 
-  - [ ] external contracts called in each
-  - [ ] libraries used in each
-
-*List all files in scope in the table below (along with hyperlinks) -- and feel free to add notes here to emphasize areas of focus.*
+Files and contracts in scope for this audit in the table below:
 
 | Contract | SLOC | Purpose | Libraries used |  
 | ----------- | ----------- | ----------- | ----------- |
@@ -137,7 +142,6 @@ _Note for C4 wardens: Anything included in the 4naly3er **or** the automated fin
 *Describe the project's main invariants (properties that should NEVER EVER be broken).*
 
 ## Scoping Details 
-[ ⭐️ SPONSORS: please confirm/edit the information below. ]
 
 ```
 - If you have a public code repo, please share it here: https://github.com/6529-Collections/nextgen  
