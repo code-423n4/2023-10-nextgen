@@ -126,14 +126,14 @@ Files and contracts in scope for this audit in the table below:
 
 ## Out of scope
 
-OpenZeppelin, Chainlink and ARRNG contracts as well as the contract below are out of scope of this audit.
+OpenZeppelin, Chainlink and ARRNG contracts as well as the contract below are out of scope of this audit.\
 
-[smart-contracts/IMinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IMinterContract.sol)
-[smart-contracts/INextGenAdmins.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/INextGenAdmins.sol)
-[smart-contracts/INextGenCore.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/INextGenCore.sol)
-[smart-contracts/IRandomizer.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IRandomizer.sol)
-[smart-contracts/IXRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IXRandoms.sol)
-[smart-contracts/NFTdelegation.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NFTdelegation.sol)
+[smart-contracts/IMinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IMinterContract.sol)\
+[smart-contracts/INextGenAdmins.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/INextGenAdmins.sol)\
+[smart-contracts/INextGenCore.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/INextGenCore.sol)\
+[smart-contracts/IRandomizer.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IRandomizer.sol)\
+[smart-contracts/IXRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IXRandoms.sol)\
+[smart-contracts/NFTdelegation.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NFTdelegation.sol)\
 [smart-contracts/IDelegationManagementContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IDelegationManagementContract.sol)
 
 # Additional Context
