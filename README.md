@@ -96,7 +96,7 @@ When users want to acquire an iteration from a project, they buy a ERC721 compli
 
 The NextGen smart contract architecture is as follows:
 1. Core: The Core is the contract where the ERC721 tokens are minted and includes all the core functions of the ERC721 standard as well as additional setter & getter functions. The Core  holds the data of a collection such as name, artist's name, library, script as well as the total supply of a collection. The Core contract integrates with the other contracts to provide flexible, adjustable, and scalable functionality.
-2. Minter: The Minter contract is used to mint an ERC721 token for a collection on the Core contract based on certain requirements that are set on it. The Minter contract holds all the information regards to an upcoming drop such as starting/ending times of various phases, Merkle roots, sales model, funds and the primary and secondary addresses of artists. 
+2. Minter: The Minter contract is used to mint an ERC721 token for a collection on the Core contract based on certain requirements that are set prior the minting process. The Minter contract holds all the information regards to an upcoming drop such as starting/ending times of various phases, Merkle roots, sales model, funds and the primary and secondary addresses of artists. 
 3. Admin: The Admin contract is responsible for adding or removing global or function-based admins who are allow to call certain functions in both the Core and Minter contracts.
 4. Randomizer: The Randomizer contract is responsible for generating a random hash for each token during the minting process. Once the hash is generated is being sent to the Core contract that stores it in order to be used to generate the generative art token. NextGen currently considers 3 different Randomizer contracts that can be used for generating the tokenHash.
   a) A Randomizer contract that uses the Chainlink VRF.
@@ -115,13 +115,26 @@ The NextGen smart contract architecture is as follows:
 
 Files and contracts in scope for this audit in the table below:
 
-| Contract | SLOC | Purpose | Libraries used |  
+| Contract | SLOC | Purpose | Libraries and Interfaces used |  
 | ----------- | ----------- | ----------- | ----------- |
-| [contracts/folder/sample.sol](https://github.com/code-423n4/repo-name/blob/contracts/folder/sample.sol) | 123 | This contract does XYZ | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
+| [smart-contracts/NextGenCore.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol) | 366 | The Core is the contract where the ERC721 tokens are minted and includes all the core functions of the ERC721 standard as well as additional setter & getter functions. | ERC721Enumerable, Ownable, Strings, Base64, ERC2981, IRandomizer, INextGenAdmins, IMinterContract |
+| [smart-contracts/MinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol) | 475 | The Minter contract is used to mint an ERC721 token for a collection on the Core contract based on certain requirements that are set prior the minting process. | INextGenCore, Ownable, IDelegationManagementContract, MerkleProof, INextGenAdmins, IERC721 |
+| [smart-contracts/NextGenAdmins.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenAdmins.sol) | 61 | The Admin contract is responsible for adding or removing global or function-based admins who are allow to call certain functions in both the Core and Minter contracts. | Ownable |
+| [smart-contracts/RandomizerNXT.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerNXT.sol) | 51 | The Randomizer contract is responsible for generating a random hash for each token during the minting process using NextGen's proposed approach. | IXRandoms, INextGenAdmins, Ownable, INextGenCore |
+| [smart-contracts/RandomizerVRF.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol) | 87 | The Randomizer contract is responsible for generating a random hash for each token during the minting process using Chainlink's VRF. | VRFCoordinatorV2Interface, VRFConsumerBaseV2, Ownable, INextGenCore, INextGenAdmins |
+| [smart-contracts/RandomizerRNG.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol) | 72 | The Randomizer contract is responsible for generating a random hash for each token during the minting process using ARRng.io. | ArrngConsumer, Ownable, INextGenCore, INextGenAdmins |
 
 ## Out of scope
 
-*List any files/contracts that are out of scope for this audit.*
+OpenZeppelin, Chainlink and ARRNG contracts as well as the contract below are out of scope of this audit.
+
+[smart-contracts/IMinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IMinterContract.sol)
+[smart-contracts/INextGenAdmins.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/INextGenAdmins.sol)
+[smart-contracts/INextGenCore.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/INextGenCore.sol)
+[smart-contracts/IRandomizer.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IRandomizer.sol)
+[smart-contracts/IXRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IXRandoms.sol)
+[smart-contracts/NFTdelegation.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NFTdelegation.sol)
+[smart-contracts/IDelegationManagementContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IDelegationManagementContract.sol)
 
 # Additional Context
 
@@ -146,7 +159,7 @@ Files and contracts in scope for this audit in the table below:
 ```
 - If you have a public code repo, please share it here: https://github.com/6529-Collections/nextgen  
 - How many contracts are in scope?:   6
-- Total SLoC for these contracts?:  1218
+- Total SLoC for these contracts?:  1154
 - How many external imports are there?: 28
 - How many separate interfaces and struct definitions are there for the contracts within scope?:  5
 - Does most of your code generally use composition or inheritance?:  Inheritance 
@@ -165,6 +178,4 @@ Files and contracts in scope for this audit in the table below:
 
 # Tests
 
-*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.* 
-
-*Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.* 
+Sample hardhat tests are provided.
