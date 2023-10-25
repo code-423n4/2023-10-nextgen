@@ -278,7 +278,7 @@ describe("NextGen Tests", function () {
         signers.addr1.address, // _mintTo
         ["0x8e3c1713145650ce646f7eccd42c4541ecee8f07040fc1ac36fe071bbfebb870"], // _merkleRoot
         signers.addr1.address, // _delegator
-        2, //_varg0
+        2, //_saltfun_o
       )
     })
 
@@ -291,7 +291,7 @@ describe("NextGen Tests", function () {
         signers.addr1.address, // _mintTo
         ["0x8e3c1713145650ce646f7eccd42c4541ecee8f07040fc1ac36fe071bbfebb870"], // _merkleRoot
         signers.addr1.address, // _delegator
-        2, //_varg0
+        2, //_saltfun_o
         { value: BigInt(900000000000000000) }
       )
     })
@@ -305,7 +305,7 @@ describe("NextGen Tests", function () {
         signers.addr1.address, // _mintTo
         ["0x8e3c1713145650ce646f7eccd42c4541ecee8f07040fc1ac36fe071bbfebb870"], // _merkleRoot
         signers.addr1.address, // _delegator
-        2, //_varg0
+        2, //_saltfun_o
         { value: await contracts.hhMinter.getPrice(3) }
       )
     })
@@ -319,7 +319,7 @@ describe("NextGen Tests", function () {
         signers.addr1.address, // _mintTo
         ["0x8e3c1713145650ce646f7eccd42c4541ecee8f07040fc1ac36fe071bbfebb870"], // _merkleRoot
         signers.addr1.address, // _delegator
-        2, //_varg0
+        2, //_saltfun_o
         { value: await contracts.hhMinter.getPrice(3) }
       )
     })
@@ -328,7 +328,7 @@ describe("NextGen Tests", function () {
       await contracts.hhMinter.airDropTokens(
         [signers.addr1.address,signers.addr2.address], // _recipients
         ['{"tdh": "100"}','{"tdh": "200"}'], // _numberOfTokens
-        [1,2], // _varg0
+        [1,2], // _saltfun_o
         1, // _collectionID
         [1,2], // _numberOfTokens
       )
