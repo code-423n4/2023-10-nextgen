@@ -117,14 +117,14 @@ OpenZeppelin, Chainlink and ARRNG contracts as well as the contract below are ou
   - Deploy [smart-contracts/NextGenCore.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol)
   - Deploy [smart-contracts/RandomizerNXT.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerNXT.sol)
   - Deploy [smart-contracts/NFTdelegation.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NFTdelegation.sol)
-  - Deploy [smart-contracts/MinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol)
+  - Deploy [smart-contracts/MinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol)\
 Note: The above deployment process uses the RandomizerNXT smart contract as randomizer. To use either the ChainLink VRF or the RNG smart contracts you need to deploy them separately.
 - Set up a collection ready for minting
   1. Call the createCollection(...) function on the Core contract.
   2. Call the setCollectionData(...) function on the Core contract.
   3. Call the addRandomizer(...) function on the Core contract.
   4. Call the setCollectionCosts(...) function on the Minter contract.
-  5. Call the setCollectionPhases(...) function on the Minter contract.
+  5. Call the setCollectionPhases(...) function on the Minter contract.\
 Note: Once the process is finalized, you can airdrop tokens or mint tokens once the minting phases start.
 - Trusted Roles that can interact with specific functions of the smart contracts and are set on the Admins Contract
   - Global Admin
@@ -169,7 +169,7 @@ Note: Once the process is finalized, you can airdrop tokens or mint tokens once 
   - Consider ways in which an address can bypass the merkle proofs and mint without having an allowlist spot.
 - Airdrop/Minting
   - Consider ways in which the airdrop or minting incl. burnToMint etc. is not executed from the Minter Contract.
-  - Consider ways in which more than 1 tokens can be minted at the same time period for the Periodic Sale Model.
+  - Consider ways in which more than 1 tokens can be minted at the same time period for the Periodic Sale Model.\
   
 Note: We are aware that access to an Admin or Artist role can be lost or taken thus any finding on this is not valid.
 
