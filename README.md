@@ -135,6 +135,7 @@ Note: Once the process is finalized, you can airdrop tokens or mint tokens once 
   - It's recommended to use the Goerli Network when you want to interact with the Chainlink VRF or the RNG smart contracts.
   - For the chainlink VRF you need to create a subscription from the chainlink platform, fund the subscription and add the [smart-contracts/RandomizerVRF.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol) smart contract address as a consumer.
   - For the ARRng.io smart contract you need to deploy the [smart-contracts/RandomizerRNG.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol) and send some eth to the smart contract address as the deposit funds on the smart contract will be used to pay for the generation of the random word.
+- The _saltfun_o is for future purposes and its currently not being used.
 - We are aware of the price rounding errors when a specific Sales Model is used especially when the minting cost is low, or when we process the payments to an artist/team address thus any finding is not valid.
 - We are aware that we do not accept decimals when we set the sales percentages, thus any finding is not valid.
 - We are aware that the minting cost price is captured right before the execution of the minting function and not when the transaction is confirmed, thus any finding is not valid.
