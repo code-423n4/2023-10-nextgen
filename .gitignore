@@ -104,6 +104,7 @@ dist
 # TernJS port file
 .tern-port
 
+# Hardhat ignore
 /node_modules
 /hardhat/node_modules
 /hardhat/artifacts
