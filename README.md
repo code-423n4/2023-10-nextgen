@@ -216,7 +216,7 @@ Sample hardhat tests are provided.
 
 1. Download the github repo
 2. Open command prompt and navigate to the hardhat folder
-3. Install hardhat using npm install --save-dev hardhat
+3. Install hardhat using npm i
 4. Create a new folder namely smart-contract within the hardhat project
 5. Move the nextgen smart contracts within that folder
 6. Compile smart contracts using npx hardhat compile
