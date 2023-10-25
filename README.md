@@ -94,6 +94,7 @@ Files and contracts in scope for this audit in the table below:
 | [smart-contracts/RandomizerNXT.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerNXT.sol) | 51 | The Randomizer contract is responsible for generating a random hash for each token during the minting process using NextGen's proposed approach. | IXRandoms, INextGenAdmins, Ownable, INextGenCore |
 | [smart-contracts/RandomizerVRF.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol) | 87 | The Randomizer contract is responsible for generating a random hash for each token during the minting process using Chainlink's VRF. | VRFCoordinatorV2Interface, VRFConsumerBaseV2, Ownable, INextGenCore, INextGenAdmins |
 | [smart-contracts/RandomizerRNG.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol) | 72 | The Randomizer contract is responsible for generating a random hash for each token during the minting process using ARRng.io. | ArrngConsumer, Ownable, INextGenCore, INextGenAdmins |
+| [smart-contracts/XRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/XRandoms.sol) | 39 | The randomPool smart contract once called from the RandomizerNXT smart contract returns a random word from the current pool as well as a random number back to the RandomizerNXT smart contract which uses those values to generate a random hash |  Ownable |
 
 ## Out of scope
 
@@ -109,21 +110,79 @@ OpenZeppelin, Chainlink and ARRNG contracts as well as the contract below are ou
 
 # Additional Context
 
-- [ ] Describe any novel or unique curve logic or mathematical models implemented in the contracts
-- [ ] Please list specific ERC20 that your protocol is anticipated to interact with. Could be "any" (literally anything, fee on transfer tokens, ERC777 tokens and so forth) or a list of tokens you envision using on launch.
-- [ ] Please list specific ERC721 that your protocol is anticipated to interact with.
-- [ ] Which blockchains will this code be deployed to, and are considered in scope for this audit?
-- [ ] Please list all trusted roles (e.g. operators, slashers, pausers, etc.), the privileges they hold, and any conditions under which privilege escalation is expected/allowable
-- [ ] In the event of a DOS, could you outline a minimum duration after which you would consider a finding to be valid? This question is asked in the context of most systems' capacity to handle DoS attacks gracefully for a certain period.
-- [ ] Is any part of your implementation intended to conform to any EIP's? If yes, please list the contracts in this format: 
-  - `Contract1`: Should comply with `ERC/EIPX`
-  - `Contract2`: Should comply with `ERC/EIPY`
+- This code will be deployed to Ethereum mainnet at launch, and it is the only blockchain considered to be in scope for this audit.
+- Deployment process
+  - Deploy [smart-contracts/NextGenAdmins.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenAdmins.sol) 
+  - Deploy [smart-contracts/XRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/XRandoms.sol)
+  - Deploy [smart-contracts/NextGenCore.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol)
+  - Deploy [smart-contracts/RandomizerNXT.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerNXT.sol)
+  - Deploy [smart-contracts/NFTdelegation.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NFTdelegation.sol)
+  - Deploy [smart-contracts/MinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol)
+Note: The above deployment process uses the RandomizerNXT smart contract as randomizer. To use either the ChainLink VRF or the RNG smart contracts you need to deploy them separately.
+- Set up a collection ready for minting
+  1. Call the createCollection(...) function on the Core contract.
+  2. Call the setCollectionData(...) function on the Core contract.
+  3. Call the addRandomizer(...) function on the Core contract.
+  4. Call the setCollectionCosts(...) function on the Minter contract.
+  5. Call the setCollectionPhases(...) function on the Minter contract.
+Note: Once the process is finalized, you can airdrop tokens or mint tokens once the minting phases start.
+- Trusted Roles that can interact with specific functions of the smart contracts and are set on the Admins Contract
+  - Global Admin
+  - Collection Admin
+  - Function Admin
+  - Artist
+- How to use the VRF or the RNG smart contracts
+  - It's recommended to use the Goerli Network when you want to interact with the Chainlink VRF or the RNG smart contracts.
+  - For the chainlink VRF you need to create a subscription from the chainlink platform, fund the subscription and add the [smart-contracts/RandomizerVRF.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol) smart contract address as a consumer.
+  - For the ARRng.io smart contract you need to deploy the [smart-contracts/RandomizerRNG.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol) and send some eth to the smart contract address as the deposit funds on the smart contract will be used to pay for the generation of the random word.
+- We are aware of the price rounding errors when a specific Sales Model is used especially when the minting cost is low, or when we process the payments to an artist/team address thus any finding is not valid.
+- We are aware that we do not accept decimals when we set the sales percentages, thus any finding is not valid.
+- We are aware that the minting cost price is captured right before the execution of the minting function and not when the transaction is confirmed, thus any finding is not valid.
+- We do not consider a DOS of the Ethereum network to be sufficient to warrant a finding valid.
 
 ## Attack ideas (Where to look for bugs)
-*List specific areas to address - see [this blog post](https://medium.com/code4rena/the-security-council-elections-within-the-arbitrum-dao-a-comprehensive-guide-aa6d001aae60#9adb) for an example*
+- Access Controls and Permissions
+  - Consider ways in which addresses can be added to the Admin contract either without the specific approval of its owner or from a global admin or as a result of contract deployment.
+  - Consider ways in which the artist's proposed address can be maliciously altered after they were firstly proposed from the artist.
+  - Consider ways in which functions on all contract can be called without having a specific role.
+- Payments
+  - Consider ways in which payments can be altered thus the funds will be sent to different addresses than the ones that were proposed by the artist.
+  - Consider ways in which the emergencyFunction does not send the funds to the Admins Contract owner.
+  - Consider ways in which payments will not be accepted from a gnosis safe wallet.
+- Sales Models
+  - Consider ways in which the minting cost price will differ from the actual value based on the parameters set on the setCollectionCosts function.
+- Random Hash generators
+  - Consider ways in which the generator will not produce a hash value, besides the lack of funds on the VRF and RNG.
+  - Consider ways in which the hash value can be altered after it was already set.
+  - Consider ways in which the random hash is not returned by the Randomizer contracts but it can be set directly.
+- On-chain metadata
+  - Consider ways in which the on-chain metadata can be altered after a collection was freezed.
+- Updating details
+  - Consider ways in which collection data can be altered after a collection was freezed.
+- Admin contract
+  - Consider ways in which the Admin contract address on all other contracts can be maliciously altered.
+- Burn or Swap functionalities
+  - Consider ways in which a token of a collection different than the one that was set can be burnt.
+- Allowlist minting
+  - Consider ways in which an allowlist address can mint more token than its allowed to mint.
+- Airdrop/Minting
+  - Consider ways in which the airdrop or minting incl. burnToMint etc. is not executed from the Minter Contract.
+  
+Note: We are aware that access to an Admin or Artist role can be lost or taken thus any finding on this is not valid.
+
 
 ## Main invariants
-*Describe the project's main invariants (properties that should NEVER EVER be broken).*
+Properties that should NEVER be broken under any circumstance:
+
+- Admin roles can only be registered on the Admin Contract.
+- Global Admins can only be registered by the Admin Contract owner.
+- Function and Collection admins can only be registered by global admins.
+- Payments can only be made when royalties are set, artist proposes addresses and percentages and an admin approves them.
+- Once a hash is set for a specific token it cannot be altered.
+- emergencyWithdraw sends the funds to the admin contract owner.
+- Once a collection is freezed its data cannot be altered.
+- Airdrop/mint can only be done from the Minter contract.
+- The random hash is calcuated from a Randomizer contract.
 
 ## Scoping Details 
 
@@ -144,9 +203,17 @@ OpenZeppelin, Chainlink and ARRNG contracts as well as the contract below are ou
 - Describe any novel or unique curve logic or mathematical models your code uses: You can find info about the Sales Models that use mathematical models here: https://seize-io.gitbook.io/nextgen/for-creators/sales-models
 - Is this either a fork of or an alternate implementation of another project?:  No
 - Does it use a side-chain?: No
-- Describe any specific areas you would like addressed: Payments functions, Sales Models price accuracy, On-chain metadata, Random Hash generators
+- Describe any specific areas you would like addressed: See above
 ```
 
 # Tests
 
 Sample hardhat tests are provided.
+
+1. Download the github repo
+2. Open command prompt and navigate to the hardhat folder
+3. Install hardhat using npm install --save-dev hardhat
+4. Create a new folder namely smart-contract within the hardhat project
+5. Move the nextgen smart contracts within that folder
+6. Compile smart contracts using npx hardhat compile
+7. Run the tests that exist within the test folder using npx hardhat test
