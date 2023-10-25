@@ -106,3 +106,6 @@ dist
 
 /node_modules
 /hardhat/node_modules
+/hardhat/smart-contracts
+/hardhat/artifacts
+/hardhat/cache
