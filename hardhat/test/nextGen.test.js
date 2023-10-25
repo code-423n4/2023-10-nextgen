@@ -422,7 +422,7 @@ describe("NextGen Tests", function () {
       const price = await contracts.hhMinter.getPrice(
         4, // _collectionID
       )
-      expect(parseInt(price)).equal(1000000000000000000); //
+      expect(parseInt(price)).equal(100000000000000000); //
     })
 
   })
