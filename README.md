@@ -161,12 +161,14 @@ Note: Once the process is finalized, you can airdrop tokens or mint tokens once 
   - Consider ways in which collection data can be altered after a collection was freezed.
 - Admin contract
   - Consider ways in which the Admin contract address on all other contracts can be maliciously altered.
-- Burn or Swap functionalities
+- Burn or Swap to mint functionalities
   - Consider ways in which a token of a collection different than the one that was set can be burnt.
 - Allowlist minting
   - Consider ways in which an allowlist address can mint more token than its allowed to mint.
+  - Consider ways in which an address can bypass the merkle proofs and mint without having an allowlist spot.
 - Airdrop/Minting
   - Consider ways in which the airdrop or minting incl. burnToMint etc. is not executed from the Minter Contract.
+  - Consider ways in which more than 1 tokens can be minted at the same time period for the Periodic Sale Model.
   
 Note: We are aware that access to an Admin or Artist role can be lost or taken thus any finding on this is not valid.
 
@@ -177,6 +179,7 @@ Properties that should NEVER be broken under any circumstance:
 - Admin roles can only be registered on the Admin Contract.
 - Global Admins can only be registered by the Admin Contract owner.
 - Function and Collection admins can only be registered by global admins.
+- Specific admin roles can call the functions of the smart contracts.
 - Payments can only be made when royalties are set, artist proposes addresses and percentages and an admin approves them.
 - Once a hash is set for a specific token it cannot be altered.
 - emergencyWithdraw sends the funds to the admin contract owner.
