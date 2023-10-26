@@ -66,13 +66,13 @@ When users want to acquire an iteration from a project, they buy a ERC721 compli
 ## NextGen Smart Contracts architecture
 
 The NextGen smart contract architecture is as follows:
-1. Core: The Core is the contract where the ERC721 tokens are minted and includes all the core functions of the ERC721 standard as well as additional setter & getter functions. The Core  holds the data of a collection such as name, artist's name, library, script as well as the total supply of a collection. The Core contract integrates with the other contracts to provide flexible, adjustable, and scalable functionality.
-2. Minter: The Minter contract is used to mint an ERC721 token for a collection on the Core contract based on certain requirements that are set prior the minting process. The Minter contract holds all the information regards to an upcoming drop such as starting/ending times of various phases, Merkle roots, sales model, funds and the primary and secondary addresses of artists. 
-3. Admin: The Admin contract is responsible for adding or removing global or function-based admins who are allow to call certain functions in both the Core and Minter contracts.
-4. Randomizer: The Randomizer contract is responsible for generating a random hash for each token during the minting process. Once the hash is generated is being sent to the Core contract that stores it in order to be used to generate the generative art token. NextGen currently considers 3 different Randomizer contracts that can be used for generating the tokenHash.
-  a) A Randomizer contract that uses the Chainlink VRF.
-  b) A Randomizer contract that uses ARRNG.
-  c ) Custom-made implementation Randomizer contract
+1. Core: Core is the contract where the ERC721 tokens are minted and includes all the core functions of the ERC721 standard as well as additional setter & getter functions. The Core holds the data of a collection such as name, artist's name, library, script as well as the total supply of a collection. The Core contract integrates with the other contracts to provide flexible, adjustable, and scalable functionality.
+2. Minter: The Minter contract is used to mint an ERC721 token for a collection on the Core contract based on certain requirements that are set prior to the minting process. The Minter contract holds all the information regarding an upcoming drop such as starting/ending times of various phases, Merkle roots, sales model, funds, and the primary and secondary addresses of artists. 
+3. Admin: The Admin contract is responsible for adding or removing global or function-based admins who are allowed to call certain functions in both the Core and Minter contracts.
+4. Randomizer: The Randomizer contract is responsible for generating a random hash for each token during the minting process. Once the hash is generated is sent to the Core contract that stores it to be used to generate the generative art token. NextGen currently considers 3 different Randomizer contracts that can be used for generating the tokenHash.\
+  a) A Randomizer contract that uses the Chainlink VRF.\
+  b) A Randomizer contract that uses ARRNG.\
+  c) Custom-made implementation Randomizer contract\
 
 ## Links
 
@@ -88,17 +88,17 @@ Files and contracts in scope for this audit in the table below:
 
 | Contract | SLOC | Purpose | Libraries and Interfaces used |  
 | ----------- | ----------- | ----------- | ----------- |
-| [smart-contracts/NextGenCore.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol) | 366 | The Core is the contract where the ERC721 tokens are minted and includes all the core functions of the ERC721 standard as well as additional setter & getter functions. | ERC721Enumerable, Ownable, Strings, Base64, ERC2981, IRandomizer, INextGenAdmins, IMinterContract |
-| [smart-contracts/MinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol) | 475 | The Minter contract is used to mint an ERC721 token for a collection on the Core contract based on certain requirements that are set prior the minting process. | INextGenCore, Ownable, IDelegationManagementContract, MerkleProof, INextGenAdmins, IERC721 |
-| [smart-contracts/NextGenAdmins.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenAdmins.sol) | 61 | The Admin contract is responsible for adding or removing global or function-based admins who are allow to call certain functions in both the Core and Minter contracts. | Ownable |
-| [smart-contracts/RandomizerNXT.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerNXT.sol) | 51 | The Randomizer contract is responsible for generating a random hash for each token during the minting process using NextGen's proposed approach. | IXRandoms, INextGenAdmins, Ownable, INextGenCore |
-| [smart-contracts/RandomizerVRF.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol) | 87 | The Randomizer contract is responsible for generating a random hash for each token during the minting process using Chainlink's VRF. | VRFCoordinatorV2Interface, VRFConsumerBaseV2, Ownable, INextGenCore, INextGenAdmins |
-| [smart-contracts/RandomizerRNG.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol) | 72 | The Randomizer contract is responsible for generating a random hash for each token during the minting process using ARRng.io. | ArrngConsumer, Ownable, INextGenCore, INextGenAdmins |
-| [smart-contracts/XRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/XRandoms.sol) | 39 | The randomPool smart contract once called from the RandomizerNXT smart contract returns a random word from the current pool as well as a random number back to the RandomizerNXT smart contract which uses those values to generate a random hash |  Ownable |
+| [smart-contracts/NextGenCore.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol) | 366 | Core is the contract where the ERC721 tokens are minted and includes all the core functions of the ERC721 standard as well as additional setter & getter functions. | ERC721Enumerable, Ownable, Strings, Base64, ERC2981, IRandomizer, INextGenAdmins, IMinterContract |
+| [smart-contracts/MinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol) | 475 | The Minter contract is used to mint an ERC721 token for a collection on the Core contract based on certain requirements that are set prior to the minting process. | INextGenCore, Ownable, IDelegationManagementContract, MerkleProof, INextGenAdmins, IERC721 |
+| [smart-contracts/NextGenAdmins.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenAdmins.sol) | 61 | The Admin contract is responsible for adding or removing global or function-based admins who are allowed to call certain functions in both the Core and Minter contracts. | Ownable |
+| [smart-contracts/RandomizerNXT.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerNXT.sol) | 51 | The RandomizerNXT contract is responsible for generating a random hash for each token during the minting process using the NextGen's proposed approach. | IXRandoms, INextGenAdmins, Ownable, INextGenCore |
+| [smart-contracts/RandomizerVRF.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol) | 87 | The RandomizerVRF contract is responsible for generating a random hash for each token during the minting process using the Chainlink's VRF service. | VRFCoordinatorV2Interface, VRFConsumerBaseV2, Ownable, INextGenCore, INextGenAdmins |
+| [smart-contracts/RandomizerRNG.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol) | 72 | The RandomizerRNG contract is responsible for generating a random hash for each token during the minting process using the ARRng.io service. | ArrngConsumer, Ownable, INextGenCore, INextGenAdmins |
+| [smart-contracts/XRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/XRandoms.sol) | 39 | The randomPool smart contract is used by the RandomizerNXT contract, once it's called from the RandomizerNXT smart contract it returns a random word from the current word pool as well as a random number back to the RandomizerNXT smart contract which uses those values to generate a random hash. |  Ownable |
 
 ## Out of scope
 
-OpenZeppelin, Chainlink and ARRNG contracts as well as the contract below are out of scope of this audit.\
+OpenZeppelin, Chainlink and ARRNG contracts as well as the contracts below are out of scope of this audit.
 
 [smart-contracts/IMinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IMinterContract.sol)\
 [smart-contracts/INextGenAdmins.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/INextGenAdmins.sol)\
@@ -107,6 +107,7 @@ OpenZeppelin, Chainlink and ARRNG contracts as well as the contract below are ou
 [smart-contracts/IXRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IXRandoms.sol)\
 [smart-contracts/NFTdelegation.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NFTdelegation.sol)\
 [smart-contracts/IDelegationManagementContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IDelegationManagementContract.sol)
+[smart-contracts/AuctionDemo.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/AuctionDemo.sol)
 
 # Additional Context
 
@@ -134,44 +135,43 @@ Note: Once the process is finalized, you can airdrop tokens or mint tokens once 
 - How to use the VRF or the RNG smart contracts
   - It's recommended to use the Goerli Network when you want to interact with the Chainlink VRF or the RNG smart contracts.
   - For the chainlink VRF you need to create a subscription from the chainlink platform, fund the subscription and add the [smart-contracts/RandomizerVRF.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol) smart contract address as a consumer.
-  - For the ARRng.io smart contract you need to deploy the [smart-contracts/RandomizerRNG.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol) and send some eth to the smart contract address as the deposit funds on the smart contract will be used to pay for the generation of the random word.
+  - For the ARRng.io smart contract you need to deploy the [smart-contracts/RandomizerRNG.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol) and send some eth to the smart contract address as the deposit funds on the smart contract will be used to pay for the generation of the random hash.
 - The _saltfun_o is for future purposes and its currently not being used.
-- We are aware of the price rounding errors when a specific Sales Model is used especially when the minting cost is low, or when we process the payments to an artist/team address thus any finding is not valid.
+- We are aware of the price rounding errors when the Exponential Descending Sales Model is used and the minting cost is low, thus any finding on this is not valid.
 - We are aware that we do not accept decimals when we set the sales percentages, thus any finding is not valid.
-- We are aware that the minting cost price is captured right before the execution of the minting function and not when the transaction is confirmed, thus any finding is not valid.
+- We are aware that the minting cost price is captured before the execution of the minting function and not when the transaction is confirmed, thus any finding is not valid.
 - We do not consider a DOS of the Ethereum network to be sufficient to warrant a finding valid.
 
 ## Attack ideas (Where to look for bugs)
 - Access Controls and Permissions
   - Consider ways in which addresses can be added to the Admin contract either without the specific approval of its owner or from a global admin or as a result of contract deployment.
-  - Consider ways in which the artist's proposed address can be maliciously altered after they were firstly proposed from the artist.
-  - Consider ways in which functions on all contract can be called without having a specific role.
+  - Consider ways in which the artist's proposed address can be maliciously altered after they were firstly proposed by the artist.
+  - Consider ways in which functions on all contracts can be called without having a specific role.
 - Payments
-  - Consider ways in which payments can be altered thus the funds will be sent to different addresses than the ones that were proposed by the artist.
+  - Consider ways in which payments can be altered so the funds will be sent to different addresses compared to the ones that were proposed by the artist.
   - Consider ways in which the emergencyFunction does not send the funds to the Admins Contract owner.
-  - Consider ways in which payments will not be accepted from a gnosis safe wallet.
+  - Consider ways in which payments will not be accepted by a gnosis safe wallet.
 - Sales Models
   - Consider ways in which the minting cost price will differ from the actual value based on the parameters set on the setCollectionCosts function.
 - Random Hash generators
   - Consider ways in which the generator will not produce a hash value, besides the lack of funds on the VRF and RNG.
-  - Consider ways in which the hash value can be altered after it was already set.
-  - Consider ways in which the random hash is not returned by the Randomizer contracts but it can be set directly.
+  - Consider ways in which the hash value of a tokenid can be altered after it was already set.
+  - Consider ways in which the random hash is not returned by the Randomizer contracts but it can be set directly from the Core contract.
 - On-chain metadata
   - Consider ways in which the on-chain metadata can be altered after a collection was freezed.
 - Updating details
-  - Consider ways in which collection data can be altered after a collection was freezed.
+  - Consider ways in which the collection data can be altered after a collection was freezed.
 - Admin contract
   - Consider ways in which the Admin contract address on all other contracts can be maliciously altered.
 - Burn or Swap to mint functionalities
-  - Consider ways in which a token of a collection different than the one that was set can be burnt.
+  - Consider ways in which you can burn or swap a token from a collection that is different than the collection that was already set.
 - Allowlist minting
-  - Consider ways in which an allowlist address can mint more token than its allowed to mint.
+  - Consider ways in which an allowlist address can mint more tokens compared to what its allowed to mint.
   - Consider ways in which an address can bypass the merkle proofs and mint without having an allowlist spot.
 - Airdrop/Minting
-  - Consider ways in which the airdrop or minting incl. burnToMint etc. is not executed from the Minter Contract.
-  - Consider ways in which more than 1 tokens can be minted at the same time period for the Periodic Sale Model.\
-  
-Note: We are aware that access to an Admin or Artist role can be lost or taken thus any finding on this is not valid.
+  - Consider ways in which the airdrop or minting functions incl. burnToMint, burnOrSwapExternalToMint etc. are not executed from the Minter Contract.
+  - Consider ways in which more than 1 tokens can be minted at the same time period for the Periodic Sale Model.
+  - Consider ways in which an address during the public phase can mint more tokens compared to what its allowed to mint (maxCollectionPurchases)
 
 
 ## Main invariants
@@ -186,7 +186,7 @@ Properties that should NEVER be broken under any circumstance:
 - emergencyWithdraw sends the funds to the admin contract owner.
 - Once a collection is freezed its data cannot be altered.
 - Airdrop/mint can only be done from the Minter contract.
-- The random hash is calcuated from a Randomizer contract.
+- The random hash is calculated from a Randomizer contract.
 
 ## Scoping Details 
 
