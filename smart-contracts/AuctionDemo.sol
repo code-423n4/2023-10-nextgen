@@ -2,9 +2,9 @@
 
 /**
  *
- *  @title: Auction Demo Contract (work in progress - not to be used)
- *  @date: 10-October-2023 
- *  @version: 1.1
+ *  @title: Auction Demo Contract
+ *  @date: 26-October-2023 
+ *  @version: 1.2
  *  @author: 6529 team
  */
 
@@ -63,14 +63,20 @@ contract auctionDemo is Ownable {
     // get highest bid
 
     function returnHighestBid(uint256 _tokenid) public view returns (uint256) {
+        uint256 index;
         if (auctionInfoData[_tokenid].length > 0) {
-            uint256 highBid = auctionInfoData[_tokenid][0].bid;
+            uint256 highBid = 0;
             for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
-                if (auctionInfoData[_tokenid][i].bid > highBid) {
+                if (auctionInfoData[_tokenid][i].bid > highBid && auctionInfoData[_tokenid][i].status == true) {
                     highBid = auctionInfoData[_tokenid][i].bid;
+                    index = i;
                 }
             }
-            return highBid;
+            if (auctionInfoData[_tokenid][index].status == true) {
+                return highBid;
+            } else {
+                return 0;
+            }
         } else {
             return 0;
         }
@@ -79,14 +85,18 @@ contract auctionDemo is Ownable {
     // get highest bidder
 
     function returnHighestBidder(uint256 _tokenid) public view returns (address) {
-        uint256 highBid = auctionInfoData[_tokenid][0].bid;
+        uint256 highBid = 0;
         uint256 index;
         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
             if (auctionInfoData[_tokenid][i].bid > highBid && auctionInfoData[_tokenid][i].status == true) {
                 index = i;
             }
         }
-        return auctionInfoData[_tokenid][index].bidder;
+        if (auctionInfoData[_tokenid][index].status == true) {
+                return auctionInfoData[_tokenid][index].bidder;
+            } else {
+                revert("No Activer Bidder");
+        }
     }
 
     // claim Token After Auction
@@ -137,6 +147,5 @@ contract auctionDemo is Ownable {
     function returnBids(uint256 _tokenid) public view returns(auctionInfoStru[] memory) {
         return auctionInfoData[_tokenid];
     }
-
 
 }
