@@ -93,6 +93,7 @@ Files and contracts in scope for this audit in the table below:
 | [smart-contracts/RandomizerVRF.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerVRF.sol) | 87 | The RandomizerVRF contract is responsible for generating a random hash for each token during the minting process using the Chainlink's VRF service. | VRFCoordinatorV2Interface, VRFConsumerBaseV2, Ownable, INextGenCore, INextGenAdmins |
 | [smart-contracts/RandomizerRNG.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/RandomizerRNG.sol) | 72 | The RandomizerRNG contract is responsible for generating a random hash for each token during the minting process using the ARRng.io service. | ArrngConsumer, Ownable, INextGenCore, INextGenAdmins |
 | [smart-contracts/XRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/XRandoms.sol) | 39 | The randomPool smart contract is used by the RandomizerNXT contract, once it's called from the RandomizerNXT smart contract it returns a random word from the current word pool as well as a random number back to the RandomizerNXT smart contract which uses those values to generate a random hash. |  Ownable |
+| [smart-contracts/AuctionDemo.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/AuctionDemo.sol) | 114 | The auctionDemo smart contract holds the current auctions after the mintAndAuction functionality is called. Users can bid on a token and the highest bidder can claim the token after an auction finishes. |  IMinterContract, IERC721, INextGenAdmins, Ownable |
 
 ## Out of scope
 
@@ -105,7 +106,6 @@ OpenZeppelin, Chainlink and ARRNG contracts as well as the contracts below are o
 [smart-contracts/IXRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IXRandoms.sol)\
 [smart-contracts/NFTdelegation.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NFTdelegation.sol)\
 [smart-contracts/IDelegationManagementContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IDelegationManagementContract.sol)\
-[smart-contracts/AuctionDemo.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/AuctionDemo.sol)
 
 # Additional Context
 
@@ -170,6 +170,10 @@ Note: Once the process is finalized, you can airdrop tokens or mint tokens once 
   - Consider ways in which the airdrop or minting functions incl. burnToMint, burnOrSwapExternalToMint etc. are not executed from the Minter Contract.
   - Consider ways in which more than 1 tokens can be minted at the same time period for the Periodic Sale Model.
   - Consider ways in which an address during the public phase can mint more tokens compared to what its allowed to mint (maxCollectionPurchases)
+ - MintToAuction
+  - Consider ways in which the token is not transfered to the final winning bidder of an Auction after the auction finishes (token approval to the AuctionDemo contract is needed) and the funds are not refunded to other bidders.
+  - Consider ways in which a cancelled auction bid does not return the funds back to the bidder.
+  - Consider ways in which the owner of the token will not receive the funds of the highest bid after an Auction is claimed.
 
 
 ## Main invariants
