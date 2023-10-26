@@ -105,7 +105,7 @@ OpenZeppelin, Chainlink and ARRNG contracts as well as the contracts below are o
 [smart-contracts/IRandomizer.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IRandomizer.sol)\
 [smart-contracts/IXRandoms.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IXRandoms.sol)\
 [smart-contracts/NFTdelegation.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NFTdelegation.sol)\
-[smart-contracts/IDelegationManagementContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IDelegationManagementContract.sol)\
+[smart-contracts/IDelegationManagementContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IDelegationManagementContract.sol)
 
 # Additional Context
 
@@ -170,7 +170,7 @@ Note: Once the process is finalized, you can airdrop tokens or mint tokens once 
   - Consider ways in which the airdrop or minting functions incl. burnToMint, burnOrSwapExternalToMint etc. are not executed from the Minter Contract.
   - Consider ways in which more than 1 tokens can be minted at the same time period for the Periodic Sale Model.
   - Consider ways in which an address during the public phase can mint more tokens compared to what its allowed to mint (maxCollectionPurchases)
- - MintToAuction
+- MintToAuction
   - Consider ways in which the token is not transfered to the final winning bidder of an Auction after the auction finishes (token approval to the AuctionDemo contract is needed) and the funds are not refunded to other bidders.
   - Consider ways in which a cancelled auction bid does not return the funds back to the bidder.
   - Consider ways in which the owner of the token will not receive the funds of the highest bid after an Auction is claimed.
@@ -189,6 +189,7 @@ Properties that should NEVER be broken under any circumstance:
 - Once a collection is freezed its data cannot be altered.
 - Airdrop/mint can only be done from the Minter contract.
 - The random hash is calculated from a Randomizer contract.
+- The highest bidder will receive the token after an auction finishes, the owner of the token will receive the funds and all other participants will get refunded.
 
 ## Scoping Details 
 
