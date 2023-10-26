@@ -196,7 +196,7 @@ Properties that should NEVER be broken under any circumstance:
 ```
 - If you have a public code repo, please share it here: https://github.com/6529-Collections/nextgen  
 - How many contracts are in scope?:   8
-- Total SLoC for these contracts?:  1268
+- Total SLoC for these contracts?:  1265
 - How many external imports are there?: 28
 - How many separate interfaces and struct definitions are there for the contracts within scope?:  5
 - Does most of your code generally use composition or inheritance?:  Inheritance 
