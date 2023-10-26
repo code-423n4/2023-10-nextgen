@@ -64,13 +64,13 @@ NextGen is a platform that provides artists with the ability to launch generativ
 ## NextGen Smart Contracts architecture
 
 The NextGen smart contract architecture is as follows:
-1. Core: Core is the contract where the ERC721 tokens are minted and includes all the core functions of the ERC721 standard as well as additional setter & getter functions. The Core holds the data of a collection such as name, artist's name, library, script as well as the total supply of a collection. The Core contract integrates with the other contracts to provide flexible, adjustable, and scalable functionality.
+1. Core: Core is the contract where the ERC721 tokens are minted and includes all the core functions of the ERC721 standard as well as additional setter & getter functions. The Core contract holds the data of a collection such as name, artist's name, library, script as well as the total supply of a collection. In addition, the Core contract integrates with the other NextGen contracts to provide a flexible, adjustable, and scalable functionality.
 2. Minter: The Minter contract is used to mint an ERC721 token for a collection on the Core contract based on certain requirements that are set prior to the minting process. The Minter contract holds all the information regarding an upcoming drop such as starting/ending times of various phases, Merkle roots, sales model, funds, and the primary and secondary addresses of artists. 
 3. Admin: The Admin contract is responsible for adding or removing global or function-based admins who are allowed to call certain functions in both the Core and Minter contracts.
 4. Randomizer: The Randomizer contract is responsible for generating a random hash for each token during the minting process. Once the hash is generated is sent to the Core contract that stores it to be used to generate the generative art token. NextGen currently considers 3 different Randomizer contracts that can be used for generating the tokenHash.\
   a) A Randomizer contract that uses the Chainlink VRF.\
-  b) A Randomizer contract that uses ARRNG.\
-  c) Custom-made implementation Randomizer contract\
+  b) A Randomizer contract that uses the ARRNG.io service.\
+  c) A custom-made implementation Randomizer contract.\
 
 ## Links
 
