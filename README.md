@@ -59,9 +59,7 @@ _Note for C4 wardens: Anything included in the 4naly3er **or** the automated fin
 
 ## NextGen Platform
 
-NextGen is a platform that provides artists with the ability to launch generative creations using advanced preexisting smart contracts and rendering infrastructure.\
-NextGen hosts projects that create unique outputs using generative scripts that are stored on the Ethereum blockchain.\
-When users want to acquire an iteration from a project, they buy a ERC721 compliant NFT (non-fungible token) that "fills in the variables" in the script, which then produces a finalized output.
+NextGen is a platform that provides artists with the ability to launch generative creations using advanced preexisting smart contracts and rendering infrastructure. NextGen hosts projects that create unique outputs using generative scripts that are stored on the Ethereum blockchain. When users want to acquire an iteration from a project, they buy an ERC721 compliant NFT (non-fungible token) that "fills in the variables" in the script, which then produces a finalized output.
 
 ## NextGen Smart Contracts architecture
 
