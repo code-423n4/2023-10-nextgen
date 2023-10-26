@@ -70,7 +70,7 @@ The NextGen smart contract architecture is as follows:
 4. Randomizer: The Randomizer contract is responsible for generating a random hash for each token during the minting process. Once the hash is generated is sent to the Core contract that stores it to be used to generate the generative art token. NextGen currently considers 3 different Randomizer contracts that can be used for generating the tokenHash.\
   a) A Randomizer contract that uses the Chainlink VRF.\
   b) A Randomizer contract that uses the ARRNG.io service.\
-  c) A custom-made implementation Randomizer contract.\
+  c) A custom-made implementation Randomizer contract.
 
 ## Links
 
