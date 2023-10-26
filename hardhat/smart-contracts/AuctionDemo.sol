@@ -95,7 +95,7 @@ contract auctionDemo is Ownable {
         if (auctionInfoData[_tokenid][index].status == true) {
                 return auctionInfoData[_tokenid][index].bidder;
             } else {
-                revert("No Activer Bidder");
+                revert("No Active Bidder");
         }
     }
 
