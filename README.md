@@ -143,7 +143,7 @@ Note: Once the process is finalized, you can airdrop tokens or mint tokens once 
 ## Attack ideas (Where to look for bugs)
 - Access Controls and Permissions
   - Consider ways in which addresses can be added to the Admin contract either without the specific approval of its owner or from a global admin or as a result of contract deployment.
-  - Consider ways in which the artist's proposed address can be maliciously altered after they were firstly proposed by the artist.
+  - Consider ways in which the artist's proposed address can be maliciously altered after they were first proposed by the artist.
   - Consider ways in which functions on all contracts can be called without having a specific role.
 - Payments
   - Consider ways in which payments can be altered so the funds will be sent to different addresses compared to the ones that were proposed by the artist.
@@ -153,12 +153,12 @@ Note: Once the process is finalized, you can airdrop tokens or mint tokens once 
   - Consider ways in which the minting cost price will differ from the actual value based on the parameters set on the setCollectionCosts function.
 - Random Hash generators
   - Consider ways in which the generator will not produce a hash value, besides the lack of funds on the VRF and RNG.
-  - Consider ways in which the hash value of a tokenid can be altered after it was already set.
-  - Consider ways in which the random hash is not returned by the Randomizer contracts but it can be set directly from the Core contract.
+  - Consider ways in which the hash value of a tokenid can be altered after it has already set.
+  - Consider ways in which the random hash is not returned by the Randomizer contracts, but it can be set directly from the Core contract.
 - On-chain metadata
-  - Consider ways in which the on-chain metadata can be altered after a collection was freezed.
+  - Consider ways in which the on-chain metadata can be altered after a collection was freezed (locked).
 - Updating details
-  - Consider ways in which the collection data can be altered after a collection was freezed.
+  - Consider ways in which the collection data can be altered after a collection was freezed (locked).
 - Admin contract
   - Consider ways in which the Admin contract address on all other contracts can be maliciously altered.
 - Burn or Swap to mint functionalities
@@ -168,10 +168,10 @@ Note: Once the process is finalized, you can airdrop tokens or mint tokens once 
   - Consider ways in which an address can bypass the merkle proofs and mint without having an allowlist spot.
 - Airdrop/Minting
   - Consider ways in which the airdrop or minting functions incl. burnToMint, burnOrSwapExternalToMint etc. are not executed from the Minter Contract.
-  - Consider ways in which more than 1 tokens can be minted at the same time period for the Periodic Sale Model.
+  - Consider ways in which more than 1 token can be minted at the same time period for the Periodic Sale Model.
   - Consider ways in which an address during the public phase can mint more tokens compared to what its allowed to mint (maxCollectionPurchases)
 - MintToAuction
-  - Consider ways in which the token is not transfered to the final winning bidder of an Auction after the auction finishes (token approval to the AuctionDemo contract is needed) and the funds are not refunded to other bidders.
+  - Consider ways in which the token is not transferred to the final winning bidder of an Auction after the auction finishes (token approval to the AuctionDemo contract is needed) and the funds are not refunded to other bidders.
   - Consider ways in which a cancelled auction bid does not return the funds back to the bidder.
   - Consider ways in which the owner of the token will not receive the funds of the highest bid after an Auction is claimed.
 
@@ -183,10 +183,10 @@ Properties that should NEVER be broken under any circumstance:
 - Global Admins can only be registered by the Admin Contract owner.
 - Function and Collection admins can only be registered by global admins.
 - Specific admin roles can call the functions of the smart contracts.
-- Payments can only be made when royalties are set, artist proposes addresses and percentages and an admin approves them.
+- Payments can only be made when royalties are set, the artist proposes addresses and percentages, and an admin approves them.
 - Once a hash is set for a specific token it cannot be altered.
-- emergencyWithdraw sends the funds to the admin contract owner.
-- Once a collection is freezed its data cannot be altered.
+- The emergencyWithdraw() function sends the funds to the admin contract owner.
+- Once a collection is freezed (locked) its data cannot be altered.
 - Airdrop/mint can only be done from the Minter contract.
 - The random hash is calculated from a Randomizer contract.
 - The highest bidder will receive the token after an auction finishes, the owner of the token will receive the funds and all other participants will get refunded.
@@ -195,8 +195,8 @@ Properties that should NEVER be broken under any circumstance:
 
 ```
 - If you have a public code repo, please share it here: https://github.com/6529-Collections/nextgen  
-- How many contracts are in scope?:   6
-- Total SLoC for these contracts?:  1154
+- How many contracts are in scope?:   8
+- Total SLoC for these contracts?:  1268
 - How many external imports are there?: 28
 - How many separate interfaces and struct definitions are there for the contracts within scope?:  5
 - Does most of your code generally use composition or inheritance?:  Inheritance 
