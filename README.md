@@ -82,6 +82,8 @@ The NextGen smart contract architecture is as follows:
   b) A Randomizer contract that uses the ARRNG.io service.\
   c) A custom-made implementation Randomizer contract.
 
+[Click here to read more about the Features](https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/design-philosophy-and-features)
+
 ## Links
 
 - **Documentation:** https://seize-io.gitbook.io/nextgen/
