@@ -57,13 +57,23 @@ _Note for C4 wardens: Anything included in the 4naly3er **or** the automated fin
 
 # Overview
 
-## NextGen Platform
+## NextGen
 
-NextGen is a platform that provides artists with the ability to launch generative creations using advanced preexisting smart contracts and rendering infrastructure. NextGen hosts projects that create unique outputs using generative scripts that are stored on the Ethereum blockchain. When users want to acquire an iteration from a project, they buy an ERC721 compliant NFT (non-fungible token) that "fills in the variables" in the script, which then produces a finalized output.
+NextGen is a series of contracts whose purpose is to explore:
+
+- More experimental directions in generative art and
+- Other non-art use cases of 100% on-chain NFTs
+
+At a high-level, you can think of NextGen as:
+- A classic on-chain generative contract with extended functionality
+- With the phase-based, allowlist-based, delegation-based minting philosophy of The Memes
+- With the ability to pass arbitrary data to the contract for specific addresses to customize the outputs
+- With a wide range of minting models, each of which can be assigned to a phase
 
 ## NextGen Smart Contracts architecture
 
 The NextGen smart contract architecture is as follows:
+
 1. Core: Core is the contract where the ERC721 tokens are minted and includes all the core functions of the ERC721 standard as well as additional setter & getter functions. The Core contract holds the data of a collection such as name, artist's name, library, script as well as the total supply of a collection. In addition, the Core contract integrates with the other NextGen contracts to provide a flexible, adjustable, and scalable functionality.
 2. Minter: The Minter contract is used to mint an ERC721 token for a collection on the Core contract based on certain requirements that are set prior to the minting process. The Minter contract holds all the information regarding an upcoming drop such as starting/ending times of various phases, Merkle roots, sales model, funds, and the primary and secondary addresses of artists. 
 3. Admin: The Admin contract is responsible for adding or removing global or function-based admins who are allowed to call certain functions in both the Core and Minter contracts.
@@ -137,43 +147,52 @@ Note: Once the process is finalized, you can airdrop tokens or mint tokens once 
 - The _saltfun_o is for future purposes and its currently not being used.
 - We are aware of the price rounding errors when the Exponential Descending Sales Model is used and the minting cost is low, thus any finding on this is not valid.
 - We are aware that we do not accept decimals when we set the sales percentages, thus any finding is not valid.
-- We are aware that the minting cost price is captured before the execution of the minting function and not when the transaction is confirmed, thus any finding is not valid.
 - We do not consider a DOS of the Ethereum network to be sufficient to warrant a finding valid.
 
 ## Attack ideas (Where to look for bugs)
+
+A non-exclusive set of attack ideas
+
 - Access Controls and Permissions
   - Consider ways in which addresses can be added to the Admin contract either without the specific approval of its owner or from a global admin or as a result of contract deployment.
   - Consider ways in which the artist's proposed address can be maliciously altered after they were first proposed by the artist.
   - Consider ways in which functions on all contracts can be called without having a specific role.
+  - Consider ways a user can escalate their authority beyond their role.
 - Payments
-  - Consider ways in which payments can be altered so the funds will be sent to different addresses compared to the ones that were proposed by the artist.
-  - Consider ways in which the emergencyFunction does not send the funds to the Admins Contract owner.
-  - Consider ways in which payments will not be accepted by a gnosis safe wallet.
+  - Consider ways in which payments can be altered so the funds will be sent to different addresses than the ones that were proposed by the artist.
+  - Consider ways in which the emergencyWithdraw() function does not send the funds to the Admins Contract owner.
+  - Consider ways in which payments will not be accepted by a SAFE(formerly Gnosis) wallet.
 - Sales Models
-  - Consider ways in which the minting cost price will differ from the actual value based on the parameters set on the setCollectionCosts function.
+  - Consider ways in which the minting cost price will differ from the actual value based on the parameters set on the setCollectionCosts() function.
 - Random Hash generators
   - Consider ways in which the generator will not produce a hash value, besides the lack of funds on the VRF and RNG.
   - Consider ways in which the hash value of a tokenid can be altered after it has already set.
   - Consider ways in which the random hash is not returned by the Randomizer contracts, but it can be set directly from the Core contract.
 - On-chain metadata
-  - Consider ways in which the on-chain metadata can be altered after a collection was freezed (locked).
+  - Consider ways in which the on-chain metadata can be altered after a collection was frozen (locked).
 - Updating details
-  - Consider ways in which the collection data can be altered after a collection was freezed (locked).
+  - Consider ways in which the collection data can be altered after a collection was frozen (locked).
 - Admin contract
   - Consider ways in which the Admin contract address on all other contracts can be maliciously altered.
 - Burn or Swap to mint functionalities
   - Consider ways in which you can burn or swap a token from a collection that is different than the collection that was already set.
 - Allowlist minting
-  - Consider ways in which an allowlist address can mint more tokens compared to what its allowed to mint.
+  - Consider ways in which an allowlist address can mint more tokens than what it is allowed to mint.
   - Consider ways in which an address can bypass the merkle proofs and mint without having an allowlist spot.
+  - Consider ways in which an address can mint on behalf of an allowlist address without having a delegation.
+  - Consider issues with allowlist attacks across phases of allowlists.
+  - Consider issues with attacks relating to starting, stopping, restarting (adding) new phases of allowlists.
 - Airdrop/Minting
-  - Consider ways in which the airdrop or minting functions incl. burnToMint, burnOrSwapExternalToMint etc. are not executed from the Minter Contract.
+  - Consider ways in which the airdrop or minting functionalities incl. burnToMint(), burnOrSwapExternalToMint() etc. are not executed from the Minter Contract.
   - Consider ways in which more than 1 token can be minted at the same time period for the Periodic Sale Model.
   - Consider ways in which an address during the public phase can mint more tokens compared to what its allowed to mint (maxCollectionPurchases)
 - MintToAuction
   - Consider ways in which the token is not transferred to the final winning bidder of an Auction after the auction finishes (token approval to the AuctionDemo contract is needed) and the funds are not refunded to other bidders.
   - Consider ways in which a cancelled auction bid does not return the funds back to the bidder.
   - Consider ways in which the owner of the token will not receive the funds of the highest bid after an Auction is claimed.
+- Smart Contract Wallets
+  - Consider if any functionality does not work with a SAFE (formerly Gnosis) wallet.
+  - Consider if any functionality will not work post ERC-4337.
 
 
 ## Main invariants
@@ -183,10 +202,12 @@ Properties that should NEVER be broken under any circumstance:
 - Global Admins can only be registered by the Admin Contract owner.
 - Function and Collection admins can only be registered by global admins.
 - Specific admin roles can call the functions of the smart contracts.
+- Only artists can sign their collections.
+- NFTDelegation is the only delegation management contract that will be used.
 - Payments can only be made when royalties are set, the artist proposes addresses and percentages, and an admin approves them.
 - Once a hash is set for a specific token it cannot be altered.
 - The emergencyWithdraw() function sends the funds to the admin contract owner.
-- Once a collection is freezed (locked) its data cannot be altered.
+- Once a collection is frozen (locked) its data cannot be altered.
 - Airdrop/mint can only be done from the Minter contract.
 - The random hash is calculated from a Randomizer contract.
 - The highest bidder will receive the token after an auction finishes, the owner of the token will receive the funds and all other participants will get refunded.
