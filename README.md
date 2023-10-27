@@ -40,7 +40,7 @@ At a high-level, you can think of NextGen as:
 - With the ability to pass arbitrary data to the contract for specific addresses to customize the outputs
 - With a wide range of minting models, each of which can be assigned to a phase
 
-[Click here to read more about the Features](https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/design-philosophy-and-features)
+[Click here to read more about NextGen's features](https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/features)
 
 ## NextGen Smart Contracts architecture
 
