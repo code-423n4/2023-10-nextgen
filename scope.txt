@@ -1,0 +1,8 @@
+smart-contracts/NextGenCore.sol
+smart-contracts/MinterContract.sol
+smart-contracts/NextGenAdmins.sol
+smart-contracts/RandomizerNXT.sol
+smart-contracts/RandomizerVRF.sol
+smart-contracts/RandomizerRNG.sol
+smart-contracts/XRandoms.sol
+smart-contracts/AuctionDemo.sol
