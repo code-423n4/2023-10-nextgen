@@ -9,12 +9,12 @@
 | [GAS-1](#GAS-1) | Using bools for storage incurs overhead | 13 |
 | [GAS-2](#GAS-2) | Cache array length outside of loop | 9 |
 | [GAS-3](#GAS-3) | For Operations that will not overflow, you could use unchecked | 160 |
-| [GAS-4](#GAS-4) | Use Custom Errors | 53 |
+| [GAS-4](#GAS-4) | Use Custom Errors | 68 |
 | [GAS-5](#GAS-5) | Don't initialize variables with default value | 11 |
 | [GAS-6](#GAS-6) | Long revert strings | 7 |
 | [GAS-7](#GAS-7) | Functions guaranteed to revert when called by normal users can be marked `payable` | 1 |
-| [GAS-8](#GAS-8) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 10 |
-| [GAS-9](#GAS-9) | Splitting require() statements that use && saves gas | 1 |
+| [GAS-8](#GAS-8) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 9 |
+| [GAS-9](#GAS-9) | Splitting require() statements that use && saves gas | 10 |
 | [GAS-10](#GAS-10) | Use != 0 instead of > 0 for unsigned integer comparison | 6 |
 ### <a name="GAS-1"></a>[GAS-1] Using bools for storage incurs overhead
 Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas), and to avoid Gsset (20000 gas) when changing from ‘false’ to ‘true’, after having been ‘true’ in the past. See [source](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/58f635312aa21f947cae5f8578638a85aa2519f5/contracts/security/ReentrancyGuard.sol#L23-L27).
@@ -23,46 +23,46 @@ Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas), a
 ```solidity
 File: smart-contracts/AuctionDemo.sol
 
-57:     mapping(uint256 => bool) public auctionClaim;
+53:     mapping (uint256 => bool) public auctionClaim;
 
 ```
 
 ```solidity
 File: smart-contracts/MinterContract.sol
 
-34:     mapping(uint256 => mapping(uint256 => bool)) public burnToMintCollections;
+35:     mapping (uint256 => mapping (uint256 => bool)) public burnToMintCollections;
 
-37:     mapping(bytes32 => mapping(uint256 => bool)) public burnExternalToMintCollections;
+38:     mapping (bytes32 => mapping (uint256 => bool)) public burnExternalToMintCollections;
 
-40:     mapping(uint256 => bool) private setMintingCosts;
+41:     mapping (uint256 => bool) private setMintingCosts;
 
-114:     mapping(uint256 => bool) private mintToAuctionStatus;
+115:     mapping (uint256 => bool) private mintToAuctionStatus;
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenAdmins.sol
 
-17:     mapping(address => bool) public adminPermissions;
+18:     mapping(address => bool) public adminPermissions;
 
-20:     mapping(address => mapping(uint256 => bool)) private collectionAdmin;
+21:     mapping (address => mapping (uint256 => bool)) private collectionAdmin;
 
-23:     mapping(address => mapping(bytes4 => bool)) private functionAdmin;
+24:     mapping (address => mapping (bytes4 => bool)) private functionAdmin;
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenCore.sol
 
-62:     mapping(uint256 => bool) private isCollectionCreated;
+62:     mapping (uint256 => bool) private isCollectionCreated; 
 
-65:     mapping(uint256 => bool) private wereDataAdded;
+65:     mapping (uint256 => bool) private wereDataAdded;
 
-86:     mapping(uint256 => bool) public onchainMetadata;
+86:     mapping (uint256 => bool) public onchainMetadata; 
 
-98:     mapping(uint256 => bool) private collectionFreeze;
+98:     mapping (uint256 => bool) private collectionFreeze;
 
-101:     mapping(uint256 => bool) public artistSigned;
+101:     mapping (uint256 => bool) public artistSigned; 
 
 ```
 
@@ -73,38 +73,38 @@ If not cached, the solidity compiler will always read the length of the array du
 ```solidity
 File: smart-contracts/AuctionDemo.sol
 
-75:         if (auctionInfoData[_tokenid].length > 0) {
+67:         if (auctionInfoData[_tokenid].length > 0) {
 
-77:             for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+69:             for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
 
-98:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+90:         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
 
-122:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+110:         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i ++) {
 
-158:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+136:         for (uint256 i=0; i<auctionInfoData[_tokenid].length; i++) {
 
 ```
 
 ```solidity
 File: smart-contracts/MinterContract.sol
 
-218:         for (uint256 y = 0; y < _recipients.length; y++) {
+184:         for (uint256 y=0; y< _recipients.length; y++) {
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenAdmins.sol
 
-54:         for (uint256 i = 0; i < _selector.length; i++) {
+51:         for (uint256 i=0; i<_selector.length; i++) {
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenCore.sol
 
-394:         for (uint256 x; x < _tokenId.length; x++) {
+282:         for (uint256 x; x < _tokenId.length; x++) {
 
-632:         for (uint256 i = 0; i < collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionScript.length; i++) {
+453:         for (uint256 i=0; i < collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionScript.length; i++) {
 
 ```
 
@@ -122,21 +122,21 @@ File: smart-contracts/AuctionDemo.sol
 
 16: import "./INextGenAdmins.sol";
 
-77:             for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+69:             for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
 
-77:             for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+69:             for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
 
-98:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+90:         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
 
-98:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+90:         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
 
-122:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+110:         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i ++) {
 
-122:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+110:         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i ++) {
 
-158:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+136:         for (uint256 i=0; i<auctionInfoData[_tokenid].length; i++) {
 
-158:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+136:         for (uint256 i=0; i<auctionInfoData[_tokenid].length; i++) {
 
 ```
 
@@ -155,169 +155,169 @@ File: smart-contracts/MinterContract.sol
 
 18: import "./IERC721.sol";
 
-218:         for (uint256 y = 0; y < _recipients.length; y++) {
+184:         for (uint256 y=0; y< _recipients.length; y++) {
 
-218:         for (uint256 y = 0; y < _recipients.length; y++) {
+184:         for (uint256 y=0; y< _recipients.length; y++) {
 
-220:                 gencore.viewTokensIndexMin(_collectionID) +
+185:             collectionTokenMintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID) + _numberOfTokens[y] - 1;
 
-221:                 gencore.viewCirSupply(_collectionID) +
+185:             collectionTokenMintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID) + _numberOfTokens[y] - 1;
 
-222:                 _numberOfTokens[y] -
+185:             collectionTokenMintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID) + _numberOfTokens[y] - 1;
 
-225:             for (uint256 i = 0; i < _numberOfTokens[y]; i++) {
+187:             for(uint256 i = 0; i < _numberOfTokens[y]; i++) {
 
-225:             for (uint256 i = 0; i < _numberOfTokens[y]; i++) {
+187:             for(uint256 i = 0; i < _numberOfTokens[y]; i++) {
 
-226:                 uint256 mintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID);
+188:                 uint256 mintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID);
 
-288:                     _maxAllowance >= gencore.retrieveTokensMintedALPerAddress(col, _delegator) + _numberOfTokens,
+213:                 require(_maxAllowance >= gencore.retrieveTokensMintedALPerAddress(col, _delegator) + _numberOfTokens, "AL limit");
 
-295:                     _maxAllowance >= gencore.retrieveTokensMintedALPerAddress(col, msg.sender) + _numberOfTokens,
+217:                 require(_maxAllowance >= gencore.retrieveTokensMintedALPerAddress(col, msg.sender) + _numberOfTokens, "AL limit");
 
-308:                 gencore.retrieveTokensMintedPublicPerAddress(col, msg.sender) + _numberOfTokens <=
+224:             require(gencore.retrieveTokensMintedPublicPerAddress(col, msg.sender) + _numberOfTokens <= gencore.viewMaxAllowance(col), "Max");
 
-318:         collectionTokenMintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col) + _numberOfTokens - 1;
+231:         collectionTokenMintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col) + _numberOfTokens - 1;
 
-318:         collectionTokenMintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col) + _numberOfTokens - 1;
+231:         collectionTokenMintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col) + _numberOfTokens - 1;
 
-318:         collectionTokenMintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col) + _numberOfTokens - 1;
+231:         collectionTokenMintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col) + _numberOfTokens - 1;
 
-320:         require(msg.value >= (getPrice(col) * _numberOfTokens), "Wrong ETH");
+233:         require(msg.value >= (getPrice(col) * _numberOfTokens), "Wrong ETH");
 
-321:         for (uint256 i = 0; i < _numberOfTokens; i++) {
+234:         for(uint256 i = 0; i < _numberOfTokens; i++) {
 
-321:         for (uint256 i = 0; i < _numberOfTokens; i++) {
+234:         for(uint256 i = 0; i < _numberOfTokens; i++) {
 
-322:             uint256 mintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col);
+235:             uint256 mintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col);
 
-325:         collectionTotalAmount[col] = collectionTotalAmount[col] + msg.value;
+238:         collectionTotalAmount[col] = collectionTotalAmount[col] + msg.value;
 
-331:                 timeOfLastMint = collectionPhases[col].allowlistStartTime - collectionPhases[col].timePeriod;
+244:                 timeOfLastMint = collectionPhases[col].allowlistStartTime - collectionPhases[col].timePeriod;
 
-336:             uint tDiff = (block.timestamp - timeOfLastMint) / collectionPhases[col].timePeriod;
+249:             uint tDiff = (block.timestamp - timeOfLastMint) / collectionPhases[col].timePeriod;
 
-336:             uint tDiff = (block.timestamp - timeOfLastMint) / collectionPhases[col].timePeriod;
+249:             uint tDiff = (block.timestamp - timeOfLastMint) / collectionPhases[col].timePeriod;
 
-338:             require(tDiff >= 1 && _numberOfTokens == 1, "1 mint/period");
+251:             require(tDiff>=1 && _numberOfTokens == 1, "1 mint/period");
 
-340:                 collectionPhases[col].allowlistStartTime +
+252:             lastMintDate[col] = collectionPhases[col].allowlistStartTime + (collectionPhases[col].timePeriod * (gencore.viewCirSupply(col) - 1));
 
-341:                 (collectionPhases[col].timePeriod * (gencore.viewCirSupply(col) - 1));
+252:             lastMintDate[col] = collectionPhases[col].allowlistStartTime + (collectionPhases[col].timePeriod * (gencore.viewCirSupply(col) - 1));
 
-341:                 (collectionPhases[col].timePeriod * (gencore.viewCirSupply(col) - 1));
+252:             lastMintDate[col] = collectionPhases[col].allowlistStartTime + (collectionPhases[col].timePeriod * (gencore.viewCirSupply(col) - 1));
 
-362:             "col/token id error"
+261:         require ((_tokenId >= gencore.viewTokensIndexMin(_burnCollectionID)) && (_tokenId <= gencore.viewTokensIndexMax(_burnCollectionID)), "col/token id error");
 
-367:             gencore.viewTokensIndexMin(_mintCollectionID) +
+264:         collectionTokenMintIndex = gencore.viewTokensIndexMin(_mintCollectionID) + gencore.viewCirSupply(_mintCollectionID);
 
-371:         uint256 mintIndex = gencore.viewTokensIndexMin(_mintCollectionID) + gencore.viewCirSupply(_mintCollectionID);
+267:         uint256 mintIndex = gencore.viewTokensIndexMin(_mintCollectionID) + gencore.viewCirSupply(_mintCollectionID);
 
-375:         collectionTotalAmount[_mintCollectionID] = collectionTotalAmount[_mintCollectionID] + msg.value;
+271:         collectionTotalAmount[_mintCollectionID] = collectionTotalAmount[_mintCollectionID] + msg.value;
 
-389:         collectionTokenMintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID);
+279:         collectionTokenMintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID);
 
-391:         uint256 mintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID);
+281:         uint256 mintIndex = gencore.viewTokensIndexMin(_collectionID) + gencore.viewCirSupply(_collectionID);
 
-398:                 collectionPhases[_collectionID].allowlistStartTime -
+287:             timeOfLastMint = collectionPhases[_collectionID].allowlistStartTime - collectionPhases[_collectionID].timePeriod;
 
-404:         uint tDiff = (block.timestamp - timeOfLastMint) / collectionPhases[_collectionID].timePeriod;
+292:         uint tDiff = (block.timestamp - timeOfLastMint) / collectionPhases[_collectionID].timePeriod;
 
-404:         uint tDiff = (block.timestamp - timeOfLastMint) / collectionPhases[_collectionID].timePeriod;
+292:         uint tDiff = (block.timestamp - timeOfLastMint) / collectionPhases[_collectionID].timePeriod;
 
-406:         require(tDiff >= 1, "1 mint/period");
+294:         require(tDiff>=1, "1 mint/period");
 
-408:             collectionPhases[_collectionID].allowlistStartTime +
+295:         lastMintDate[_collectionID] = collectionPhases[_collectionID].allowlistStartTime + (collectionPhases[_collectionID].timePeriod * (gencore.viewCirSupply(_collectionID) - 1));
 
-409:             (collectionPhases[_collectionID].timePeriod * (gencore.viewCirSupply(_collectionID) - 1));
+295:         lastMintDate[_collectionID] = collectionPhases[_collectionID].allowlistStartTime + (collectionPhases[_collectionID].timePeriod * (gencore.viewCirSupply(_collectionID) - 1));
 
-409:             (collectionPhases[_collectionID].timePeriod * (gencore.viewCirSupply(_collectionID) - 1));
+295:         lastMintDate[_collectionID] = collectionPhases[_collectionID].allowlistStartTime + (collectionPhases[_collectionID].timePeriod * (gencore.viewCirSupply(_collectionID) - 1));
 
-523:         collectionTokenMintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col);
+359:         collectionTokenMintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col);
 
-525:         require(msg.value >= (getPrice(col) * 1), "Wrong ETH");
+361:         require(msg.value >= (getPrice(col) * 1), "Wrong ETH");
 
-526:         uint256 mintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col);
+362:         uint256 mintIndex = gencore.viewTokensIndexMin(col) + gencore.viewCirSupply(col);
 
-528:         collectionTotalAmount[col] = collectionTotalAmount[col] + msg.value;
+364:         collectionTotalAmount[col] = collectionTotalAmount[col] + msg.value;
 
-540:         require(_artistPrSplit + _teamPrSplit == 100, "splits need to be 100%");
+370:         require(_artistPrSplit + _teamPrSplit == 100, "splits need to be 100%");
 
-541:         require(_artistSecSplit + _teamSecSplit == 100, "splits need to be 100%");
+371:         require(_artistSecSplit + _teamSecSplit == 100, "splits need to be 100%");
 
-561:             _add1Percentage + _add2Percentage + _add3Percentage ==
+382:         require (_add1Percentage + _add2Percentage + _add3Percentage == collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage, "Check %");
 
-561:             _add1Percentage + _add2Percentage + _add3Percentage ==
+382:         require (_add1Percentage + _add2Percentage + _add3Percentage == collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage, "Check %");
 
-587:             _add1Percentage + _add2Percentage + _add3Percentage ==
+396:         require (_add1Percentage + _add2Percentage + _add3Percentage == collectionRoyaltiesSecondarySplits[_collectionID].artistPercentage, "Check %");
 
-587:             _add1Percentage + _add2Percentage + _add3Percentage ==
+396:         require (_add1Percentage + _add2Percentage + _add3Percentage == collectionRoyaltiesSecondarySplits[_collectionID].artistPercentage, "Check %");
 
-623:             collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage + _teamperc1 + _teamperc2 == 100,
+418:         require(collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage + _teamperc1 + _teamperc2 == 100, "Change percentages");
 
-623:             collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage + _teamperc1 + _teamperc2 == 100,
+418:         require(collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage + _teamperc1 + _teamperc2 == 100, "Change percentages");
 
-636:         artistRoyalties1 = (royalties * collectionArtistPrimaryAddresses[colId].add1Percentage) / 100;
+429:         artistRoyalties1 = royalties * collectionArtistPrimaryAddresses[colId].add1Percentage / 100;
 
-636:         artistRoyalties1 = (royalties * collectionArtistPrimaryAddresses[colId].add1Percentage) / 100;
+429:         artistRoyalties1 = royalties * collectionArtistPrimaryAddresses[colId].add1Percentage / 100;
 
-637:         artistRoyalties2 = (royalties * collectionArtistPrimaryAddresses[colId].add2Percentage) / 100;
+430:         artistRoyalties2 = royalties * collectionArtistPrimaryAddresses[colId].add2Percentage / 100;
 
-637:         artistRoyalties2 = (royalties * collectionArtistPrimaryAddresses[colId].add2Percentage) / 100;
+430:         artistRoyalties2 = royalties * collectionArtistPrimaryAddresses[colId].add2Percentage / 100;
 
-638:         artistRoyalties3 = (royalties * collectionArtistPrimaryAddresses[colId].add3Percentage) / 100;
+431:         artistRoyalties3 = royalties * collectionArtistPrimaryAddresses[colId].add3Percentage / 100;
 
-638:         artistRoyalties3 = (royalties * collectionArtistPrimaryAddresses[colId].add3Percentage) / 100;
+431:         artistRoyalties3 = royalties * collectionArtistPrimaryAddresses[colId].add3Percentage / 100;
 
-639:         teamRoyalties1 = (royalties * _teamperc1) / 100;
+432:         teamRoyalties1 = royalties * _teamperc1 / 100;
 
-639:         teamRoyalties1 = (royalties * _teamperc1) / 100;
+432:         teamRoyalties1 = royalties * _teamperc1 / 100;
 
-640:         teamRoyalties2 = (royalties * _teamperc2) / 100;
+433:         teamRoyalties2 = royalties * _teamperc2 / 100;
 
-640:         teamRoyalties2 = (royalties * _teamperc2) / 100;
+433:         teamRoyalties2 = royalties * _teamperc2 / 100;
 
-793:                     collectionPhases[_collectionId].collectionMintCost +
+536:                 return collectionPhases[_collectionId].collectionMintCost + ((collectionPhases[_collectionId].collectionMintCost / collectionPhases[_collectionId].rate) * gencore.viewCirSupply(_collectionId));
 
-794:                     ((collectionPhases[_collectionId].collectionMintCost / collectionPhases[_collectionId].rate) *
+536:                 return collectionPhases[_collectionId].collectionMintCost + ((collectionPhases[_collectionId].collectionMintCost / collectionPhases[_collectionId].rate) * gencore.viewCirSupply(_collectionId));
 
-794:                     ((collectionPhases[_collectionId].collectionMintCost / collectionPhases[_collectionId].rate) *
+536:                 return collectionPhases[_collectionId].collectionMintCost + ((collectionPhases[_collectionId].collectionMintCost / collectionPhases[_collectionId].rate) * gencore.viewCirSupply(_collectionId));
 
-810:                 (block.timestamp - collectionPhases[_collectionId].allowlistStartTime) /
+546:             tDiff = (block.timestamp - collectionPhases[_collectionId].allowlistStartTime) / collectionPhases[_collectionId].timePeriod;
 
-810:                 (block.timestamp - collectionPhases[_collectionId].allowlistStartTime) /
+546:             tDiff = (block.timestamp - collectionPhases[_collectionId].allowlistStartTime) / collectionPhases[_collectionId].timePeriod;
 
-815:                 price = collectionPhases[_collectionId].collectionMintCost / (tDiff + 1);
+550:                 price = collectionPhases[_collectionId].collectionMintCost / (tDiff + 1);
 
-815:                 price = collectionPhases[_collectionId].collectionMintCost / (tDiff + 1);
+550:                 price = collectionPhases[_collectionId].collectionMintCost / (tDiff + 1);
 
-817:                     ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) /
+551:                 decreaserate = ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) / collectionPhases[_collectionId].timePeriod) * ((block.timestamp - (tDiff * collectionPhases[_collectionId].timePeriod) - collectionPhases[_collectionId].allowlistStartTime));
 
-817:                     ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) /
+551:                 decreaserate = ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) / collectionPhases[_collectionId].timePeriod) * ((block.timestamp - (tDiff * collectionPhases[_collectionId].timePeriod) - collectionPhases[_collectionId].allowlistStartTime));
 
-817:                     ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) /
+551:                 decreaserate = ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) / collectionPhases[_collectionId].timePeriod) * ((block.timestamp - (tDiff * collectionPhases[_collectionId].timePeriod) - collectionPhases[_collectionId].allowlistStartTime));
 
-817:                     ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) /
+551:                 decreaserate = ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) / collectionPhases[_collectionId].timePeriod) * ((block.timestamp - (tDiff * collectionPhases[_collectionId].timePeriod) - collectionPhases[_collectionId].allowlistStartTime));
 
-818:                         collectionPhases[_collectionId].timePeriod) *
+551:                 decreaserate = ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) / collectionPhases[_collectionId].timePeriod) * ((block.timestamp - (tDiff * collectionPhases[_collectionId].timePeriod) - collectionPhases[_collectionId].allowlistStartTime));
 
-820:                         (block.timestamp -
+551:                 decreaserate = ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) / collectionPhases[_collectionId].timePeriod) * ((block.timestamp - (tDiff * collectionPhases[_collectionId].timePeriod) - collectionPhases[_collectionId].allowlistStartTime));
 
-821:                             (tDiff * collectionPhases[_collectionId].timePeriod) -
+551:                 decreaserate = ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) / collectionPhases[_collectionId].timePeriod) * ((block.timestamp - (tDiff * collectionPhases[_collectionId].timePeriod) - collectionPhases[_collectionId].allowlistStartTime));
 
-821:                             (tDiff * collectionPhases[_collectionId].timePeriod) -
+551:                 decreaserate = ((price - (collectionPhases[_collectionId].collectionMintCost / (tDiff + 2))) / collectionPhases[_collectionId].timePeriod) * ((block.timestamp - (tDiff * collectionPhases[_collectionId].timePeriod) - collectionPhases[_collectionId].allowlistStartTime));
 
-826:                     ((collectionPhases[_collectionId].collectionMintCost -
+553:                 if (((collectionPhases[_collectionId].collectionMintCost - collectionPhases[_collectionId].collectionEndMintCost) / (collectionPhases[_collectionId].rate)) > tDiff) {
 
-827:                         collectionPhases[_collectionId].collectionEndMintCost) /
+553:                 if (((collectionPhases[_collectionId].collectionMintCost - collectionPhases[_collectionId].collectionEndMintCost) / (collectionPhases[_collectionId].rate)) > tDiff) {
 
-831:                         collectionPhases[_collectionId].collectionMintCost -
+554:                     price = collectionPhases[_collectionId].collectionMintCost - (tDiff * collectionPhases[_collectionId].rate);
 
-832:                         (tDiff * collectionPhases[_collectionId].rate);
+554:                     price = collectionPhases[_collectionId].collectionMintCost - (tDiff * collectionPhases[_collectionId].rate);
 
-837:             if (price - decreaserate > collectionPhases[_collectionId].collectionEndMintCost) {
+559:             if (price - decreaserate > collectionPhases[_collectionId].collectionEndMintCost) {
 
-838:                 return price - decreaserate;
+560:                 return price - decreaserate; 
 
 ```
 
@@ -326,9 +326,9 @@ File: smart-contracts/NextGenAdmins.sol
 
 13: import "./Ownable.sol";
 
-54:         for (uint256 i = 0; i < _selector.length; i++) {
+51:         for (uint256 i=0; i<_selector.length; i++) {
 
-54:         for (uint256 i = 0; i < _selector.length; i++) {
+51:         for (uint256 i=0; i<_selector.length; i++) {
 
 ```
 
@@ -353,67 +353,67 @@ File: smart-contracts/NextGenCore.sol
 
 110:         newCollectionIndex = newCollectionIndex + 1;
 
-158:         newCollectionIndex = newCollectionIndex + 1;
+140:         newCollectionIndex = newCollectionIndex + 1;
 
-176:             "err/freezed"
+148:         require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false) && (_collectionTotalSupply <= 10000000000), "err/freezed");
 
-184:             collectionAdditionalData[_collectionID].reservedMinTokensIndex = (_collectionID * 10000000000);
+155:             collectionAdditionalData[_collectionID].reservedMinTokensIndex = (_collectionID * 10000000000);
 
-186:                 (_collectionID * 10000000000) +
+156:             collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + _collectionTotalSupply - 1;
 
-186:                 (_collectionID * 10000000000) +
+156:             collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + _collectionTotalSupply - 1;
 
-187:                 _collectionTotalSupply -
+156:             collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + _collectionTotalSupply - 1;
 
-222:             collectionAdditionalData[_collectionID].collectionCirculationSupply +
+180:         collectionAdditionalData[_collectionID].collectionCirculationSupply = collectionAdditionalData[_collectionID].collectionCirculationSupply + 1;
 
-229:             tokensAirdropPerAddress[_collectionID][_recipient] = tokensAirdropPerAddress[_collectionID][_recipient] + 1;
+183:             tokensAirdropPerAddress[_collectionID][_recipient] = tokensAirdropPerAddress[_collectionID][_recipient] + 1;
 
-246:             collectionAdditionalData[_collectionID].collectionCirculationSupply +
+191:         collectionAdditionalData[_collectionID].collectionCirculationSupply = collectionAdditionalData[_collectionID].collectionCirculationSupply + 1;
 
-255:                     tokensMintedAllowlistAddress[_collectionID][_mintingAddress] +
+195:                 tokensMintedAllowlistAddress[_collectionID][_mintingAddress] = tokensMintedAllowlistAddress[_collectionID][_mintingAddress] + 1;
 
-259:                     tokensMintedPerAddress[_collectionID][_mintingAddress] +
+197:                 tokensMintedPerAddress[_collectionID][_mintingAddress] = tokensMintedPerAddress[_collectionID][_mintingAddress] + 1;
 
-275:         burnAmount[_collectionID] = burnAmount[_collectionID] + 1;
+208:         burnAmount[_collectionID] = burnAmount[_collectionID] + 1;
 
-291:             collectionAdditionalData[_mintCollectionID].collectionCirculationSupply +
+216:         collectionAdditionalData[_mintCollectionID].collectionCirculationSupply = collectionAdditionalData[_mintCollectionID].collectionCirculationSupply + 1;
 
-300:             burnAmount[_burnCollectionID] = burnAmount[_burnCollectionID] + 1;
+221:             burnAmount[_burnCollectionID] = burnAmount[_burnCollectionID] + 1;
 
-394:         for (uint256 x; x < _tokenId.length; x++) {
+282:         for (uint256 x; x < _tokenId.length; x++) {
 
-394:         for (uint256 x; x < _tokenId.length; x++) {
+282:         for (uint256 x; x < _tokenId.length; x++) {
 
-422:                 IMinterContract(minterContract).getEndTime(_collectionID) +
+308:         require (block.timestamp > IMinterContract(minterContract).getEndTime(_collectionID) + collectionAdditionalData[_collectionID].setFinalSupplyTimeAfterMint, "Time has not passed");
 
-429:             (_collectionID * 10000000000) +
+310:         collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + collectionAdditionalData[_collectionID].collectionTotalSupply - 1;
 
-429:             (_collectionID * 10000000000) +
+310:         collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + collectionAdditionalData[_collectionID].collectionTotalSupply - 1;
 
-430:             collectionAdditionalData[_collectionID].collectionTotalSupply -
+310:         collectionAdditionalData[_collectionID].reservedMaxTokensIndex = (_collectionID * 10000000000) + collectionAdditionalData[_collectionID].collectionTotalSupply - 1;
 
-488:                     '<html><head></head><body><script src="',
+353:             string memory b64 = Base64.encode(abi.encodePacked("<html><head></head><body><script src=\"",collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionLibrary,"\"></script><script>",retrieveGenerativeScript(tokenId),"</script></body></html>"));
 
-490:                     '"></script><script>',
+353:             string memory b64 = Base64.encode(abi.encodePacked("<html><head></head><body><script src=\"",collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionLibrary,"\"></script><script>",retrieveGenerativeScript(tokenId),"</script></body></html>"));
 
-492:                     "</script></body></html>"
+353:             string memory b64 = Base64.encode(abi.encodePacked("<html><head></head><body><script src=\"",collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionLibrary,"\"></script><script>",retrieveGenerativeScript(tokenId),"</script></body></html>"));
 
-492:                     "</script></body></html>"
+353:             string memory b64 = Base64.encode(abi.encodePacked("<html><head></head><body><script src=\"",collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionLibrary,"\"></script><script>",retrieveGenerativeScript(tokenId),"</script></body></html>"));
 
-492:                     "</script></body></html>"
+353:             string memory b64 = Base64.encode(abi.encodePacked("<html><head></head><body><script src=\"",collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionLibrary,"\"></script><script>",retrieveGenerativeScript(tokenId),"</script></body></html>"));
 
-497:                     'data:application/json;utf8,{"name":"',
+354:             string memory _uri = string(abi.encodePacked("data:application/json;utf8,{\"name\":\"",getTokenName(tokenId),"\",\"description\":\"",collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionDescription,"\",\"image\":\"",tokenImageAndAttributes[tokenId][0],"\",\"attributes\":[",tokenImageAndAttributes[tokenId][1],"],\"animation_url\":\"data:text/html;base64,",b64,"\"}"));
 
-505:                     '],"animation_url":"data:text/html;base64,',
+354:             string memory _uri = string(abi.encodePacked("data:application/json;utf8,{\"name\":\"",getTokenName(tokenId),"\",\"description\":\"",collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionDescription,"\",\"image\":\"",tokenImageAndAttributes[tokenId][0],"\",\"attributes\":[",tokenImageAndAttributes[tokenId][1],"],\"animation_url\":\"data:text/html;base64,",b64,"\"}"));
 
-517:         uint256 tok = tokenId - collectionAdditionalData[tokenIdsToCollectionIds[tokenId]].reservedMinTokensIndex;
+362:         uint256 tok = tokenId - collectionAdditionalData[tokenIdsToCollectionIds[tokenId]].reservedMinTokensIndex;
 
-632:         for (uint256 i = 0; i < collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionScript.length; i++) {
+453:         for (uint256 i=0; i < collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionScript.length; i++) {
 
-632:         for (uint256 i = 0; i < collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionScript.length; i++) {
+453:         for (uint256 i=0; i < collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionScript.length; i++) {
 
-655:         return (collectionAdditionalData[_collectionID].collectionCirculationSupply - burnAmount[_collectionID]);
+462:         return (collectionAdditionalData[_collectionID].collectionCirculationSupply - burnAmount[_collectionID]);
 
 ```
 
@@ -428,7 +428,7 @@ File: smart-contracts/RandomizerNXT.sol
 
 16: import "./INextGenCore.sol";
 
-61:             abi.encodePacked(_mintIndex, blockhash(block.number - 1), randoms.randomNumber(), randoms.randomWord())
+57:         bytes32 hash = keccak256(abi.encodePacked(_mintIndex, blockhash(block.number - 1), randoms.randomNumber(), randoms.randomWord()));
 
 ```
 
@@ -463,11 +463,11 @@ File: smart-contracts/RandomizerVRF.sol
 ```solidity
 File: smart-contracts/XRandoms.sol
 
-123:             return wordsList[id - 1];
+31:             return wordsList[id - 1];
 
-129:             keccak256(abi.encodePacked(block.prevrandao, blockhash(block.number - 1), block.timestamp))
+36:         uint256 randomNum = uint(keccak256(abi.encodePacked(block.prevrandao, blockhash(block.number - 1), block.timestamp))) % 1000;
 
-136:             keccak256(abi.encodePacked(block.prevrandao, blockhash(block.number - 1), block.timestamp))
+41:         uint256 randomNum = uint(keccak256(abi.encodePacked(block.prevrandao, blockhash(block.number - 1), block.timestamp))) % 100;
 
 ```
 
@@ -475,140 +475,175 @@ File: smart-contracts/XRandoms.sol
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
-*Instances (53)*:
+*Instances (68)*:
 ```solidity
 File: smart-contracts/AuctionDemo.sol
 
-106:             revert("No Active Bidder");
+32:       require(msg.sender == returnHighestBidder(_tokenId) || adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "Not allowed");
 
-143:         require(block.timestamp <= minter.getAuctionEndTime(_tokenid), "Auction ended");
+98:                 revert("No Active Bidder");
 
-157:         require(block.timestamp <= minter.getAuctionEndTime(_tokenid), "Auction ended");
+125:         require(block.timestamp <= minter.getAuctionEndTime(_tokenid), "Auction ended");
+
+135:         require(block.timestamp <= minter.getAuctionEndTime(_tokenid), "Auction ended");
 
 ```
 
 ```solidity
 File: smart-contracts/MinterContract.sol
 
-179:         require(gencore.retrievewereDataAdded(_collectionID) == true, "Add data");
+137:       require(msg.sender == gencore.retrieveArtistAddress(_collectionID) || adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "Not allowed");
 
-199:         require(setMintingCosts[_collectionID] == true, "Set Minting Costs");
+144:       require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true , "Not allowed");
 
-216:         require(gencore.retrievewereDataAdded(_collectionID) == true, "Add data");
+151:       require(adminsContract.retrieveCollectionAdmin(msg.sender,_collectionID) == true || adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "Not allowed");
 
-224:             require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(_collectionID), "No supply");
+158:         require(gencore.retrievewereDataAdded(_collectionID) == true, "Add data");
 
-244:         require(setMintingCosts[_collectionID] == true, "Set Minting Costs");
+171:         require(setMintingCosts[_collectionID] == true, "Set Minting Costs");
 
-285:                 require(isAllowedToMint == true, "No delegation");
+182:         require(gencore.retrievewereDataAdded(_collectionID) == true, "Add data");
 
-300:             require(MerkleProof.verifyCalldata(merkleProof, collectionPhases[col].merkleRoot, node), "invalid proof");
+186:             require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(_collectionID), "No supply");
 
-306:             require(_numberOfTokens <= gencore.viewMaxAllowance(col), "Change no of tokens");
+197:         require(setMintingCosts[_collectionID] == true, "Set Minting Costs");
 
-315:             revert("No minting");
+211:                 require(isAllowedToMint == true, "No delegation");
 
-319:         require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(col), "No supply");
+213:                 require(_maxAllowance >= gencore.retrieveTokensMintedALPerAddress(col, _delegator) + _numberOfTokens, "AL limit");
 
-320:         require(msg.value >= (getPrice(col) * _numberOfTokens), "Wrong ETH");
+217:                 require(_maxAllowance >= gencore.retrieveTokensMintedALPerAddress(col, msg.sender) + _numberOfTokens, "AL limit");
 
-338:             require(tDiff >= 1 && _numberOfTokens == 1, "1 mint/period");
+223:             require(_numberOfTokens <= gencore.viewMaxAllowance(col), "Change no of tokens");
 
-353:         require(burnToMintCollections[_burnCollectionID][_mintCollectionID] == true, "Initialize burn");
+224:             require(gencore.retrieveTokensMintedPublicPerAddress(col, msg.sender) + _numberOfTokens <= gencore.viewMaxAllowance(col), "Max");
 
-369:         require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(_mintCollectionID), "No supply");
+228:             revert("No minting");
 
-370:         require(msg.value >= getPrice(_mintCollectionID), "Wrong ETH");
+232:         require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(col), "No supply");
 
-387:         require(gencore.retrievewereDataAdded(_collectionID) == true, "Add data");
+233:         require(msg.value >= (getPrice(col) * _numberOfTokens), "Wrong ETH");
 
-390:         require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(_collectionID), "No supply");
+251:             require(tDiff>=1 && _numberOfTokens == 1, "1 mint/period");
 
-406:         require(tDiff >= 1, "1 mint/period");
+259:         require(burnToMintCollections[_burnCollectionID][_mintCollectionID] == true, "Initialize burn");
 
-450:         require((gencore.retrievewereDataAdded(_mintCollectionID) == true), "No data");
+260:         require(block.timestamp >= collectionPhases[_mintCollectionID].publicStartTime && block.timestamp<=collectionPhases[_mintCollectionID].publicEndTime,"No minting");
 
-469:         require(burnExternalToMintCollections[externalCol][_mintCollectionID] == true, "Initialize external burn");
+265:         require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(_mintCollectionID), "No supply");
 
-470:         require(setMintingCosts[_mintCollectionID] == true, "Set Minting Costs");
+266:         require(msg.value >= getPrice(_mintCollectionID), "Wrong ETH");
 
-492:             require(isAllowedToMint == true, "No delegation");
+277:         require(gencore.retrievewereDataAdded(_collectionID) == true, "Add data");
 
-511:             require(MerkleProof.verifyCalldata(merkleProof, collectionPhases[col].merkleRoot, node), "invalid proof");
+280:         require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(_collectionID), "No supply");
 
-520:             revert("No minting");
+294:         require(tDiff>=1, "1 mint/period");
 
-524:         require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(col), "No supply");
+309:         require((gencore.retrievewereDataAdded(_burnCollectionID) == true) && (gencore.retrievewereDataAdded(_mintCollectionID) == true), "No data");
 
-525:         require(msg.value >= (getPrice(col) * 1), "Wrong ETH");
+317:         require((gencore.retrievewereDataAdded(_mintCollectionID) == true), "No data");
 
-540:         require(_artistPrSplit + _teamPrSplit == 100, "splits need to be 100%");
+328:         require(burnExternalToMintCollections[externalCol][_mintCollectionID] == true, "Initialize external burn");
 
-541:         require(_artistSecSplit + _teamSecSplit == 100, "splits need to be 100%");
+329:         require(setMintingCosts[_mintCollectionID] == true, "Set Minting Costs");
 
-559:         require(collectionArtistPrimaryAddresses[_collectionID].status == false, "Already approved");
+337:             require(isAllowedToMint == true, "No delegation");
 
-585:         require(collectionArtistSecondaryAddresses[_collectionID].status == false, "Already approved");
+339:         require(_tokenId >= burnOrSwapIds[externalCol][0] && _tokenId <= burnOrSwapIds[externalCol][1], "Token id does not match");
 
-620:         require(collectionArtistPrimaryAddresses[_collectionID].status == true, "Accept Royalties");
+356:             revert("No minting");
 
-621:         require(collectionTotalAmount[_collectionID] > 0, "Collection Balance must be grater than 0");
+360:         require(collectionTokenMintIndex <= gencore.viewTokensIndexMax(col), "No supply");
 
-670:         require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
+361:         require(msg.value >= (getPrice(col) * 1), "Wrong ETH");
+
+370:         require(_artistPrSplit + _teamPrSplit == 100, "splits need to be 100%");
+
+371:         require(_artistSecSplit + _teamSecSplit == 100, "splits need to be 100%");
+
+416:         require(collectionArtistPrimaryAddresses[_collectionID].status == true, "Accept Royalties");
+
+417:         require(collectionTotalAmount[_collectionID] > 0, "Collection Balance must be grater than 0");
+
+418:         require(collectionRoyaltiesPrimarySplits[_collectionID].artistPercentage + _teamperc1 + _teamperc2 == 100, "Change percentages");
+
+455:         require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenAdmins.sol
 
-31:         require((adminPermissions[msg.sender] == true) || (_msgSender() == owner()), "Not allowed");
+32:       require((adminPermissions[msg.sender] == true) || (_msgSender()== owner()), "Not allowed");
 
-62:         require(_collectionID > 0, "Collection Id must be larger than 0");
+59:         require(_collectionID > 0, "Collection Id must be larger than 0");
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenCore.sol
 
-206:         require(IRandomizer(_randomizerContract).isRandomizerContract() == true, "Contract is not Randomizer");
+117:       require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true , "Not allowed");
 
-220:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
+124:       require(adminsContract.retrieveCollectionAdmin(msg.sender,_collectionID) == true || adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "Not allowed");
 
-244:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
+148:         require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false) && (_collectionTotalSupply <= 10000000000), "err/freezed");
 
-268:         require(_isApprovedOrOwner(_msgSender(), _tokenId), "ERC721: caller is not token owner or approved");
+171:         require(IRandomizer(_randomizerContract).isRandomizerContract() == true, "Contract is not Randomizer");
 
-288:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
+179:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
 
-289:         require(_isApprovedOrOwner(burner, _tokenId), "ERC721: caller is not token owner or approved");
+190:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
 
-357:         require(msg.sender == collectionAdditionalData[_collectionID].collectionArtistAddress, "Only artist");
+205:         require(_isApprovedOrOwner(_msgSender(), _tokenId), "ERC721: caller is not token owner or approved");
 
-358:         require(artistSigned[_collectionID] == false, "Already Signed");
+214:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
 
-382:         require(collectionFreeze[tokenIdsToCollectionIds[_tokenId]] == false, "Data frozen");
+215:         require(_isApprovedOrOwner(burner, _tokenId), "ERC721: caller is not token owner or approved");
 
-395:             require(collectionFreeze[tokenIdsToCollectionIds[_tokenId[x]]] == false, "Data frozen");
+239:         require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false), "Not allowed");
 
-405:         require(isCollectionCreated[_collectionID] == true, "No Col");
+258:         require(msg.sender == collectionAdditionalData[_collectionID].collectionArtistAddress, "Only artist");
 
-437:         require(IMinterContract(_minterContract).isMinterContract() == true, "Contract is not Minter");
+259:         require(artistSigned[_collectionID] == false, "Already Signed");
 
-446:         require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
+267:         require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false), "Not allowed");
+
+274:         require(collectionFreeze[tokenIdsToCollectionIds[_tokenId]] == false, "Data frozen");
+
+283:             require(collectionFreeze[tokenIdsToCollectionIds[_tokenId[x]]] == false, "Data frozen");
+
+293:         require(isCollectionCreated[_collectionID] == true, "No Col");
+
+316:         require(IMinterContract(_minterContract).isMinterContract() == true, "Contract is not Minter");
+
+323:         require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
+
+```
+
+```solidity
+File: smart-contracts/RandomizerNXT.sol
+
+35:       require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true , "Not allowed");
 
 ```
 
 ```solidity
 File: smart-contracts/RandomizerRNG.sol
 
-70:         require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
+36:         require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true, "Not allowed");
+
+62:         require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
 
 ```
 
 ```solidity
 File: smart-contracts/RandomizerVRF.sol
 
-117:         require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
+48:       require(adminsContract.retrieveFunctionAdmin(msg.sender, _selector) == true || adminsContract.retrieveGlobalAdmin(msg.sender) == true , "Not allowed");
+
+95:         require(INextGenAdmins(_newadminsContract).isAdminContract() == true, "Contract is not Admin");
 
 ```
 
@@ -618,42 +653,42 @@ File: smart-contracts/RandomizerVRF.sol
 ```solidity
 File: smart-contracts/AuctionDemo.sol
 
-76:             uint256 highBid = 0;
+68:             uint256 highBid = 0;
 
-77:             for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+69:             for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
 
-96:         uint256 highBid = 0;
+88:         uint256 highBid = 0;
 
-98:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+90:         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
 
-122:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+110:         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i ++) {
 
-158:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+136:         for (uint256 i=0; i<auctionInfoData[_tokenid].length; i++) {
 
 ```
 
 ```solidity
 File: smart-contracts/MinterContract.sol
 
-218:         for (uint256 y = 0; y < _recipients.length; y++) {
+184:         for (uint256 y=0; y< _recipients.length; y++) {
 
-225:             for (uint256 i = 0; i < _numberOfTokens[y]; i++) {
+187:             for(uint256 i = 0; i < _numberOfTokens[y]; i++) {
 
-321:         for (uint256 i = 0; i < _numberOfTokens; i++) {
+234:         for(uint256 i = 0; i < _numberOfTokens; i++) {
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenAdmins.sol
 
-54:         for (uint256 i = 0; i < _selector.length; i++) {
+51:         for (uint256 i=0; i<_selector.length; i++) {
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenCore.sol
 
-632:         for (uint256 i = 0; i < collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionScript.length; i++) {
+453:         for (uint256 i=0; i < collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionScript.length; i++) {
 
 ```
 
@@ -663,29 +698,29 @@ File: smart-contracts/NextGenCore.sol
 ```solidity
 File: smart-contracts/MinterContract.sol
 
-621:         require(collectionTotalAmount[_collectionID] > 0, "Collection Balance must be grater than 0");
+417:         require(collectionTotalAmount[_collectionID] > 0, "Collection Balance must be grater than 0");
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenAdmins.sol
 
-62:         require(_collectionID > 0, "Collection Id must be larger than 0");
+59:         require(_collectionID > 0, "Collection Id must be larger than 0");
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenCore.sol
 
-220:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
+179:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
 
-244:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
+190:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
 
-268:         require(_isApprovedOrOwner(_msgSender(), _tokenId), "ERC721: caller is not token owner or approved");
+205:         require(_isApprovedOrOwner(_msgSender(), _tokenId), "ERC721: caller is not token owner or approved");
 
-288:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
+214:         require(msg.sender == minterContract, "Caller is not the Minter Contract");
 
-289:         require(_isApprovedOrOwner(burner, _tokenId), "ERC721: caller is not token owner or approved");
+215:         require(_isApprovedOrOwner(burner, _tokenId), "ERC721: caller is not token owner or approved");
 
 ```
 
@@ -696,61 +731,87 @@ If a function modifier such as `onlyOwner` is used, the function will revert if 
 ```solidity
 File: smart-contracts/NextGenAdmins.sol
 
-37:     function registerAdmin(address _admin, bool _status) public onlyOwner {
+38:     function registerAdmin(address _admin, bool _status) public onlyOwner {
 
 ```
 
 ### <a name="GAS-8"></a>[GAS-8] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
 *Saves 5 gas per loop*
 
-*Instances (10)*:
+*Instances (9)*:
 ```solidity
 File: smart-contracts/AuctionDemo.sol
 
-77:             for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+69:             for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
 
-98:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+90:         for (uint256 i=0; i< auctionInfoData[_tokenid].length; i++) {
 
-122:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
-
-158:         for (uint256 i = 0; i < auctionInfoData[_tokenid].length; i++) {
+136:         for (uint256 i=0; i<auctionInfoData[_tokenid].length; i++) {
 
 ```
 
 ```solidity
 File: smart-contracts/MinterContract.sol
 
-218:         for (uint256 y = 0; y < _recipients.length; y++) {
+184:         for (uint256 y=0; y< _recipients.length; y++) {
 
-225:             for (uint256 i = 0; i < _numberOfTokens[y]; i++) {
+187:             for(uint256 i = 0; i < _numberOfTokens[y]; i++) {
 
-321:         for (uint256 i = 0; i < _numberOfTokens; i++) {
+234:         for(uint256 i = 0; i < _numberOfTokens; i++) {
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenAdmins.sol
 
-54:         for (uint256 i = 0; i < _selector.length; i++) {
+51:         for (uint256 i=0; i<_selector.length; i++) {
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenCore.sol
 
-394:         for (uint256 x; x < _tokenId.length; x++) {
+282:         for (uint256 x; x < _tokenId.length; x++) {
 
-632:         for (uint256 i = 0; i < collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionScript.length; i++) {
+453:         for (uint256 i=0; i < collectionInfo[tokenIdsToCollectionIds[tokenId]].collectionScript.length; i++) {
 
 ```
 
 ### <a name="GAS-9"></a>[GAS-9] Splitting require() statements that use && saves gas
 
-*Instances (1)*:
+*Instances (10)*:
+```solidity
+File: smart-contracts/AuctionDemo.sol
+
+58:         require(msg.value > returnHighestBid(_tokenid) && block.timestamp <= minter.getAuctionEndTime(_tokenid) && minter.getAuctionStatus(_tokenid) == true);
+
+105:         require(block.timestamp >= minter.getAuctionEndTime(_tokenid) && auctionClaim[_tokenid] == false && minter.getAuctionStatus(_tokenid) == true);
+
+126:         require(auctionInfoData[_tokenid][index].bidder == msg.sender && auctionInfoData[_tokenid][index].status == true);
+
+```
+
 ```solidity
 File: smart-contracts/MinterContract.sol
 
-338:             require(tDiff >= 1 && _numberOfTokens == 1, "1 mint/period");
+251:             require(tDiff>=1 && _numberOfTokens == 1, "1 mint/period");
+
+260:         require(block.timestamp >= collectionPhases[_mintCollectionID].publicStartTime && block.timestamp<=collectionPhases[_mintCollectionID].publicEndTime,"No minting");
+
+309:         require((gencore.retrievewereDataAdded(_burnCollectionID) == true) && (gencore.retrievewereDataAdded(_mintCollectionID) == true), "No data");
+
+339:         require(_tokenId >= burnOrSwapIds[externalCol][0] && _tokenId <= burnOrSwapIds[externalCol][1], "Token id does not match");
+
+```
+
+```solidity
+File: smart-contracts/NextGenCore.sol
+
+148:         require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false) && (_collectionTotalSupply <= 10000000000), "err/freezed");
+
+239:         require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false), "Not allowed");
+
+267:         require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false), "Not allowed");
 
 ```
 
@@ -760,32 +821,32 @@ File: smart-contracts/MinterContract.sol
 ```solidity
 File: smart-contracts/AuctionDemo.sol
 
-75:         if (auctionInfoData[_tokenid].length > 0) {
+67:         if (auctionInfoData[_tokenid].length > 0) {
 
 ```
 
 ```solidity
 File: smart-contracts/MinterContract.sol
 
-621:         require(collectionTotalAmount[_collectionID] > 0, "Collection Balance must be grater than 0");
+417:         require(collectionTotalAmount[_collectionID] > 0, "Collection Balance must be grater than 0");
 
-791:             if (collectionPhases[_collectionId].rate > 0) {
+535:             if (collectionPhases[_collectionId].rate > 0) {
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenAdmins.sol
 
-62:         require(_collectionID > 0, "Collection Id must be larger than 0");
+59:         require(_collectionID > 0, "Collection Id must be larger than 0");
 
 ```
 
 ```solidity
 File: smart-contracts/NextGenCore.sol
 
-478:             return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, tokenId.toString())) : "";
+347:             return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, tokenId.toString())) : "";
 
-484:             return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, "pending")) : "";
+350:             return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, "pending")) : "";
 
 ```
 
@@ -795,34 +856,41 @@ File: smart-contracts/NextGenCore.sol
 
 | |Issue|Instances|
 |-|:-|:-:|
-| [L-1](#L-1) |  `abi.encodePacked()` should not be used with dynamic types when passing the result to a hash function such as `keccak256()` | 7 |
+| [L-1](#L-1) |  `abi.encodePacked()` should not be used with dynamic types when passing the result to a hash function such as `keccak256()` | 8 |
 | [L-2](#L-2) | Empty Function Body - Consider commenting why | 3 |
 ### <a name="L-1"></a>[L-1]  `abi.encodePacked()` should not be used with dynamic types when passing the result to a hash function such as `keccak256()`
 Use `abi.encode()` instead which will pad items to 32 bytes, which will [prevent hash collisions](https://docs.soliditylang.org/en/v0.8.13/abi-spec.html#non-standard-packed-mode) (e.g. `abi.encodePacked(0x123,0x456)` => `0x123456` => `abi.encodePacked(0x1,0x23456)`, but `abi.encode(0x123,0x456)` => `0x0...1230...456`). "Unless there is a compelling reason, `abi.encode` should be preferred". If there is only one argument to `abi.encodePacked()` it can often be cast to `bytes()` or `bytes32()` [instead](https://ethereum.stackexchange.com/questions/30912/how-to-compare-strings-in-solidity#answer-82739).
 If all arguments are strings and or bytes, `bytes.concat()` should be used instead
 
-*Instances (7)*:
+*Instances (8)*:
 ```solidity
 File: smart-contracts/MinterContract.sol
 
-286:                 node = keccak256(abi.encodePacked(_delegator, _maxAllowance, tokData));
+212:                 node = keccak256(abi.encodePacked(_delegator, _maxAllowance, tokData));
 
-293:                 node = keccak256(abi.encodePacked(msg.sender, _maxAllowance, tokData));
+216:                 node = keccak256(abi.encodePacked(msg.sender, _maxAllowance, tokData));
 
-449:         bytes32 externalCol = keccak256(abi.encodePacked(_erc721Collection, _burnCollectionID));
+316:         bytes32 externalCol = keccak256(abi.encodePacked(_erc721Collection,_burnCollectionID));
 
-468:         bytes32 externalCol = keccak256(abi.encodePacked(_erc721Collection, _burnCollectionID));
+327:         bytes32 externalCol = keccak256(abi.encodePacked(_erc721Collection,_burnCollectionID));
 
-509:             node = keccak256(abi.encodePacked(_tokenId, tokData));
+348:             node = keccak256(abi.encodePacked(_tokenId, tokData));
+
+```
+
+```solidity
+File: smart-contracts/RandomizerNXT.sol
+
+57:         bytes32 hash = keccak256(abi.encodePacked(_mintIndex, blockhash(block.number - 1), randoms.randomNumber(), randoms.randomWord()));
 
 ```
 
 ```solidity
 File: smart-contracts/XRandoms.sol
 
-129:             keccak256(abi.encodePacked(block.prevrandao, blockhash(block.number - 1), block.timestamp))
+36:         uint256 randomNum = uint(keccak256(abi.encodePacked(block.prevrandao, blockhash(block.number - 1), block.timestamp))) % 1000;
 
-136:             keccak256(abi.encodePacked(block.prevrandao, blockhash(block.number - 1), block.timestamp))
+41:         uint256 randomNum = uint(keccak256(abi.encodePacked(block.prevrandao, blockhash(block.number - 1), block.timestamp))) % 100;
 
 ```
 
@@ -832,16 +900,16 @@ File: smart-contracts/XRandoms.sol
 ```solidity
 File: smart-contracts/AuctionDemo.sol
 
-136:             } else {}
+118:             } else {}
 
-165:             } else {}
+141:             } else {}
 
 ```
 
 ```solidity
 File: smart-contracts/RandomizerRNG.sol
 
-94:     receive() external payable {}
+86:     receive() external payable {}
 
 ```
 
@@ -851,13 +919,13 @@ File: smart-contracts/RandomizerRNG.sol
 
 | |Issue|Instances|
 |-|:-|:-:|
-| [M-1](#M-1) | Centralization Risk for trusted owners | 7 |
+| [M-1](#M-1) | Centralization Risk for trusted owners | 6 |
 ### <a name="M-1"></a>[M-1] Centralization Risk for trusted owners
 
 #### Impact:
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
-*Instances (7)*:
+*Instances (6)*:
 ```solidity
 File: smart-contracts/AuctionDemo.sol
 
@@ -875,9 +943,7 @@ File: smart-contracts/MinterContract.sol
 ```solidity
 File: smart-contracts/NextGenAdmins.sol
 
-15: contract NextGenAdmins is Ownable {
-
-37:     function registerAdmin(address _admin, bool _status) public onlyOwner {
+38:     function registerAdmin(address _admin, bool _status) public onlyOwner {
 
 ```
 
