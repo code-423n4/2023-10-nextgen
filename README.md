@@ -80,7 +80,7 @@ Files and contracts in scope for this audit in the table below:
 ## Out of scope
 
 Anything but the files listed above is out of scope.
-Tha includes OpenZeppelin, Chainlink and ARRNG contracts as well as the contracts below:
+That includes OpenZeppelin, Chainlink, and ARRNG contracts as well as the contracts below:
 
 [smart-contracts/IMinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IMinterContract.sol)\
 [smart-contracts/INextGenAdmins.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/INextGenAdmins.sol)\
