@@ -79,7 +79,8 @@ Files and contracts in scope for this audit in the table below:
 
 ## Out of scope
 
-OpenZeppelin, Chainlink and ARRNG contracts as well as the contracts below are out of scope of this audit.
+Anything but the files listed above is out of scope.
+That includes OpenZeppelin, Chainlink, and ARRNG contracts as well as the contracts below:
 
 [smart-contracts/IMinterContract.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IMinterContract.sol)\
 [smart-contracts/INextGenAdmins.sol](https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/INextGenAdmins.sol)\
@@ -214,4 +215,9 @@ Sample hardhat tests are provided.
 2. Open command prompt and navigate to the hardhat folder
 3. Install hardhat using `npm i`
 4. Compile smart contracts using `npx hardhat compile`
+  - If you get `Error HH502` then please upgrade to the laetst hardhat - `npm up hardhat`
 5. Run the tests that exist within the test folder using `npx hardhat test`
+
+# Slither
+
+To run slither use the command `slither smart-contracts`
