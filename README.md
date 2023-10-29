@@ -1,12 +1,12 @@
 # NextGen audit details
-- Total Prize Pool: $49,250 USDC 
-  - HM awards: $24,750 USDC 
-  - Analysis awards: $1,500 USDC 
-  - QA awards: $750 USDC 
+- Total Prize Pool: $60,500 USDC 
+  - HM awards: $41,500 USDC 
+  - Analysis awards: $2,250 USDC 
+  - QA awards: $1,250 USDC 
   - Bot Race awards: $2,250 USDC 
-  - Gas awards: $750 USDC 
-  - Judge awards: $3,600 USDC 
-  - Lookout awards: $2,400 USDC 
+  - Gas awards: $1,250 USDC 
+  - Judge awards: $6,000 USDC 
+  - Lookout awards: $4,000 USDC 
   - Scout awards: $500 USDC 
   - Mitigation Review: $10,950 USDC (*Opportunity goes to top 3 certified wardens based on placement in this audit.*)
   - Mitigation Judge awards: $1,800 USDC
