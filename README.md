@@ -3,13 +3,11 @@
   - HM awards: $41,500 USDC 
   - Analysis awards: $2,250 USDC 
   - QA awards: $1,250 USDC 
-  - Bot Race awards: $2,250 USDC 
+  - Bot Race awards: $3,750 USDC 
   - Gas awards: $1,250 USDC 
   - Judge awards: $6,000 USDC 
   - Lookout awards: $4,000 USDC 
   - Scout awards: $500 USDC 
-  - Mitigation Review: $10,950 USDC (*Opportunity goes to top 3 certified wardens based on placement in this audit.*)
-  - Mitigation Judge awards: $1,800 USDC
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2023-10-nextgen/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
