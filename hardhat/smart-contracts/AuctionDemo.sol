@@ -33,7 +33,7 @@ contract auctionDemo is Ownable {
       _;
     }
 
-    constructor (address _minter, address _gencore, address _adminsContract) public {
+    constructor (address _minter, address _gencore, address _adminsContract) {
         minter = IMinterContract(_minter);
         gencore = _gencore;
         adminsContract = INextGenAdmins(_adminsContract);
