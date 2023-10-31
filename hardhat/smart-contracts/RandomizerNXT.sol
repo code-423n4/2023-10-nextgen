@@ -59,7 +59,7 @@ contract NextGenRandomizerNXT {
     }
 
     // get randomizer contract status
-    function isRandomizerContract() external view returns (bool) {
+    function isRandomizerContract() external pure returns (bool) {
         return true;
     }
     

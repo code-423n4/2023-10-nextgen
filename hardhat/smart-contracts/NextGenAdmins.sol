@@ -80,7 +80,7 @@ contract NextGenAdmins is Ownable{
 
     // get admin contract status
 
-    function isAdminContract() external view returns (bool) {
+    function isAdminContract() external pure returns (bool) {
         return true;
     }
 

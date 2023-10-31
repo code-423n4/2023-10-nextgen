@@ -503,7 +503,7 @@ contract NextGenMinterContract is Ownable {
 
     // get minter contract status
 
-    function isMinterContract() external view returns (bool) {
+    function isMinterContract() external pure returns (bool) {
         return true;
     }
 
