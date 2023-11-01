@@ -57,7 +57,7 @@ The NextGen smart contract architecture is as follows:
 - **Documentation:** https://seize-io.gitbook.io/nextgen/
 - **Website:** https://www.seize.io/
 - **Twitter:** https://twitter.com/6529Collections / https://twitter.com/punk6529
-- **Discord:** https://discord.gg/nQDAkHt3
+- **Discord:** https://discord.gg/join-om
 
 
 # Scope
