@@ -1,0 +1,131 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q4-2023 / nextgen-oct30 / Sponsors+Judge 0xsomeone
+==============================================================
+
+[12/04/2023 19:21] thebrittfactor
+Hey @piravlos @prxt @6529 - I have set up this private thread between your team and the judge of your audit @0xsomeone, as they have a few things they'd like to discuss with the NextGen team before wrapping up judging 🙂
+
+
+[12/04/2023 19:26] 0xsomeone
+Pleasure to meet everyone's acquaintance! As I am going through the project's documentation as well as issues to judge, it appears there are some discrepancies that cannot be adequately weighed without your input. While I anticipate more issues to come up as I go, I presently invite you to provide your insight to the following issues:
+
+- [#372](https://github.com/code-423n4/2023-10-nextgen-findings/issues/372): Allowance of normal mint operations can be "consumed" by non-mint operations
+- [#1813](https://github.com/code-423n4/2023-10-nextgen-findings/issues/1813): Allowance carries over between mint periods / implementations
+- [#1973](https://github.com/code-423n4/2023-10-nextgen-findings/issues/1973): Secondary royalty payment functionality is missing
+- [#1946](https://github.com/code-423n4/2023-10-nextgen-findings/issues/1946): The `burnOrSwapExternalToMint` function improperly uses the NFT delegation standard
+
+Additionally, I would like to make sure that while OOS due to the bot, you have given adequate attention to [#2038](https://github.com/code-423n4/2023-10-nextgen-findings/issues/2038).
+
+More than happy to chat about any of the above issues or anything else you would like clarification on in relation to my judgments.
+
+
+[12/05/2023 06:09] piravlos
+gm, thanks' for sharing the additional issues, we will go through them.
+
+
+[12/05/2023 09:34] 0xsomeone
+Thanks a lot for the prompt review of the above exhibits! In relation to #2038, I simply wanted to make sure your team is aware of the implications. Likewise, I invite you to re-visit the following exhibit with no need to comment but just to make sure your team understands what they are about:
+- [#713](https://github.com/code-423n4/2023-10-nextgen-findings/issues/713): Bidding sandwich attacks
+- [#737](https://github.com/code-423n4/2023-10-nextgen-findings/issues/737): Minimum bid increment
+
+
+[12/05/2023 10:33] piravlos
+gm, yes we do understand what they talk about 🙂 thanks
+
+{Reactions}
+🙏 
+
+[12/05/2023 16:08] 0xsomeone
+Hello again, it would be good to hear your thoughts on the following issue as I deem it valid: EDITED as I figured out why your team evaluated this exhibit as invalid and updated the issue accordingly.
+
+
+[12/06/2023 10:32] 0xsomeone
+Gm all, in relation to [#713](https://github.com/code-423n4/2023-10-nextgen-findings/issues/713) do you believe a Medium Risk or a QA (Low Risk) is a better evaluation of it? I believe that it is likely to manifest as an auction approaches its end and true-value, causing fewer eligible bidders remain.
+
+
+[12/06/2023 13:35] piravlos
+Monitoring the mempool to conduct transactions to frontrun others is mostly a hypothetical scenario and this can happen on every contract. Also this is not a simple task you need money and time to do it. The frontrunner also will always have a max value that it can bid and it can also be frontrunned by others users. Definitely this cannot be marked as a high risk.
+
+
+[12/06/2023 13:36] piravlos
+I think you can mark it as Low Risk as if you mark it as Med or High risk then in every audit someone will post about frontrunning others 🙂
+
+
+[12/06/2023 13:36] piravlos
+thanks 🙂
+
+
+[12/06/2023 15:18] 0xsomeone
+Hey @piravlos, the exhibit details that it is possible to back and front run a transaction, not just front run. It is possible to cancel an arbitrarily high bid by outbidding it in a front-run transaction and cancelling your bid in a back-run transaction.
+
+This can be prevented by simply ensuring that the highest bid cannot be cancelled, and it is something that we advise you to incorporate in your code. For highly priced NFTs, the nuisances involved in conducting a bid through f.e. multi-signature processes renders this a feasible attack.
+
+**To note, the exhibit doesn't say *you can simply outbid someone in a front-run*, it says that *you can outbid someone and cancel your bid effectively causing the auction to remain at the same, previously-processed bid***. This is incorrect behavior, as f.e. a bid of any value can win an auction regardless of what other bids are attempted.
+
+
+[12/06/2023 15:18] 0xsomeone
+As an unrelated point, please re-visit the following issue as I believe it to be valid, here's a quick breakdown of the Warden's submission I did: https://github.com/code-423n4/2023-10-nextgen-findings/issues/741#issuecomment-1843091896
+
+
+[12/06/2023 15:28] piravlos
+we can't disallow the canceling of the highest bid. Imagine an auction that has 1 bid and then the highest bidder wants to withdrawl it, we can't force a user buy something that at the end does not want 🙂 We will implement other mechanisms like increment of bids etc. to make the front run transactions not worth it 🙂
+
+
+[12/06/2023 15:30] 0xsomeone
+A time delay would be apt in such a case, permitting a bid to be cancelled after a very small window (i.e. 10 minutes) has elapsed. In any case, it is not a simple front-run submission; do you stand by your initial QA assessment?
+
+Let me know about #741 as well whenever possible, thanks!
+
+
+[12/06/2023 15:31] piravlos
+Let's move it to Low Risk
+
+{Reactions}
+👌 
+
+[12/07/2023 06:02] piravlos
+Gm just submitted my review on #741
+
+
+[12/07/2023 09:11] 0xsomeone
+GM, I am close to judging all HM related exhibits so I will request your feedback on several exhibits one more time in a few hours.
+
+
+[12/07/2023 09:11] 0xsomeone
+Thanks for providing your feedback on #741!
+
+
+[12/07/2023 11:03] 0xsomeone
+Alright, so I have finished judging all HM submissions in the project. I would like to make you aware of / request your feedback on the following to finalize their judgment:
+
+- [#371](https://github.com/code-423n4/2023-10-nextgen-findings/issues/371#issuecomment-1843156614): Merkle proof overlap that should be fixed
+- [#745](https://github.com/code-423n4/2023-10-nextgen-findings/issues/745): I accepted this submission as valid given that inconsistent minting limits are enforced in your system and you **confirmed a subset of it [in exhibit #1763](https://github.com/code-423n4/2023-10-nextgen-findings/issues/1763#issuecomment-1825376705)**. The problem is that you contradict your confirmation in [exhibit #979](https://github.com/code-423n4/2023-10-nextgen-findings/issues/979#issuecomment-1822931718), so I am unsure which is the correct behavior of your system.
+- [#1335](https://github.com/code-423n4/2023-10-nextgen-findings/issues/1335#issuecomment-1843750240): An overlap of `burnOrSwapAddress` can be weaponized by users
+
+
+[12/07/2023 11:04] 0xsomeone
+#745 is the most pressing one as I am unable to properly judge it without your input.
+
+
+[12/08/2023 14:44] piravlos
+hello, we have answered the above thanks 🙂
+
+{Reactions}
+🙌 thankyou (2) 
+
+[12/10/2023 12:07] 0xsomeone
+Hello @piravlos, there is an issue that we need to address in relation to #745 again. Specifically, a duplicate of it (#1096) outlines a real discrepancy that I cannot rule out as a vulnerability. Can you please provide your assessment of [#1096](https://github.com/code-423n4/2023-10-nextgen-findings/issues/1096) and pay attention to the "Recommended Mitigation Steps". Thanks!
+
+
+[12/11/2023 05:58] piravlos
+gm, I have provided a clear explanation on the issue. I hope its clear 🙂
+
+
+[03/01/2024 23:15] itsmetechjay
+@Archival Wolf
+
+
+==============================================================
+Exported 24 message(s)
+==============================================================

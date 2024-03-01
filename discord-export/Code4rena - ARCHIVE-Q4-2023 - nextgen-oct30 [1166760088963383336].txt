@@ -1,0 +1,5029 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q4-2023 / nextgen-oct30
+==============================================================
+
+[10/26/2023 19:44] kartoonjoy (pinned)
+👋 Hello and welcome to the audit channel for the $60,500 **NextGen** audit!
+
+📆 Audit opens 10/30/2023 20:00 (20:00 UTC) and runs through 11/13/2023 20:00 (20:00 UTC) (14 days).
+
+Please give a warm welcome to the NextGen team, particularly @piravlos, @prxt, who will be available for questions either here in the channel or via DM in the EET timezone(s).
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/contests/2023-10-nextgen#top
+
+{Embed}
+https://code4rena.com/contests/2023-10-nextgen
+NextGen | Code4rena
+Advanced smart contracts for launching generative art projects on Ethereum.
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/c4-og-banner-05C9C.png
+
+
+[10/26/2023 19:44] kartoonjoy
+Pinned a message.
+
+
+[10/27/2023 10:49] debofx
+Welcome!
+
+
+[10/27/2023 11:22] piravlos
+Welcome everyone 🙂
+
+{Reactions}
+👋 
+
+[10/27/2023 11:58] noro9954
+hey, why 14 days for 918 SLOC ?
+
+
+[10/27/2023 12:08] piravlos
+actual its a bit more than 918 but it does not really matter 🙂 there are many contracts that interact between each other as well as 3 different randomizer contracts so its a bit complex, that's why the timeperiod is a bit long. I am 100% sure that you will find this project really interesting 🙂
+
+{Reactions}
+💯 (11) 
+
+[10/27/2023 12:09] piravlos
+Let's wait for the Audit details to come out on Monday. @prxt and I will be available to answer all your questions.
+
+{Reactions}
+🫡 (7) 
+
+[10/28/2023 03:25] almurhasan
+Is it audited previously. If it is? Who have done audits
+
+
+[10/28/2023 05:40] piravlos
+Gm no it has not been audited previously.
+
+{Reactions}
+👀 (8) 
+
+[10/29/2023 08:35] 6529
+gm everyone
+
+
+[10/29/2023 08:35] 6529
+looking forward to this
+
+{Reactions}
+gummy_wink (16) 
+
+[10/29/2023 12:19] 0xarav
+Gm 6529 !
+Woah.. is that you !
+
+
+[10/29/2023 14:42] 6529
+It is, in fact,  me
+
+
+[10/29/2023 16:50] 0xarav
+Welcome to C4 legend !🫡
+
+
+[10/30/2023 07:26] blutorque
+did award pot got increased?  UI shows different than its in rsvp
+
+
+[10/30/2023 08:58] piravlos
+Yes it was increased 🙂
+
+{Reactions}
+🔥 (7) thankyou (4) 
+
+[10/30/2023 16:03] .akira0327
+What's the twitter link of NextGen?
+
+
+[10/30/2023 16:40] kartoonjoy
+You can link from out from this page if you click their logo.
+
+https://code4rena.com/contests/2023-10-nextgen#top
+
+
+[10/30/2023 20:02] piravlos
+Contest is live!
+
+
+[10/30/2023 20:03] thebrittfactor (pinned)
+**4naly3er Report**
+
+The 4naly3er report can be found [here](https://github.com/code-423n4/2023-10-nextgen/blob/main/4naly3er-report.md).
+
+*Note for C4 wardens: The 4naly3er report is ran by our pre-audit Scouts and will be posted at audit launch. This will be in addition to the automated findings (bot report), so anything included in the 4naly3er or the automated findings output (once shared) is considered a publicly known issue and is ineligible for awards.*
+
+
+[10/30/2023 20:03] mylifechangefast.eth
+nice
+
+
+[10/30/2023 20:03] thebrittfactor
+Pinned a message.
+
+
+[10/30/2023 20:04] ubl4nk
+@piravlos @prxt `500 Internal Server Error - GET https://registry.npmjs.org/@scure/bip39/-/bip39-1.2.1.tgz - KV GET failed: 401 Unauthorized`
+
+
+[10/30/2023 20:04] ubl4nk
+getting this error, how to fix ?
+
+
+[10/30/2023 20:07] piravlos
+not sure what's this error, what are you trying to do?
+
+
+[10/30/2023 20:08] al_qa_qa
+Hardhat project, no fuzzing, simple test file, alot of sol files not arranged, no interfaces, not previously audited.
+
+I can smell at least +5highs
+
+
+[10/30/2023 20:08] piravlos
+let's see 🙂
+
+
+[10/30/2023 20:08] al_qa_qa
+Are you trying to clone the project?
+
+
+[10/30/2023 20:09] ubl4nk
+`npm i`
+
+
+[10/30/2023 20:09] ubl4nk
+i just switched to hardhat folder
+
+
+[10/30/2023 20:09] ubl4nk
+and run `npm i`
+
+
+[10/30/2023 20:09] al_qa_qa
+The folder you are in should have package.json file in order to install packages.
+
+
+[10/30/2023 20:10] ubl4nk
+it has
+
+
+[10/30/2023 20:10] al_qa_qa
+Does it work ?
+
+
+[10/30/2023 20:10] ubl4nk
+no, it throws that error
+
+
+[10/30/2023 20:11] al_qa_qa
+Try `npm install -f`
+
+
+[10/30/2023 20:12] ubl4nk
+ok let me try
+
+
+[10/30/2023 20:16] ubl4nk
+it doesn't work too
+
+
+[10/30/2023 20:18] dimulski
+same here
+
+
+[10/30/2023 20:19] al_qa_qa
+The error message is happens because of a package called `@scure/bip39`. You can remove the package declaration in the package-lock.json, but I don't know if this will make errors.
+
+https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/package-lock.json#L118
+
+{Embed}
+https://github.com/code-423n4/2023-10-nextgen/blob/main/hardhat/package-lock.json
+2023-10-nextgen/hardhat/package-lock.json at main · code-423n4/2023...
+Contribute to code-423n4/2023-10-nextgen development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/a73c793d-4b72-44ea-bbaa-40fc16a08b42-1A15D
+
+{Reactions}
+🙏 
+
+[10/30/2023 20:20] dimulski
+when we want to ask a question we open private threads or send DM
+
+
+[10/30/2023 20:21] al_qa_qa
+Remove the declration starting from the line sent via the link and try installing.
+
+I am on mobile now, so can't test results now, sorry guys.
+
+
+[10/30/2023 20:26] ubl4nk
+I'm looking for a way to install this package manually
+
+
+[10/30/2023 20:26] dimulski
+removing the package declaration works for instalation, lets see if it doesn't break something else
+
+
+[10/30/2023 20:28] al_qa_qa
+Great, I think this package is used for encrypting.
+
+If some scripts relying on it the error will occurs, but with a message of not existed package. If it is not used, then its fine, everything should work correctly.
+
+
+[10/30/2023 20:29] prxt.
+which node version are you using?
+
+
+[10/30/2023 20:31] dimulski
+16.9
+
+
+[10/30/2023 20:32] dimulski
+needs 18?
+
+
+[10/30/2023 20:33] sekharlee_43
+I am looking for collaboration, anyone interested 🙂
+
+
+[10/30/2023 20:36] zdravkohr
+I am using 18 and I am facing the same problem
+
+
+[10/30/2023 20:40] kambizasadzadeh
+Hello 6529's Developers! LFG!
+
+{Reactions}
+🚀 (6) 
+
+[10/30/2023 20:43] hisoul22
+i am using v18.12.1
+
+{Reactions}
+👍 (2) 
+
+[10/30/2023 20:44] hisoul22
+no problems
+
+{Reactions}
+🔥 
+
+[10/30/2023 22:30] escrow1337
+@prxt @piravlos sent fr's
+
+
+[10/31/2023 02:43] tadev0
+Hi everyone,
+sorry to bother with that kind of issue but i cannot run `npm i` as i get this error : 
+
+npm ERR! command failed
+npm ERR! command sh -c node-gyp-build
+npm ERR! sh: node-gyp-build: command not found
+
+It seems to be related to classic-level node-modules. Did anyone encounter this issue?
+
+I have python installed, node-gyp and Xcode.
+I have no issue with creating a new hardhat project, with classic-level module correctly installed. I also have no issue with npm init other hardhat repos
+
+
+[10/31/2023 03:00] 0xhegel
+Are the files in the directory 'hardhart/smart-contracts' and the directory 'smart-contracts' the same?
+@piravlos @prxt
+
+
+[10/31/2023 03:12] tadev0
+Ok now i'm good, just deleting the package-lock.json file before npm install resolved the issue.
+
+
+[10/31/2023 03:14] tadev0
+weirdly, as there is no modification in the new package-lock.json, especially in the classic-level node module
+
+
+[10/31/2023 03:20] 0xhegel
+Just run `npm i` and works for me.
+My node verson is `v18.16.0`
+
+
+[10/31/2023 04:53] erictee
+@piravlos dmed
+
+
+[10/31/2023 06:06] piravlos
+gm! Just answered, thanks.
+
+{Reactions}
+chefskiss 
+
+[10/31/2023 06:06] piravlos
+Yes
+
+
+[10/31/2023 06:12] piravlos
+gm guys. First of all I would like to thank you for your excitement regards to our project. Secondly many of use faced an issue when trying to run the sample hardhat tests. Please use a node version higher than 18.12 can you won’t face any issues.
+
+{Reactions}
+👌 
+
+[10/31/2023 06:36] audinarey
+@piravlos  can we fork from testnet and write POCs in foundry?
+
+
+[10/31/2023 06:42] piravlos
+the deployed contracts on testnet are the same as the ones that exist in the smart-contracts folder within github. If you would like to use foundry it's not a problem.
+
+{Reactions}
+👍 
+
+[10/31/2023 07:19] oceansky
+sweet words for c4 wardens :hearteyesrobot: , it's been a while. 
+Hope i can join soon to audit this.
+
+{Reactions}
+🚀 (3) 
+
+[10/31/2023 07:56] al_qa_qa
+Anyone here successed to run slither? I face errors in solc version compitapility
+
+
+[10/31/2023 07:58] al_qa_qa
+It works when setting the version to 0.8.19.
+
+
+[10/31/2023 09:19] bauchibred
+Hi @piravlos , just dmed you.
+
+
+[10/31/2023 09:53] piravlos
+thanks mate. I have answered all your q. If you need more clarifications do not hesitate to contact me 🙂
+
+{Reactions}
+👍🏼 
+
+[10/31/2023 10:08] al_qa_qa
+Hi auditors and devs,
+
+I found that smart contract architecture is not the best, so I managed to refactor it and make it better.
+
+I made refactoring to smart contracts and added some functionality like (static analysis) and professional gas reporting in the new codebase. You can check it out in my GitHub repo.
+https://github.com/Al-Qa-qa/nextgen-code4rena
+
+{Embed}
+https://github.com/Al-Qa-qa/nextgen-code4rena
+GitHub - Al-Qa-qa/nextgen-code4rena
+Contribute to Al-Qa-qa/nextgen-code4rena development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/nextgen-code4rena-26D31
+
+{Reactions}
+👍🏾 (4) 🚀 (5) 👍🏼 (4) thankyou (3) 📌 
+
+[10/31/2023 10:18] baice8614
+The previous code structure was a bit chaotic
+
+
+[10/31/2023 10:20] baice8614
+separate libraries, interfaces, and third-party calls ,  enhance code readability  !!
+
+
+[10/31/2023 10:33] al_qa_qa
+Thanks for the feedback 👍
+
+
+[10/31/2023 11:28] kambizasadzadeh
+Thank you for your attention and effort!
+
+{Reactions}
+👍 (2) 
+
+[10/31/2023 12:52] .akira0327
+Should we audit this repo or only for analysis?
+
+
+[10/31/2023 13:07] aba1842
+you will always need to audit only the repo indicated by C4, each can modify/change whatever they want locally but when submitting issues you are obligated to refer them to the original repo and no other (invalid otherwise). So no, not this one. The official one only: https://github.com/code-423n4/2023-10-nextgen
+
+That above one was just a warden's reordering of code so it would be better suited to his needs. Nothing more, nothing less
+
+
+[10/31/2023 13:10] .akira0327
+Thanks.
+Should I use git diff cmd to commit test code when submitting issues or it will be ignored(i.e. I included test code block in submission template directly)?
+
+
+[10/31/2023 13:12] aba1842
+both are valid and accepted by judges. I sometimes use `git diff` for tests, but mostly for fix suggestions. For tests I just add the code in a code block. Like I said, both are fine, choose the one you like more
+
+
+[10/31/2023 13:15] .akira0327
+Thanks for your kindly reply.
+
+{Reactions}
+🥮 
+
+[10/31/2023 15:09] johnnytime
+Mann this is the weirdest access control implementation I've ever seen in my life
+
+{Reactions}
+👍 (6) PepeFacepalm (2) 💯 👆 
+
+[10/31/2023 15:29] piravlos
+haha 🙂
+
+
+[10/31/2023 15:34] efecarranza
+that and the modifiers with uppercase have my OCD flaring
+
+
+[10/31/2023 15:37] piravlos
+Great day today as I was contacted by many wardens. Feel free to contact me if you have any questions 🙂
+
+
+[10/31/2023 15:40] elvinfevo1
+Please how can I get bot reports
+
+
+[10/31/2023 15:42] .akira0327
+@piravlos  Sent Dm & Fr. Please accept.
+Thanks.
+
+
+[10/31/2023 15:43] al_qa_qa
+Is `NextGenCore` contract will be deployed once and artists will create a collection on top of it? Or this contract will be deployed by any company that needs multiple collections of NFTs and Royalties, in order for these companies to have access to the functions? @piravlos
+
+
+[10/31/2023 15:47] al_qa_qa
+DM'ed @piravlos
+
+
+[10/31/2023 15:57] piravlos
+It will be deployed once and then collections will be created by many artists on top of it.
+
+
+[10/31/2023 16:05] zdravkohr
+And these artists should be authorized by the protocol?
+
+
+[10/31/2023 16:13] aba1842
+I think I saw, coincidently, last week a tweet about this used on another project. From what I've heard, Balancer also uses something similar (user - action - selector access control). Can't find the tweet though 😦
+
+
+[10/31/2023 16:13] dimulski
+@piravlos , @prxt sent FR
+
+
+[10/31/2023 16:27] 6529
+i think it is both tbh.
+
+1) we will run a series of collections at 6529.  In that case, we will deploy the contracts and select the artists and once we create a new collection for a specific artist, we will give them the relevant access rights to that collection
+2) if a different organization wants to make their own series of collection (e..g. the University of Nicosia will do their certificates using NextGen, they will deploy the contracts themselves).  in other words the generative art of the memes and the unic certificates won't be separate collections on one contract deployment
+
+{Reactions}
+✅ (2) 
+
+[10/31/2023 16:29] dimulski
+@6529 sent you a FR as well
+
+
+[10/31/2023 16:31] 6529
+i am bad at DMs
+
+{Reactions}
+❤️ 
+
+[10/31/2023 16:31] 6529
+best to ping @piravlos or @prxt  🙂
+
+{Reactions}
+👍 
+
+[10/31/2023 16:36] dimulski
+don't want to be my friend 😢
+
+{Reactions}
+🫂 (4) 
+
+[10/31/2023 17:16] Message Wolf#0225 (pinned)
+**Automated Findings / Publicly Known Issues**
+
+Automated findings output for the audit can be found [here](https://gist.github.com/code423n4/b979a00ee3ea3f7d36ee39e2a536ba8a).
+
+*Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards.*
+
+
+[10/31/2023 17:30] 0x_6a70
+any previous audits made on the project?
+
+
+[10/31/2023 17:32] zdravkohr
+no
+
+{Reactions}
+👍 (2) 
+
+[10/31/2023 17:34] kartoonjoy
+https://discord.com/channels/810916927919620096/1166760088963383336/1167699329155338250
+
+{Reactions}
+👍 
+
+[10/31/2023 18:20] thebrittfactor
+Pinned a message.
+
+
+[10/31/2023 18:44] mylifechangefast.eth
+Making sense
+
+
+[10/31/2023 18:48] noro9954
+@piravlos @prxt can you please check private thread i made
+
+
+[10/31/2023 18:50] mylifechangefast.eth
+Where is the bot race findings please, is it out now
+
+
+[10/31/2023 18:51] zdravkohr
+https://github.com/code-423n4/2023-10-nextgen/blob/main/bot-report.md
+
+{Reactions}
+thankyou 
+
+[10/31/2023 18:59] taylorwebb
+In the `collectionAdditionalDataStructure` of `NextGenCore.sol`, what exactly are `collectionCirculationSupply` and `collectionTotalSupply` intended to represent?
+
+
+[10/31/2023 19:07] mylifechangefast.eth
+have you read the documentation?
+
+
+[10/31/2023 19:08] mylifechangefast.eth
+please do
+
+
+[10/31/2023 19:08] mylifechangefast.eth
+https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/core
+
+{Embed}
+https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/core
+Core
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/oOdUIS3ITvfYkbaxuDNC-CDC00.png
+
+
+[10/31/2023 19:11] taylorwebb
+yeah its a bit confusing, I think `collectionTotalSupply` in the struct, and what the `totalSupplyOfCollection()` function returns are different values
+
+
+[10/31/2023 19:12] taylorwebb
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/image-E663C.png
+
+
+[10/31/2023 19:13] zdravkohr
+Yes, it subtracts the burned ones
+
+
+[10/31/2023 19:13] zdravkohr
+i.e. returns the count of the tokens in circulation
+
+{Reactions}
+👍 
+
+[10/31/2023 19:32] taylorwebb
+also what is the intended difference between `collectionAdditionalData[_collectionID].maxCollectionPurchases` and `collectionAdditionalData[_collectionID].collectionTotalSupply`?
+
+
+[10/31/2023 19:35] piravlos
+hello guys, I am back for a while 🙂
+
+
+[10/31/2023 19:36] piravlos
+please read the docs 🙂 maxCollectionPurchases erefers to the max mints an address can mint during the public sale. collectionTotalSupply is the total supply of the collection, ex 1000 tokens 100 tokens etc.
+
+{Reactions}
+🙏 (2) 
+
+[10/31/2023 19:39] piravlos
+guys as i get a lot of questions regards to _saltfun_o this is a future voluntary value that can be used to change or weight the minting outcomes. This is currently not being used but we need to pass it through the core contract so as we may used it in the future.
+
+{Reactions}
+👍 (3) 
+
+[11/01/2023 04:01] nailkhalimov
+Guys, for what reason there are two folders of smart-contracts in repo? Seems like redundant🤔
+
+
+[11/01/2023 04:43] piravlos
+Both folders incl the sane identical files. the folder inside hardhat is for the tests.
+
+{Reactions}
+👍 
+
+[11/01/2023 06:46] henry0226
+@piravlos @prxt created PT
+
+
+[11/01/2023 08:01] zdravkohr
+What is the idea of burnToMint? Why would anybody use it rather than the normal mint function?
+
+
+[11/01/2023 08:18] 6529
+it is to accommodate mintpasses
+
+
+[11/01/2023 08:20] zdravkohr
+What does that mean
+
+
+[11/01/2023 08:22] 6529
+let me gpt that for you
+
+{Reactions}
+gummy_wink 
+
+[11/01/2023 08:22] 6529
+Mintpasses in the world of Non-Fungible Tokens (NFTs) are a relatively recent innovation designed to improve the process of minting NFTs. Here’s a breakdown of the concept:
+
+### What is an NFT?
+
+An NFT is a type of digital asset that represents ownership or proof of authenticity of a unique item or piece of content, such as artwork, music, videos, or collectibles, using blockchain technology. Unlike cryptocurrencies like Bitcoin, each NFT has a unique identifier that makes it distinct and not interchangeable.
+
+### What is Minting?
+
+Minting is the process of creating a new NFT. It involves recording the data on a blockchain, which turns a digital file into a crypto collectible or digital asset. This process usually requires the creator to pay a fee (often in cryptocurrency) to compensate for the energy and computing power used to process the transaction and add it to the blockchain.
+
+### What are Mintpasses?
+
+A mintpass is a special type of NFT that gives its holder the right or privilege to mint a particular NFT at a later date. Think of it as a "ticket" or "voucher" that reserves your spot to claim another NFT once it becomes available. Here are the key features of mintpasses:
+
+1. **Exclusive Access**: Mintpasses often provide early or exclusive access to a new NFT collection. They can be distributed to a select group of people, such as early supporters of a project.
+
+2. **Guaranteed Opportunity**: Holding a mintpass typically guarantees you the opportunity to mint a new NFT without the rush and competition that can happen when a popular NFT collection is released to the public.
+
+{Reactions}
+👍 
+
+[11/01/2023 08:22] 6529
+3. **Price Advantage**: Sometimes, mintpasses allow holders to mint the subsequent NFT at a predetermined price, which could be advantageous if the demand for the NFT increases its value significantly by the time of public sale.
+
+4. **Secondary Market**: Mintpasses can be traded or sold on secondary markets, and their value can fluctuate based on the perceived value of the NFT they allow you to mint.
+
+5. **Fundraising Tool**: Projects may sell mintpasses as a way to raise funds before the actual NFTs are ready to be minted, providing capital for development and gauging the community's interest.
+
+### How Do Mintpasses Work?
+
+- **Pre-Mint**: The project team creates mintpasses and sells or distributes them before the main NFT collection is ready.
+- **Claim Period**: Once the NFT collection is ready, mintpass holders can "redeem" their passes to mint the NFTs.
+- **Post-Claim**: After the claim period, the mintpasses may expire, or they might have additional benefits or utilities as determined by the project creators.
+
+### Benefits
+
+- **For Creators**: They can secure funding and interest ahead of a full launch and build a community of dedicated supporters.
+- **For Collectors**: They get assured access to NFTs, potentially at a lower cost, and can benefit from any appreciation in the value of either the mintpass or the NFT itself.
+
+### Risks
+
+- **Market Volatility**: The value of mintpasses and the subsequent NFTs can be highly volatile.
+- **Project Failure**: If the project does not follow through or is delayed, the mintpass may lose value or become worthless.
+- **Scams**: As with any crypto-related project, there is a risk of scams, so due diligence is essential.
+
+Mintpasses add an extra layer to the NFT ecosystem, offering a novel way for creators and collectors to interact and for projects to manage the minting process. However, as with any investment, especially in the fast-moving world of NFTs, potential buyers should research thoroughly and proceed with caution.
+
+
+[11/01/2023 08:25] zdravkohr
+Thanks
+
+
+[11/01/2023 08:59] al_qa_qa
+In minting processes,  there are two time periods available, `allowlistPeriods` and `publicPeriod` (This is not a variable name).
+
+Can the two periods be set for the same minting? or for each minting process, it should have only one minting period.
+
+
+[11/01/2023 09:16] __melonwater
+They can both exist. Allowlist means at first only selected ppl can mint, public means later everyone can mint.
+
+{Reactions}
+👍 
+
+[11/01/2023 09:30] almurhasan
+function burnOrSwapExternalToMint 
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol#L326
+What is the purpose of this function??
+What benefits will get user ( user perspective)???
+
+{Embed}
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/MinterContract.sol
+2023-10-nextgen/smart-contracts/MinterContract.sol at main · code-4...
+Contribute to code-423n4/2023-10-nextgen development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/a73c793d-4b72-44ea-bbaa-40fc16a08b42-1A15D
+
+
+[11/01/2023 09:37] prxt.
+gmgm
+users or callers of the function get to have the newly minted token 🙂
+
+
+[11/01/2023 10:08] __melonwater
+who is supposed to be the receipent of mintAndAuction?
+
+
+[11/01/2023 10:09] al_qa_qa
+If the minting salesOption is set to `Periodic Sale`, and the `timePeriod` is set to 1 hour, Can someone mint 5 NFTs within this same hour? @piravlos @prxt
+
+
+[11/01/2023 10:12] piravlos
+No just 1 nft can be minted from any user. Others need to wait 1 hour and then try to mint etc etc
+
+
+[11/01/2023 10:13] noro9954
+can an artist be a collection admin or any sort of admin ?
+
+
+[11/01/2023 10:16] zdravkohr
+Given that these contracts are meant to be deployed from different parties, it should be possible
+
+
+[11/01/2023 11:11] 0xarav
+Hi @piravlos 
+
+Where can we find the ArrngController code ?
+
+
+[11/01/2023 11:13] yesofcourse_
+I'd guess here https://github.com/arrng/arrng-contracts/blob/main/contracts/controller/ArrngController.sol
+
+
+[11/01/2023 11:14] 0xarav
+I was hunting on goerli lol 
+Thanks man
+
+
+[11/01/2023 13:08] mrosas
+@piravlos , @prxt sent FR
+
+
+[11/01/2023 14:07] piravlos
+Just a clarification for the sales model 3. If any tokens are not minted within the period they are moved to the next period ex. If the tine period is 10mins and noone mints then during the 2nd period a user can mint 2 tokens etc. this is how the sales model is designed to work. Thanks
+
+{Reactions}
+🚀 
+
+[11/01/2023 14:11] __melonwater
+who is supposed to be the receipent when calling mintAndAuction?
+
+{Reactions}
+👍🏼 
+
+[11/01/2023 14:15] .akira0327
+@piravlos Please check dm.
+
+
+[11/01/2023 14:19] piravlos
+It will be a trusted wallet. The function can only be called by an admin.
+
+{Reactions}
+✅ (2) 
+
+[11/01/2023 14:28] dimulski
+are the contracts in hardhat/smart-contracts identical to /smart-contracts
+
+
+[11/01/2023 14:28] dimulski
+in the root directory
+
+
+[11/01/2023 14:29] .akira0327
+yes
+
+{Reactions}
+👍 
+
+[11/01/2023 14:29] .akira0327
+I checked
+
+
+[11/01/2023 14:30] taylorwebb
+what is the difference between `publicEndTime` inside the `collectionPhasesDataStructure`, and the `mintToAuctionData` mapping (comment is: // mapping of token id and auction end time)?
+
+
+[11/01/2023 14:31] dimulski
+mintToAuctionData mapping is for the AuctionDemo contract
+
+{Reactions}
+🙏 
+
+[11/01/2023 14:50] funkornaut
+In the `collectionAdditionalDataStructure` what are the `reservedMinTokensIndex` and `reservedMaxTokensIndex`?
+
+
+[11/01/2023 14:52] piravlos
+when you set the total supply for a collection indices for that collection are reserved, ex. for collection 1 and total supply 1000, the token indices from 10000000000 until 10000000999 are reserved for collection 1
+
+{Reactions}
+👍🏽 
+
+[11/01/2023 15:02] al_qa_qa
+Why you are not checking for the returned value when sending ETH? @piravlos @prxt
+
+
+[11/01/2023 15:07] piravlos
+what do you mean ?
+
+
+[11/01/2023 15:10] al_qa_qa
+I will complete it in DMs.
+
+
+[11/01/2023 15:11] piravlos
+no problem
+
+
+[11/01/2023 15:24] yesofcourse_
+This is included in the bot report fyi
+
+
+[11/01/2023 15:30] aslanbekaibimov
+That is "Why are you not using `require(success)` after every low-level `call`?"
+
+Id like to know the answer too 🙂
+
+
+[11/01/2023 15:30] .ke1cam
+does anyone know where i can find code for `DelegationManagementContract`?
+
+
+[11/01/2023 15:35] piravlos
+we were just emitting events but we will 🙂
+
+{Reactions}
+👍 
+
+[11/01/2023 15:46] prxt.
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NFTdelegation.sol
+
+{Reactions}
+❤️ 
+
+[11/01/2023 15:46] johnnytime
+I am wondering why on the docs you have dev comments but in the codebase itself you don't
+
+{Attachments}
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/image-E3694.png
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/image-3C778.png
+
+
+[11/01/2023 15:50] piravlos
+🙂 there is not a specific reason for this, comments can be added later when deployed
+
+
+[11/01/2023 15:54] 0xarav
+Thats ok, But they are usually helpful for some auditors to get the context
+
+{Reactions}
+👍 👆 (2) 
+
+[11/01/2023 17:57] dimulski
+This ain't enough? ```// mint function```
+
+{Reactions}
+🤣 (21) 
+
+[11/01/2023 17:58] dimulski
+😄
+
+
+[11/01/2023 18:01] 0xarav
+Gotta say its cleaner than natspec
+
+{Reactions}
+4739_Skeletor (3) 
+
+[11/01/2023 18:46] zdravkohr
+Is the freeze functionality from the code the same as the lock functionality from the docs
+
+
+[11/01/2023 19:35] taylorwebb
+The docs state "A collection can have an arbitrary number of phases (starting and ending times), each with their own allowlist.", however the code doesn't seem to support this, any clarity here? Specifically referring to the "arbitrary number of phases"
+
+{Reactions}
+👍 (3) 
+
+[11/01/2023 19:45] piravlos
+Yes
+
+{Reactions}
+👍🏻 
+
+[11/01/2023 19:47] piravlos
+You can set up a starting allowlist phase and then recall the set collection phase to update times and merkle root and so on.
+
+{Reactions}
+👍 (2) 
+
+[11/01/2023 20:27] olanre_waju
+@piravlos  private thread?
+
+
+[11/01/2023 20:33] piravlos
+Yes feel free to contact
+
+
+[11/01/2023 23:22] .akira0327
+Why is NFTdelegation.sol out of scope?
+Minter is related to this one directly.
+
+{Reactions}
+👆 (2) 
+
+[11/02/2023 01:31] funkornaut
+How do auctions start?
+
+
+[11/02/2023 03:30] 0xdemonnn
+send a dm @piravlos
+
+
+[11/02/2023 04:56] stryder1496
+are the function admin and the collection admin both trusted roles ?? . If so then how can a normal user call the functions specifies here
+
+{Attachments}
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/spaces2F3qI2FLgAYXA3Xwo3vYpc2Fuploads2FpYw-C58AF.png
+
+
+[11/02/2023 04:57] stryder1496
+as all of the functions are protected either by FunctionAdminRequired or CollectionAdminRequired
+
+
+[11/02/2023 05:00] piravlos
+Nftdelegation is a contract that was audited and is already used by the community.
+
+
+[11/02/2023 05:01] piravlos
+Auctions start then the mintToAuction function is called.
+
+
+[11/02/2023 05:01] piravlos
+The process of setting a collection ready for minting is a process that only admin can do and not normal users.
+
+
+[11/02/2023 05:03] stryder1496
+can you explain the process of how can a normal user create a collection then ?
+
+
+[11/02/2023 05:05] piravlos
+A normal user cannot create a collection. As you can clearly see from the code the functions for creating a collection ready for minting are called by admins. If you remove admin rights on that functions then a normal user can create collection but this is not the case here.
+
+
+[11/02/2023 05:05] stryder1496
+can you check your dm
+
+
+[11/02/2023 05:05] piravlos
+Yes
+
+
+[11/02/2023 05:32] 0xarav
+Whats so specific about index numbers 1000 & 999
+
+{Attachments}
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/image-D1860.png
+
+
+[11/02/2023 05:33] 0xarav
+Its from the ```updateCollectionInfo()```
+
+
+[11/02/2023 06:37] 0xjuntao
+they are just numbers to me and the protocol assumes that there won't be more than 998 scripts
+
+{Reactions}
+👍 
+
+[11/02/2023 06:38] trachev
+Is the `collectionAdmin[_address][_collectionID]` essentially the artist, creating a collection, or is it a person from the NextGen team?
+
+
+[11/02/2023 06:39] prxt.
+yes, just reserved numbers
+if there every would be a case for more than 998 scripts which is unlikely then we'd have to update the whole script using index 1000
+
+{Reactions}
+👍 
+
+[11/02/2023 06:52] johnnytime
+Why so many mappings 🤯
+
+
+[11/02/2023 06:53] johnnytime
+`collectionFreeze`, `collectionInfo`, `collectionAdditionalData`, `isCollectionCreated`,
+
+{Reactions}
+❤️ 👆 
+
+[11/02/2023 06:58] 0xjuntao
+~~what's the `_collectionMintCost` and `collectionEndMintCost`?~~ oh I figured it out, never mind
+
+
+[11/02/2023 07:05] 0xdemonnn
+send a dm @prxt
+
+
+[11/02/2023 07:09] johnnytime
+Also these 3 could be combined:
+`tokensMintedAllowlistAddress`, `tokensMintedPerAddress`, `tokensAirdropPerAddress`
+
+
+[11/02/2023 07:13] johnnytime
+Also collections data is being split among mappings between both core and minter contracts, that's messy
+
+
+[11/02/2023 07:14] johnnytime
+Which makes these kind of things weird and dangerous
+```solidity
+require(
+    block.timestamp >
+        IMinterContract(minterContract).getEndTime(_collectionID) +
+            collectionAdditionalData[_collectionID]
+                .setFinalSupplyTimeAfterMint,
+    "Time has not passed"
+);
+```
+
+
+[11/02/2023 07:17] piravlos
+things are a bit complex but why you mention that are dangerous ?
+
+
+[11/02/2023 07:22] johnnytime
+The current setup, where storage and data related to collections and tokens are distributed among numerous mappings across two contracts, presents a higher risk of errors. Improving the organization of data structures and storage would reduce the likelihood of making mistakes that could potentially result in security vulnerabilities. 
+A better approach would be organizing all storage and information concerning collections and tokens into a single storage file and less mappings
+
+
+[11/02/2023 07:28] piravlos
+this is why we want you to check if the current setup has issues 🙂
+
+{Reactions}
+👍🏻 (2) 🔥 10_10 
+
+[11/02/2023 07:41] trachev
+Also are all types of admins trusted? @piravlos
+
+
+[11/02/2023 08:13] __melonwater
+you will?🥲  At least in claimAuction better not
+
+
+[11/02/2023 08:15] piravlos
+yes ser.
+
+
+[11/02/2023 08:16] piravlos
+the collection admin can be a trusted member of the artists team. Rights to a collection admin will be given after the initial collection setup is finalized, this includes the createCollectiom, setData etc.
+
+
+[11/02/2023 08:19] trachev
+So collection admin rights are different from the function admin and the general admin, as they are not given to internal members of the protocol team, right?
+
+
+[11/02/2023 08:24] piravlos
+yes they will be given to artists trusted team members.
+
+
+[11/02/2023 08:24] trachev
+Got it, thanks a lot.
+
+
+[11/02/2023 09:17] proxy1967
+@piravlos royalties only go to NextGen ?
+
+
+[11/02/2023 09:17] piravlos
+royalties go also to the primary addresses proosed by an artist.
+
+{Reactions}
+👍 
+
+[11/02/2023 09:25] al_qa_qa
+Relating to the part of delegating a user to make functions like mint, we assume its done correctly, since the NFTdelegation has been audited. But I want to understand what is actualy done, at least in this context, here is image that verifies the delegation. Please, could you illustrate the proccess @piravlos
+
+{Attachments}
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/image-3126C.png
+
+
+[11/02/2023 09:41] piravlos
+sure, if a delegator is provided during the allowlist phase, the code checks if a delegation exists between the msg.sender and the delegator on any collection (0x888888) for use cases 1 = all 2 = minting, if not then it checks for the same usecases on the delegationAddress provided set when you executed the setCollectionCosts function. If any o the above is true it allows the msg.sender to mint on behalf of a delegator otherwise it blocks him from minting.
+
+{Reactions}
+👍 (3) 
+
+[11/02/2023 09:50] fktworld
+What are the chains deployed? @piravlos
+
+
+[11/02/2023 09:51] hisoul22
+currently it is deployed on TESTNET Goerli
+
+
+[11/02/2023 09:51] fktworld
+Which main network is this contract deployed on?
+
+
+[11/02/2023 09:55] 0xarav
+It ll be on ethereum mainnet
+
+{Reactions}
+👍🏼 
+
+[11/02/2023 09:57] fktworld
+yes thanks
+
+
+[11/02/2023 10:37] johnnytime
+Just found and read the delegation contract, `0x888888` refers to delegation right for ALL the collections.
+
+
+[11/02/2023 10:38] piravlos
+correct 🙂
+
+
+[11/02/2023 10:45] al_qa_qa
+in `MinterContract::burnOrSwapExternalToMint` the ERC721 contract is initialized by admin in `MinterContract::initializeExternalBurnOrSwap`, we can trust `_burnOrSwapAddress` that is passed to `burnOrSwapExternalToMint`, or it can be a malicious address? @piravlos
+
+
+[11/02/2023 10:50] piravlos
+yes you can trust it as it will be set by an admin.
+
+{Reactions}
+👍 
+
+[11/02/2023 11:17] blutorque
+dmed @piravlos
+
+
+[11/02/2023 11:59] zdravkohr
+What should the mintAndAuction function exactly do
+
+
+[11/02/2023 12:03] joesan4187
+mint an nft and immediately places that nft up for auction
+
+
+[11/02/2023 12:03] hisoul22
+the minted NFT will be auctioned by the AuctionDemo contract
+
+
+[11/02/2023 12:04] zdravkohr
+Thank you guys
+
+
+[11/02/2023 12:06] joesan4187
+is that mintAndAuction function the only means for an Nft to be available for auction, is there a functionality for a previously minted function to be auctioned??
+
+
+[11/02/2023 12:19] funkornaut
+freezing a collection is intended to freeze an NFTs info/data correct? It is not meant to freeze all actions on the NFT?
+
+
+[11/02/2023 12:24] devival
+@piravlos Who is going to deploy the AuctionDemo contract? the auction initiator (aka as owner of a token) or the admins to let many auctions happen on the same AuctionDemo contract?
+
+
+[11/02/2023 12:30] johnnytime
+Yes, as far as I understand - also sometimes they call it "lock" and sometimes "freeze"
+
+{Reactions}
+✅ 
+
+[11/02/2023 12:34] al_qa_qa
+I think this contract will be deployed by an NFT creator. who will make an ICO for some NFTs. am I right @piravlos @6529 @prxt ?
+
+
+[11/02/2023 12:35] piravlos
+the contract will be deployed by the NextGen Core team who will then in collaboration with generative artists will create collections on the contract.
+
+
+[11/02/2023 12:35] piravlos
+admins 🙂
+
+{Reactions}
+👍 
+
+[11/02/2023 12:37] al_qa_qa
+So you will deploy this contract, and artist will trust you for giving them some bucks, am I right?
+
+
+[11/02/2023 12:38] piravlos
+yes, not sure about the financials between the team and artists as i do not handle them but the collections will be collaboration with artists 🙂 as artist will have to create the generative scripts etc 🙂
+
+{Reactions}
+👍 
+
+[11/02/2023 12:58] jvorex
+@piravlos what's the max `collectionPhase` and what do the numbers 1,2 or 3 mean
+
+
+[11/02/2023 13:00] joesan4187
+not sure but i think the collection phases are whitelist and public, 
+there's also sales options and it appears that the sales option ==3 means the sales model is a periodic sales
+
+
+[11/02/2023 13:01] jvorex
+my man! ty
+
+
+[11/02/2023 13:06] 0xtiwa
+hi guys, does anyone have the link to the ARRNG CONTRACTS
+
+
+[11/02/2023 13:08] joesan4187
+https://discord.com/channels/810916927919620096/1166760088963383336/1169232702017376328
+
+
+[11/02/2023 13:08] sudotx
+apart from the controller?
+
+
+[11/02/2023 13:10] 0xtiwa
+thank you.
+
+
+[11/02/2023 13:10] 0xtiwa
+no the full contract
+
+
+[11/02/2023 13:36] jvorex
+@piravlos who gets to keep the minting cost from collections. is this a balance the protocol holds on to forever and utilize whenever or a balance the collection creator gets to withdraw sometime
+
+
+[11/02/2023 13:36] zdravkohr
+There is a payArtist function
+
+
+[11/02/2023 13:46] jvorex
+just got it ty!
+
+{Reactions}
+👍🏻 
+
+[11/02/2023 13:52] almurhasan
+piravlos dm you
+
+
+[11/02/2023 14:02] piravlos
+please see the payArtist function for this. The process is the following: 1. Admin sets the royalties splits, 2. Artists propose primary addresses and percentages 3. admin approves the addresses and percentages 4. admin proceed with the call of the payArtist function.
+
+{Reactions}
+👍 
+
+[11/02/2023 14:03] piravlos
+there are several checks during the functions
+
+
+[11/02/2023 14:27] tamayonft
+the decrease price model was made by the team or already exist ?
+
+
+[11/02/2023 14:30] piravlos
+team
+
+
+[11/02/2023 14:34] zdravkohr
+What does that mean
+
+
+[11/02/2023 14:47] piravlos
+which one ?
+
+
+[11/02/2023 14:48] .akira0327
+GM! Everyone.
+
+
+[11/02/2023 14:48] piravlos
+gm!
+
+
+[11/02/2023 14:50] zdravkohr
+The question, I don't understand it
+
+
+[11/02/2023 14:51] piravlos
+oh, i think that he asks who developed the decrease price model. and the answer is the NextGen team 🙂
+
+{Reactions}
+👍 10_10 
+
+[11/02/2023 14:51] 6529
+yes, 100%.  these are long complex collaborations.    tons of offchain activity for this to happen.
+
+{Reactions}
+👍 
+
+[11/02/2023 14:52] 6529
+not sure about the ICO term here.   all of these are nft mints.
+
+
+[11/02/2023 14:52] 6529
+never really heard of an nft mint being called an ico
+
+
+[11/02/2023 14:52] 6529
+quite a different model
+
+
+[11/02/2023 15:06] al_qa_qa
+You are right, ICO is for fungible crypto tokens.
+
+I think airdrops equals ICO but in NFT space.
+
+
+[11/02/2023 15:25] .akira0327
+To make combined sales, should admins make a couple of calls of setCollectionCosts, setCollectionPhases?
+
+
+[11/02/2023 15:25] .akira0327
+day by day
+
+
+[11/02/2023 15:40] .akira0327
+?
+
+
+[11/02/2023 15:43] delvir0
+@6529  please be my fren, I've got none. I've sent a request
+
+
+[11/02/2023 15:47] .akira0327
+Maybe they are walking in the park.... 🤣
+
+
+[11/02/2023 15:52] piravlos
+Yes 😉
+
+
+[11/02/2023 15:52] .akira0327
+Thanks
+
+
+[11/02/2023 15:52] .akira0327
+You are back here... ☺️
+
+
+[11/02/2023 15:52] .akira0327
+Another question
+
+
+[11/02/2023 15:53] .akira0327
+There are a number of admin on this system.
+
+
+[11/02/2023 15:53] piravlos
+Haha we will touch some grass later 🙂
+
+{Reactions}
+😂 
+
+[11/02/2023 15:54] .akira0327
+Sure. I'll leave question here.  Good coffee..
+
+
+[11/02/2023 15:56] .akira0327
+Let's say adminA can call funcA and adminB can call funcB.
+But we should believe adminA and adminB will don't affect each other directly or indirectly in malicious manner?
+
+
+[11/02/2023 15:59] proxy1967
+What's the difference between `collectionCirculationSupply` in `NextGenCore` and `collectionTotalAmount` from `MinterContract` ?
+
+
+[11/02/2023 16:00] tamayonft
+the getPrice functions has different saless option each of this has different model on how the price is changed it, the question is if this "models" the team came up or that "models" are taked from other projects or some paper that already exist
+
+
+[11/02/2023 16:06] piravlos
+We developed the sales model, thanks
+
+
+[11/02/2023 16:08] piravlos
+CirculatingSupply refers to the current minted supply of a collection. 
+
+CollectionTotalAmount refers to the funds received during minting.
+
+
+[11/02/2023 16:09] proxy1967
+oooh ok yea I should probably read in what function it's used... my bad
+
+
+[11/02/2023 16:09] piravlos
+Admins are trusted roles so each others calls should not affect others especially if they call different functions.
+
+
+[11/02/2023 16:09] piravlos
+No problem 🙂
+
+
+[11/02/2023 16:25] piravlos
+Someone created a very cool diagram about the contracts
+
+https://x.com/sashik_eth/status/1719760343646306793?s=46&t=xKKgf6X54gGhl8R75MT2rA
+
+
+[11/02/2023 16:50] 0xarav
+Hi @piravlos  , 
+whats the purpose of RandomizerNXT, When you have 2 external oracle RNG options ? 
+Does it serve as a backup ?
+
+
+[11/02/2023 16:53] trachev
+And what is the `collectionTotalSupply`?
+
+
+[11/02/2023 16:54] 0xarav
+Maximum tokens a collection can have
+
+{Reactions}
+✅ 
+
+[11/02/2023 17:21] piravlos
+NXT is our custom implementation that has no external fees to generating a random value. We intend to support all 3 randomizer options and each collection can have each own different randomizer 😉
+
+{Reactions}
+👍 
+
+[11/02/2023 17:25] 0xarav
+gotchu !
+
+{Reactions}
+🔥 
+
+[11/02/2023 18:15] fulum
+gm, on the `burnOrSwapExternalToMint()` is used to burn or swap a token of an external existing collection to mint the new token, it's exact? The `burnOrSwapAddress` is proposed by the artist and validated by the admin ?
+
+
+[11/02/2023 18:15] glcanvas
+hello, what is `scripttext`?
+
+
+[11/02/2023 18:26] piravlos
+Yes burn from an external collection and mint a new token on a nextgen collection. Burn or swap will be decided by artist and team. Perhaps an external erc721 collection can be just mint passes and then when you burn your mintpass to get a token on nextgen.
+
+{Reactions}
+10_10 (2) 
+
+[11/02/2023 18:27] piravlos
+Its the generative script that will be stored on chain. Artists will create the script.
+
+{Reactions}
+👍🏻 
+
+[11/02/2023 18:44] crc32#4377
+@piravlos could you check your DM plz
+
+
+[11/02/2023 18:48] kambizasadzadeh
+https://vxtwitter.com/punk6529/status/1720149028015423616
+
+{Embed}
+Twitter
+https://vxtwitter.com/punk6529/status/1720149028015423616
+6529 (@punk6529)
+Nicely done
+
+【QRT of sashik.eth (@sashik_eth):】
+'🗺️Generalized diagram for NextGen @6529Collections contest at @code4rena https://t.co/JihH5osMjL'
+
+💖 13
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/F93Q4o_WsAAzKHw-3A68B.jpg
+
+
+[11/02/2023 18:55] piravlos
+Guys a clarification on two points as I receive questions everyday for this:
+
+1. The meaning of freezing (locking) a collection has nothing to do with disabling the minting process. Freezing a collection means that you lock a collection’s data, info, script, tokens’ data, tokens hash, metadata view etc on chain for ever. This state cannot be reverted so a collection will be freezed only when a minting ends and when we are sure that everything its fine.
+
+2. burning. When you burn a token the circulatingSupply shouldn’t be reduced. This is the correct logic. You can mint a token and burn it while the minting is still active but this does not mean that someone else will mint it again ex a collection has a total supply of 100, minting is active someone mints a token and then burns it, this does not mean that users will be able to mint 101 tokens. In such a case circulating supply will be 100 but the tokens that exist for that collection will be 99.
+
+{Reactions}
+✅ (5) 
+
+[11/02/2023 19:37] trachev
+The collection admin can be malicious, right?
+
+
+[11/02/2023 19:48] piravlos
+No its considered trusted role.
+
+
+[11/02/2023 19:55] trachev
+Why, as it is a user outside of the NextGen team they could have intent to exploit the protocol? Would there be any KYC process for them?
+
+
+[11/02/2023 20:02] piravlos
+It will be a member of the artist team known to us.
+
+{Reactions}
+👍 
+
+[11/02/2023 20:44] crc32#4377
+All the admin roles are trusted i think
+
+
+[11/02/2023 20:56] 6529
+yeah.  i mean they are either us or the artist.
+
+
+[11/02/2023 21:01] 0xjuda
+Hi @piravlos, may I send you DM to discuss some stuff with you?
+
+
+[11/02/2023 21:04] piravlos
+Yes
+
+
+[11/02/2023 21:31] audityourcontracts
+Trust but verify 😉
+
+{Attachments}
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/8VQDizThpTUAAAAAElFTkSuQmCC-243F8.png
+
+
+[11/02/2023 21:45] 0xjuda
+What's this?
+
+
+[11/02/2023 21:48] audityourcontracts
+The exponential decay function.
+
+
+[11/03/2023 03:18] 0xjuntao
+what is the possible value of collectionPhases[_collectionID].rate? is it in bips?
+
+
+[11/03/2023 06:37] t0x1c.c0de
+Can we not simply do `forge init --no-git --force`?
+
+
+[11/03/2023 06:39] raxhvl
+Few more steps like configuring `foundry.toml`. This also merges the `remappings.txt` if present. https://book.getfoundry.sh/config/hardhat#use-foundry-in-an-existing-hardhat-project. I just made a bash file coz i found myself repeating these steps over.
+
+{Embed}
+https://book.getfoundry.sh/config/hardhat
+Foundry Book
+A book on all things Foundry
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/card-E9D38.png
+
+{Reactions}
+🫡 
+
+[11/03/2023 06:40] t0x1c.c0de
+cool 👍🏻
+
+
+[11/03/2023 07:43] zdravkohr
+I think its pure numbers, if you want to set it to 20% => 20
+
+
+[11/03/2023 07:47] piravlos
+it depends on the case, for sales model 3 the rate is considered as %, for sales model 2 it's consider as wei
+
+
+[11/03/2023 07:47] piravlos
+i have updated the examples within the docs as I was getting much questions about sales models
+
+https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+
+please see the examples here
+
+{Embed}
+https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+Sales Models
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/LZvGJXJbrvBNJBj1kTuj-7D91F.png
+
+{Reactions}
+👍 
+
+[11/03/2023 07:54] aslanbekaibimov
+In AuctionDemo.sol:
+
+If a user bids again, new bid is created, instead of increasing the already existing one. Why?
+
+
+[11/03/2023 07:56] piravlos
+we store each bid separately, in order to bid your bid needs to be higher than the current higher bid.
+
+
+[11/03/2023 07:57] aslanbekaibimov
+I mean, why did you choose to create new bid instead of adding it to the user's previous bid?
+
+
+[11/03/2023 08:00] piravlos
+this is how we strucutred it to keep track of all bids including previous ones
+
+{Reactions}
+👍 
+
+[11/03/2023 08:43] yesofcourse_
+What exactly is `status` in `collectionSecondaryAddresses`?
+
+
+[11/03/2023 08:51] piravlos
+are the addresses that will be be used to send the royalties from secondary sales
+
+
+[11/03/2023 08:53] yesofcourse_
+Yes, I am asking about `bool status` in the struct
+
+
+[11/03/2023 08:53] piravlos
+artist proposes the primary/secondary addresses and then an admin should approve them
+
+
+[11/03/2023 09:32] proxy1967
+The artist is allowed to sign a collection when its frozen ?
+
+
+[11/03/2023 09:34] piravlos
+artists will need to sign the collection before even minting starts, this will be an agreement between team and artist
+
+
+[11/03/2023 09:37] proxy1967
+so every artist MUST sign the collection, they can't choose to sign or not ?
+
+
+[11/03/2023 09:38] piravlos
+no the purpose is to have the signatures of artists on-chain 🙂
+
+
+[11/03/2023 09:39] proxy1967
+right so they have to sign it in order for minting to proceed
+
+
+[11/03/2023 10:26] noro9954
+@thebrittfactor | C4 can we write POCs with foundry ? if yes should i provide steps to install and configure the environment ?
+
+
+[11/03/2023 11:21] .akira0327
+Should we write POCs with only hardhat?
+
+
+[11/03/2023 11:24] yesofcourse_
+I think there's no problem writing it in Foundry. The purpose is to demonstrate the attack so the judges and sponsor can understand it and verify it
+
+{Reactions}
+👆 (2) 
+
+[11/03/2023 11:40] 0xsorrynotsorry
+You're free the provide the poc's in your choice of environment. But of course that requires providing all data to reproduce it. In this case it's recommended to provide the POC in a private gist
+
+
+[11/03/2023 11:41] 0xsorrynotsorry
+Please see the message above
+
+
+[11/03/2023 11:50] .akira0327
+It would be better to supply POC with hardhat
+
+
+[11/03/2023 11:52] 0xsorrynotsorry
+Your choice ser unless you provide vanilla Haskell:D
+
+
+[11/03/2023 12:05] jvorex
+I think you already provided a close answer to this question but `getPrice` would always return in ETH or WEI value yes?
+
+@piravlos
+
+
+[11/03/2023 12:19] piravlos
+Wei
+
+
+[11/03/2023 12:19] jvorex
+ty!
+
+{Reactions}
+👍🏼 
+
+[11/03/2023 12:45] kmanofficial
+@piravlos Hi, I sent you a private message - could you check when you have some free time please? Thanks
+
+
+[11/03/2023 12:51] piravlos
+yes thanks
+
+
+[11/03/2023 12:52] ivand5690
+@piravlos  to which sales option does Burn-to-Mint refer? is it 6? I want to test setCollectionCosts and I need to input uint8 _salesOption but want to test it for BurnToMint
+
+
+[11/03/2023 12:55] piravlos
+burn2mint does not have a different sales model
+
+What you need to do is to:
+
+Initiliaze burn2mint
+setCollectionCosts for the collection that will generate the new tokens, the sales models can be 1-fixed 2-exponential/linear decay 3-periodic sale
+
+
+[11/03/2023 13:48] fulum
+Functions `proposePrimaryAddressesAndPercentages` and `proposeSecondaryAddressesAndPercentages` are intended to be used/set by the artist and approved only by the admin with `acceptAddressesAndPercentages`?
+
+
+[11/03/2023 13:56] delvir0
+What is the purpose of `setFinalSupply()`? is it just to get an insight of the numbers or is it used anywhere?
+
+
+[11/03/2023 14:00] xariextz
+What happens if trusted admins make mistakes. Even if they are trusted, what happens if they set some wrong values? Since there is no sanity checks
+
+{Reactions}
+👆🏻 (4) 
+
+[11/03/2023 14:09] zdravkohr
+It is called after the whole minting process has finished to set the totaSupply to the circulating assets
+
+
+[11/03/2023 14:12] delvir0
+Yes so it’s just to see what the ending total supply is, that number not used for anything else when the minting process has finished?
+
+
+[11/03/2023 14:14] zdravkohr
+Since the total supply has been set to be equal to the circulation amount, any subsequent trials to mint will fail because of the if checks whether the total amount is greater than the circulation +1
+
+
+[11/03/2023 14:42] sovaslava9
+Where I can find code of IDelegationManagementContract contract?
+
+
+[11/03/2023 14:44] zdravkohr
+Its the nftDelegation or something like that
+
+
+[11/03/2023 14:48] piravlos
+its within the repos
+
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IDelegationManagementContract.sol
+
+{Embed}
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/IDelegationManagementContract.sol
+2023-10-nextgen/smart-contracts/IDelegationManagementContract.sol a...
+Contribute to code-423n4/2023-10-nextgen development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/a73c793d-4b72-44ea-bbaa-40fc16a08b42-1A15D
+
+
+[11/03/2023 14:49] piravlos
+yes
+
+
+[11/03/2023 14:59] xariextz
+@piravlos
+
+
+[11/03/2023 15:02] zdravkohr
+Where are the secondary addresses used, btw?
+
+
+[11/03/2023 15:15] xariextz
+Opened private thread in the channel @piravlos @prxt
+
+
+[11/03/2023 15:22] debofx
+Hi @6529 How do I get the nextGen test file to run with no errors? NextGen Tests
+       "before all" hook in "NextGen Tests":
+     HardhatError: HH700: Artifact for contract "DelegationManagementContract" not found.
+
+
+[11/03/2023 15:30] piravlos
+hello, follow the instructions in the contest page, the only issue was the node version for others so you need to upgrade node.
+
+{Reactions}
+👍 
+
+[11/03/2023 15:38] evmboi32
+can artist be malicious or is he supposed to be trusted?
+
+
+[11/03/2023 15:39] jvorex
+trusted
+
+{Reactions}
+👍 thisisfine 
+
+[11/03/2023 15:39] evmboi32
+thank you
+
+
+[11/03/2023 16:49] debofx
+Yes, I managed to get over that.  But I will run node update again.  but i already followed the instructions.  it is running for lock.js but not running for nextGen...js
+
+
+[11/03/2023 17:22] tadev0
+hi @piravlos  , may i DM you ?
+
+
+[11/03/2023 17:24] piravlos
+Of course
+
+
+[11/03/2023 17:24] tadev0
+great thanks a lot
+
+
+[11/03/2023 17:24] piravlos
+Yes please retry
+
+
+[11/03/2023 17:39] tadev0
+just DMed you 👍
+
+
+[11/03/2023 20:05] debofx
+Yep, still not working. But the error is HH700 not HH500. I have been having issues with all competion forge tests in the last few days. Something must have happened with macOS, maybe the update. I will shutdown and try again later. Thanks anyway.
+
+{Reactions}
+🚀 
+
+[11/04/2023 01:09] tamayonft
+The periodic sale model is option three right?
+
+
+[11/04/2023 01:11] tamayonft
+@piravlos send you request friends
+
+
+[11/04/2023 01:17] audityourcontracts
+Yes.
+
+
+[11/04/2023 01:17] audityourcontracts
+The difference between the two types of periodic sales is whether `rate` is set I believe.
+
+
+[11/04/2023 03:47] oceansky
+what is the sample input for timeperiod? i saw a sample of 200 in test file, does it mean 200 blocks?
+
+
+[11/04/2023 04:03] audityourcontracts
+I've been working with it as if it's `seconds` fren.
+
+{Reactions}
+nice 
+
+[11/04/2023 05:34] 0xjuntao
+seconds, the the examples here https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+
+{Embed}
+https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+Sales Models
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/LZvGJXJbrvBNJBj1kTuj-7D91F.png
+
+{Reactions}
+thankyou (2) 
+
+[11/04/2023 08:29] mrudenko
+Guys, these tips about NFT security can help you - https://x.com/0xmrudenko/status/1718607112970842617?s=46
+
+
+[11/04/2023 09:23] 0xjuntao
+POC is not a mandatory, why bother since the duplicates will write ones for you😬
+
+{Reactions}
+ohno 🧠 (7) 😂 
+
+[11/04/2023 10:17] ivanfitro
+why the direction of the royalties is hardcoded to this 0x1B1289E34Fe05019511d7b436a5138F361904df0??
+
+
+[11/04/2023 10:42] 0xjuntao
+a rich wallet🤑
+
+
+[11/04/2023 10:42] ivanfitro
+yes it is🤣
+
+
+[11/04/2023 11:42] coffiasd
+@piravlos  send a FR sir
+
+
+[11/04/2023 11:56] piravlos
+This is just for signal to marketplaces, then all marketplaces including Opensea allow you to update this address.
+
+
+[11/04/2023 11:58] tadev0
+@piravlos  just DMed you
+
+
+[11/04/2023 11:59] c3phas.
+@piravlos Sent you a message
+
+
+[11/04/2023 13:03] coffiasd
+This contest looks very different from the ones I reviewed earlier 🥲
+
+
+[11/04/2023 13:07] piravlos
+Approved 😉
+
+{Reactions}
+🫡 
+
+[11/04/2023 13:07] piravlos
+If you have any q feel free to contact me
+
+
+[11/04/2023 13:08] coffiasd
+Thank you sir i will send you later .
+
+{Reactions}
+👍🏼 
+
+[11/04/2023 14:11] pascal9476
+@piravlos can you talk more about “reservedmaxtokensIndex”
+
+
+[11/04/2023 14:16] piravlos
+This is from our docs
+
+Each collection has its own custom token id based on the ID of the collection. 
+For example: the collection with ID #1 reserves the token ids starting at 10000000000 while collection with ID #2 reserves the token ids starting at 20000000000 and so on.
+This allows for easier display and segregation of collections on websites.
+
+Now regards to max when you call setCollectionData you specify the collection supply if you set collection supply for collection 1 to 1000 the reservedmaxtokensindex will be 10000000999. So token indexes for collection 1 are reserved between 10000000000 - 10000000999. Collection supply cannot be modified after it was set. It can only be reduced in case of unminted collections after the end of minting.
+
+
+[11/04/2023 14:19] pascal9476
+Can I dm ?
+
+
+[11/04/2023 14:23] piravlos
+Of course
+
+
+[11/04/2023 18:55] crc32#4377
+Let's say, your docs is one of the best documents that i have ever seen 👍🔥
+
+{Reactions}
+🚀 
+
+[11/04/2023 19:29] trachev
+@piravlos Sent a DM.
+
+
+[11/05/2023 03:12] jacobmartin0406
+@piravlos Sent Fr, plz check
+
+
+[11/05/2023 05:27] tamayonft
+i install foundry in the github repository and  made my own setup in foundry, i j
+
+
+[11/05/2023 09:19] ivanfitro
+@piravlos can I dm you for a question?
+
+
+[11/05/2023 09:19] piravlos
+gm yes of course.
+
+
+[11/05/2023 10:34] jacobmartin0406
+@piravlos sent DM, please check.
+
+
+[11/05/2023 12:20] sovaslava9
+Hello. can you explain, what it means "the same collection?" - description of airDropTokens() function - "
+An admin can only airdrops tokens of the same collection."
+
+
+[11/05/2023 12:30] piravlos
+The collection field in airdrop is not an array, so for whatever collection he inserts the airdrop will happen. If he wants to make airdrops to collection 1 and 2 he must do 2 transactions
+
+{Reactions}
+🙏🏼 
+
+[11/05/2023 13:04] sovaslava9
+are files the same in /smart-contracts and /haradhat/smart-contracts ?
+
+
+[11/05/2023 13:15] piravlos
+Yes
+
+
+[11/05/2023 14:10] kawaicho
+where I can read about the difference between phase 1 and phase 2
+
+
+[11/05/2023 14:11] sovaslava9
+why user should pay, when call burnToMint()? If one user's token has burn, new token will mint... why it need additional payment?
+
+
+[11/05/2023 14:19] joesan4187
+the token being burned is acting as some sort of mintpass and not as a source of value
+
+{Reactions}
+👍 
+
+[11/05/2023 14:21] joesan4187
+its like an artist saying that u can get his new collection if u burn his last collection that might or might not be worthless, but in most cases the burnt token tends to on the floor in terms of value
+
+
+[11/05/2023 14:46] 0xarav
+Docs
+
+
+[11/05/2023 14:46] kawaicho
+more specific?
+
+
+[11/05/2023 14:48] 0xarav
+Id say here 
+https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+
+
+[11/05/2023 15:00] 0xarav
+Also refer to minting process here
+https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/features
+
+
+[11/05/2023 16:02] sovaslava9
+@piravlos  sent dm to you
+
+
+[11/05/2023 16:07] olanre_waju
+@piravlos pls check my private thread, thanks
+
+
+[11/05/2023 16:36] 00decree
+are we supposed to trust admins to provide absolutely correct input to the functions?
+
+
+[11/05/2023 16:41] 0xarav
+Yes
+
+{Reactions}
+thankyou 
+
+[11/05/2023 17:49] sovaslava9
+is role Artist - Trusted?
+
+
+[11/05/2023 17:56] crc32#4377
+All roles are trusted
+
+{Reactions}
+🙏🏼 
+
+[11/05/2023 18:16] piravlos
+There are many use cases just see our nftdelegation protocol
+
+https://github.com/6529-Collections/nftdelegation
+
+Thanks
+
+{Embed}
+https://github.com/6529-Collections/nftdelegation
+GitHub - 6529-Collections/nftdelegation: Delegation contract
+Delegation contract. Contribute to 6529-Collections/nftdelegation development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/nftdelegation-3A688
+
+
+[11/05/2023 20:23] amaechieth
+@piravlos DM
+
+
+[11/06/2023 07:32] tryal556
+what is the motivation behind the function mintAndAuction being allowed only for a global or function admin?
+
+
+[11/06/2023 08:51] al_qa_qa
+When listing an NFT in an auction, it first got minted to a trusted account owned by protocol devs. When the auction ends, the owner (which is devs) will transfer the NFT to the winner, and claim ETH.
+
+Then devs will transfer ETH to NFT artist, but the mechanism of sharing profits is not smart contract based, and it's out of the scope.
+
+{Reactions}
+👍 
+
+[11/06/2023 09:19] saint6704
+@piravlos dmd you can you check
+
+
+[11/06/2023 09:30] saint6704
+what is the difference between `proposePrimaryAddressesAndPercentages()` and `proposeSecondaryAddressesAndPercentages()`  ?
+
+
+[11/06/2023 09:43] piravlos
+Primary refers to the addresses that will receive the funds after the end of minting using the payArtist function
+
+Secondary refers to the addresses that we will send any royalties received from sales on marketplaces, the process of sending is conducted manually and not through the contract
+
+{Reactions}
+✅ (2) 👍 
+
+[11/06/2023 11:37] trachev
+@piravlos sent a DM.
+
+
+[11/06/2023 12:09] glcanvas
+Hello!
+when admin decided to call function  `mintAndAuction`  ?
+
+
+[11/06/2023 12:10] glcanvas
+Can he call it twice or more times?
+
+
+[11/06/2023 12:21] piravlos
+Yes each time it will mint a different nft and send it to auction
+
+
+[11/06/2023 13:10] auditsea
+What's the goal of `burnToMint`?
+
+
+[11/06/2023 13:12] joesan4187
+it is some sort of mintpass mechanism, where owning a previous collection grants you access to minting a new collection
+
+{Reactions}
+👍🏼 (3) 
+
+[11/06/2023 15:26] sovaslava9
+what return function   viewMaxAllowance(uint256 _collectionID) external view returns (uint256) ?   allowance of what or for what?
+
+
+[11/06/2023 15:28] joesan4187
+returns the number of nfts that an address can mint doing public sale.
+
+{Reactions}
+🙏🏼 
+
+[11/06/2023 17:48] proxy1967
+@piravlos how will you create the merkle root ?
+
+
+[11/06/2023 21:09] piravlos
+We havea sample script on github to create the merkle root if you want and proofs
+
+{Reactions}
+chefskiss 
+
+[11/06/2023 21:39] fulum
+I dm you @piravlos
+
+
+[11/06/2023 22:32] sovaslava9
+Hello. Is it possible, that public sale and allowlist sale will be in the same time? on be a little cross?
+
+
+[11/07/2023 00:15] 0xarav
+They can't be same time
+
+
+[11/07/2023 02:45] tamayonft
+hey guys i make my own foundry set up, what is the best way to submit my findings?
+
+
+[11/07/2023 02:53] tamayonft
+i got a private repo, i dont know if i got it add a judge or code4arena
+
+
+[11/07/2023 02:53] tamayonft
+how collaborator
+
+
+[11/07/2023 02:54] audityourcontracts
+Ser go to here -> https://code4rena.com/contests/2023-10-nextgen#top and then click on "Make a Submission" then "Submit Finding"
+
+
+[11/07/2023 02:56] tamayonft
+yeah but i had a private repot i dont know, if its better just copy and page the code of the set up and my POC in the finding or share the repo
+
+
+[11/07/2023 02:56] audityourcontracts
+You write a submission in mark down and include your finding in the submission. You can check past reports for how to include PoC etc.
+
+
+[11/07/2023 02:58] tamayonft
+i know the problem is that this time is so large because i have a set up to deploy all the contracts in foundry
+
+
+[11/07/2023 02:58] audityourcontracts
+Past reports are here -> https://code4rena.com/reports
+
+
+[11/07/2023 02:58] audityourcontracts
+You could link to a gist of your setup and then include the test maybe? I've seen that done before as well.
+
+
+[11/07/2023 02:59] tamayonft
+i dont want make the github repo public because i have all my finding s there
+
+
+[11/07/2023 03:05] 0xjuntao
+POC should link to the C4 repo
+
+
+[11/07/2023 03:59] tamayonft
+its the same repo just that i work with foundry and all my pocs are in foundry
+
+
+[11/07/2023 03:59] tamayonft
+i just add foundry to the repo
+
+
+[11/07/2023 06:33] .eperez
+I put a link to a secret gist with the foundry test file
+
+
+[11/07/2023 07:11] pascal9476
+Pls what exactly is the mint index
+
+
+[11/07/2023 07:50] trachev
+@piravlos sent a DM.
+
+
+[11/07/2023 08:05] proxy1967
+In `create_merkle.js` are `spots` = `maxAllowance` and `txinfo` = `tokenData` ?
+
+
+[11/07/2023 08:14] piravlos
+Yes
+
+{Reactions}
+chefskiss 
+
+[11/07/2023 08:26] pascal9476
+@piravlos
+
+
+[11/07/2023 09:11] piravlos
+mintIndex actually is the tokenid mate
+
+
+[11/07/2023 09:14] 0x_6a70
+@piravlos  send a DM
+
+
+[11/07/2023 11:56] saint6704
+why `_collectionAddress` is set to `0x8888888888888888888888888888888888888888` ?
+
+
+[11/07/2023 11:59] zdravkohr
+That means all collections
+
+{Reactions}
+🚀 (2) 
+
+[11/07/2023 12:33] maroutis
+Hey @piravlos I sent you a DM
+
+
+[11/07/2023 14:12] auditsea
+NFTDelegation is out of scope because it's not fully ready yet?
+
+
+[11/07/2023 14:25] talfao
+It was audited before, I think
+
+
+[11/07/2023 14:41] auditsea
+Gotcha, thx for the info.
+
+
+[11/07/2023 14:46] tamayonft
+and then when the contest is done make public?
+
+
+[11/07/2023 14:54] .eperez
+Secret gists can be viewed if you have the URL, so no need to make them public
+
+
+[11/07/2023 16:42] ustas.eth
+Hey! Any issue related to unchecked return values of low-level calls is out of scope because of M-01 in the bot report, right?
+
+{Reactions}
+✅ (4) 
+
+[11/07/2023 17:04] talfao
+Yes
+
+
+[11/07/2023 17:16] fulum
+Imo yes, but check this message https://discord.com/channels/810916927919620096/810931711609143326/1170727205828042813
+
+{Reactions}
+4739_Skeletor 
+
+[11/07/2023 19:07] tamayonft
+mmmm
+
+
+[11/07/2023 19:24] tx.origin
+am I the only one getting confused with those access control modifiers?
+
+{Reactions}
+🤣 
+
+[11/07/2023 19:31] danhapo
+what's the `collectionCirculationSupply` of `collectionAdditionalData`?
+
+
+[11/07/2023 19:32] tx.origin
+minted supply
+
+{Reactions}
+🙏 (2) 
+
+[11/07/2023 19:32] zdravkohr
+The count of all the tokens that have been minted
+
+{Reactions}
+👍 (2) 
+
+[11/07/2023 19:35] danhapo
+can duration of allowlist and public overlap?
+
+
+[11/07/2023 20:00] audityourcontracts
+Check `setCollectionPhases` in `MinterContract.sol`
+
+
+[11/07/2023 20:16] trachev
+@piravlos sent a DM.
+
+
+[11/08/2023 07:15] t0x1c.c0de
+how do we get a collection's address?
+
+
+[11/08/2023 07:25] 0xjuntao
+the collection address is the same as NextGenCore
+
+
+[11/08/2023 08:27] al_qa_qa
+Which collection address you are taking about?
+
+
+[11/08/2023 08:30] 0xjuntao
+the NextGen collection
+
+{Reactions}
+👍 
+
+[11/08/2023 08:42] .ke1cam
+NextGenCore address is the same as the collection address because NextGenCore contract is ERC721
+
+
+[11/08/2023 09:17] sp1cymeatball
+Hey! Can anyone explain this block, why do we check index = 1000, index = 999?
+```
+    function updateCollectionInfo(uint256 _collectionID, string memory _newCollectionName, string memory _newCollectionArtist, string memory _newCollectionDescription, string memory _newCollectionWebsite, string memory _newCollectionLicense, string memory _newCollectionBaseURI, string memory _newCollectionLibrary, uint256 _index, string[] memory _newCollectionScript) public CollectionAdminRequired(_collectionID, this.updateCollectionInfo.selector) {
+        require((isCollectionCreated[_collectionID] == true) && (collectionFreeze[_collectionID] == false), "Not allowed");
+         if (_index == 1000) {
+            collectionInfo[_collectionID].collectionName = _newCollectionName;
+            collectionInfo[_collectionID].collectionArtist = _newCollectionArtist;
+            collectionInfo[_collectionID].collectionDescription = _newCollectionDescription;
+            collectionInfo[_collectionID].collectionWebsite = _newCollectionWebsite;
+            collectionInfo[_collectionID].collectionLicense = _newCollectionLicense;
+            collectionInfo[_collectionID].collectionLibrary = _newCollectionLibrary;
+            collectionInfo[_collectionID].collectionScript = _newCollectionScript;
+        } else if (_index == 999) {
+            collectionInfo[_collectionID].collectionBaseURI = _newCollectionBaseURI;
+        } else {
+            collectionInfo[_collectionID].collectionScript[_index] = _newCollectionScript[0];
+        }
+    }
+```
+
+https://github.com/code-423n4/2023-10-nextgen/blob/main/smart-contracts/NextGenCore.sol#L238-L253
+
+
+[11/08/2023 09:19] piravlos
+fren as we have reached the max contract size (with 200 optimizations) we needed to combine some functions into one.
+
+if index = 1000 then the function it will change the parameters shown into that block
+if its index = 999 it will change just the baseURI
+
+and to change just an index of the script array you can place the index of it ex. 0,1,2,3 etc
+
+{Reactions}
+🙏 (2) 
+
+[11/08/2023 11:01] proxy1967
+@piravlos Do you have a testnet deployed `AuctionDemo` contract ?
+
+
+[11/08/2023 11:19] piravlos
+no fren
+
+{Reactions}
+ohno 
+
+[11/08/2023 12:57] glcanvas
+hello! 
+what means `salesOption=2`?
+
+
+[11/08/2023 13:04] piravlos
+hello, to learn mode about the sale see our docs, please go here
+
+https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/minter
+
+and then see the first function
+
+{Embed}
+https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/minter
+Minter
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/jAT3O8NuwH8mJXKJtAAx-7DF61.png
+
+
+[11/08/2023 14:58] nmirchev8
+Why would we want want to burn to mint token, while still we should pay for the minting token?
+
+
+[11/08/2023 14:59] nmirchev8
+Because of the phase only?
+
+
+[11/08/2023 15:01] 0xarav
+The burnt token acts like a mintpass.
+And mint cost is optional.
+
+{Reactions}
+✅ 
+
+[11/08/2023 15:03] nmirchev8
+But still the minter should provide ETH based on the collectionID price?
+
+
+[11/08/2023 15:04] 0xarav
+Yes. But the collection admin can 'choose to set a mint price or NOT'
+
+
+[11/08/2023 15:05] nmirchev8
+Thanks!
+
+{Reactions}
+👍 
+
+[11/08/2023 16:11] tx.origin
+Soo do I get this right, all admin roles are completely trusted ( global admin, function admin and collection admin) and basically all issues related to them not providing valid function inputs or global / function admins having the power to basically change data on any collection they want to  are not valid findings because they are trusted? Because theres multiple cases of functions missing some checks and also multiple cases where I ( and others) feel like global and function admins have too much power
+
+{Reactions}
+🤔 (2) 10_10 
+
+[11/08/2023 16:40] piravlos
+exactly, they are trusted roles.
+
+
+[11/08/2023 17:14] _elhaj_
+guys any one give me context pls.. ..  about scripts .. is it a whole generative script will be stored on-chain and encoded some how or it's just a reference to an off-chain script , or it's optional?
+
+{Reactions}
+❓ 
+
+[11/08/2023 17:30] passteque
+It's my first audit so sorry if I don't get everything 
+
+So they could break everything by mistake and it will be OK because they are trusted
+
+It's not even written in the doc what is considered valid input and what is not
+
+
+[11/08/2023 17:33] zdravkohr
+Generally, if a trusted party breaks something unintentionally, it should be considered a valid issue
+
+{Reactions}
+👍 (2) 
+
+[11/08/2023 17:35] .akira0327
+I think this platform assumes that trusted party will do only right things. right? @piravlos
+
+
+[11/08/2023 17:41] passteque
+By trusted in my understanding It exclude possible malicious actions between trusted actors or to users but nothing more
+
+
+[11/08/2023 17:43] tx.origin
+So if I say finding A is an issue because a malicious function admin could do X its not valid 
+
+But if I say finding A is an issue because a function admin could accidentally use wrong inputs and do something he shouldnt do it is valid
+
+I'm relatively new to this as well and I don't get what I should submit and what not here lol
+
+
+[11/08/2023 17:47] .akira0327
+I don't think Trusted party will do malicious action as well as making wrong input. 🤣 
+If this is not, this protocol should have a flood of issues and auditors should write their report till the end time.
+
+
+[11/08/2023 17:50] tx.origin
+Yeah i get that view as well but idk i dont like this approach. 
+We are auditing the codebase after all and cant assume trusted roles to always make the right decisions and if stuff can happen that shouldnt happen based on the code it should be an issue.
+
+But what do I know my name is still yellow lol 
+
+I guess we will see some interesting advanced analysis reports at least
+
+
+[11/08/2023 17:57] ericwillworkforcryptopunks
+Yeah it seems then that there are only a couple of functions that can be exploited like mint() and burn(). If we just have to trust all admins to never get greedy or make a mistake then this is a tough codebase to audit. Not to mention going against the point of the blockchain which is to take trust out of the equation
+
+
+[11/08/2023 17:59] lsaudit
+hey @piravlos  - I have DMd you, please take a look at your DMs in a spare time
+
+
+[11/08/2023 18:00] .akira0327
+Yeah, I think this is not decentralized plaftform but centralized one based on trusted roles
+
+
+[11/08/2023 18:01] zdravkohr
+It is heavy-centralized
+
+{Reactions}
+👏 (2) 
+
+[11/08/2023 18:05] .akira0327
+What's your opinion, @piravlos ?
+about discussions https://discordapp.com/channels/810916927919620096/1166760088963383336/1171864273434202142
+Should we ignore all accidental actions by trusted roles?
+
+
+[11/08/2023 18:10] joesan4187
+mistakes by trusted roles tend to be considered as QA/low severity findings this days, so you could report them but probably wont get a nice payout
+
+
+[11/08/2023 18:19] aslanbekaibimov
+https://docs.code4rena.com/roles/wardens/submission-policy
+https://github.com/code-423n4/org/issues/59#issuecomment-1694650340
+
+Per c4 docs and per @🧦 sock | C4 , centralization risks belong to Analysis reports
+
+
+[11/08/2023 18:21] sockdrawermoney
+correct
+
+
+[11/08/2023 19:24] catscanaudit
+Welcome to auditing
+
+
+[11/08/2023 19:25] catscanaudit
+A lot of protocols have trusted roles with power but in some cases thats good
+
+
+[11/08/2023 19:26] catscanaudit
+Generally what I've noticed in the past is if a role is Trusted, issues with both malicious or even accidental errors are mostly invalid
+
+
+[11/08/2023 19:26] catscanaudit
+Unless of course the logic itself in the trusted function is flawed and doesn't do what it's supposed to
+
+
+[11/08/2023 19:39] ustas.eth
+Do we have any mention of trusted roles in the docs? I feel like this topic is under-standardised
+
+
+[11/08/2023 19:40] zdravkohr
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/image-C4839.png
+
+
+[11/08/2023 19:40] ustas.eth
+I mean in the C4 docs https://docs.code4rena.com/
+
+{Embed}
+https://docs.code4rena.com/
+Code4rena
+Community-driven competitions for smart contract audits
+
+
+[11/08/2023 19:41] ustas.eth
+What are "trusted roles" exactly
+
+
+[11/08/2023 19:44] ustas.eth
+C4 has a reputation to maintain. In a case like this, where the admins have most of the functionality of the system, it's strange to leave out most of the bugs untouched
+
+
+[11/08/2023 19:55] al_qa_qa
+Trusted rules are simply protocol devs in most cases.
+
+Most of the protocols add some function to be available for them only. For example, pause function that pauses all the protocol in case there is a bug.
+
+**How auditing deal withit**
+If the protocol implements trusting roles that fire function that can control or crash the protocol, It is submitted as a medium issue under a name `Central Privilege risk`.
+
+But, C4 bots catch this in most or 100% of situations, so you can't submit it :).
+
+
+[11/08/2023 20:03] ustas.eth
+Central privilege risks don't include unintended behavior of the admin functions. By my logic, they're only about malicious actions of admins, which is a pretty narrow scope of what can be done with admin rights.
+
+
+[11/08/2023 20:03] ustas.eth
+That's why we need more official explanations on the topic
+
+
+[11/08/2023 20:10] catscanaudit
+Yeah I think that when they say a role is "Trusted" 95% of the stuff including malicious/unintended related to the trusted role is invalid
+
+
+[11/08/2023 21:17] al_qa_qa
+Centralized privilege is the same as admin, as you are restricting the function to only a few people.
+
+I don't know exactly, the point you are refering  to, but I will give an example according to what I understood.
+
+Some admins can make critical changes to the protocol, this is right. The most dangerous one is by calling `updateAdmin` function, they will rewrite all roles to new roles, which will lead to the lose of control to the overall protocol, if its submitted wrongly.
+
+Are this is the point you are refering to?
+
+
+[11/08/2023 21:55] ustas.eth
+`updateAdmin` has a clear functionality, and there's nothing wrong with it. I refer to problems that can arise from unconscious actions of trusted roles. For example, if `updateAdmin` with certain wrong params, it can transfer all the funds from the contracts to the zero address. Should we trust admins in such a case? Or should we point that out in a report so the problem will be fixed and there will be nothing to worry about? Adding all these issues to QA is not an answer because it discourages wardens from finding them.
+
+
+[11/08/2023 22:24] crc32#4377
+Admin addresses are not EOA, they are all gnosis safe wallet, at least 2 people should vote to transaction being executed
+
+{Reactions}
+🚀 
+
+[11/08/2023 22:25] crc32#4377
+So all admin functionalities are trusted
+
+{Reactions}
+🚀 
+
+[11/09/2023 01:19] lsaudit
+@piravlos  hey, I've DMed you, could you please take a look at private messages?
+
+
+[11/09/2023 01:23] piravlos
+Guys i really dont know why some of you started this discussion. I had hundreds of discussions about reentrancy issues and other improvements of the contract and i agree on most of them. If any admin which we already mentioned is a trusted party inserts a wrong parameter into a function do you  consider it a bug? Honestly I think is not a bug. As we already mentioned trusted admins will be trusted gnosis safe wallets with 2/3 or 3/4 signatures so they will check if something is wrong or not. The main purpose of Nextgen is to create generative collections and then freeze them. Once you freeze a collection noone even the admins can’t revert the state. In 99% of erc721 contracts admins can revert the baseuri but I don’t see anyone talk about this. Anyone can take the protocol and redeploy without any trusted roles and then you can realize the main consequences of this as they might be duplicate collections and multiple errors. In any case in our case trusted roles are consider fully trusted addresses but if you think that you want to report anything on this feel free to report it.
+
+{Reactions}
+😂 
+
+[11/09/2023 01:25] piravlos
+I don’t agree with this, feel free to see my answer on previous post.
+
+
+[11/09/2023 01:40] .akira0327
+It's not important whether this protocol is decentralized or not, but what we are just discussing is that trusted roles' mistakes will be in auditing scope or not.
+If this is true, auditors need to write reports all day long. 🤣 
+I think you make everything clear with this post.
+
+
+[11/09/2023 01:41] piravlos
+Thanks fren!
+
+
+[11/09/2023 02:02] lsaudit
+Is there any explaination how exactly `dmc.retrieveGlobalStatusOfDelegation()` works?
+
+
+[11/09/2023 05:10] audityourcontracts
+There's the code in `smart-contracts/NFTdelegation.sol`
+
+
+[11/09/2023 06:46] piravlos
+This function calls the nftdelegation smary contract and checks if a delegation between mag.sender and delegator exists. 
+
+Please view the documentation if nftdelegation here
+
+https://github.com/6529-Collections/nftdelegation
+
+{Embed}
+https://github.com/6529-Collections/nftdelegation
+GitHub - 6529-Collections/nftdelegation: Delegation contract
+Delegation contract. Contribute to 6529-Collections/nftdelegation development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/nftdelegation-3A688
+
+
+[11/09/2023 07:57] 0xarav
+Guys - Trusted roles are trusted to make correct inputs/decisons- 
+Its that simple. 
+Theres no finding there.
+
+
+[11/09/2023 08:06] _elhaj_
+anyone?? @piravlos
+
+
+[11/09/2023 08:37] zdravkohr
+I somehow missed that the admins are supposed to be gnosis safes as well. That, plus the things you explained. I am sorry for labeling it as "heavy-centralized"  😄
+
+
+[11/09/2023 08:39] piravlos
+No problem fren 🙂
+
+
+[11/09/2023 08:42] piravlos
+Sorry i missed your question, the whole script will be onchain. One of the reason that we use an array for storing the script is to host large scripts. Anyone can call the retrieveGenerativeScript and get the script and this ehat will be used to generate the actual art. Also once you switch the metadata view for a collection the contract will create an onchain json object to generate the metadata and will not use off-chain metadata.
+
+
+[11/09/2023 09:48] _elhaj_
+got it thanks
+
+
+[11/09/2023 12:47] auditsea
+@piravlos - Do we have a docs about different salesOption?
+
+
+[11/09/2023 12:50] al_qa_qa
+https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+
+{Embed}
+https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+Sales Models
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/LZvGJXJbrvBNJBj1kTuj-7D91F.png
+
+{Reactions}
+👍 
+
+[11/09/2023 12:53] auditsea
+@piravlos - `burnToMint` function is for collections with maxPurchase set to 0 so that users can't mint without burning their previous collection items?
+
+
+[11/09/2023 13:02] piravlos
+yes 🙂
+
+
+[11/09/2023 13:04] al_qa_qa
+Yes, the devs initialize `burnToMint`, to make the minting process disallowed.
+
+For example:
+- Collection creators supply 1000 tokens to mint.
+- Creators will make another 1000 tokens.
+- Creators will disable minting and only allow people who have tokens to mint tokens from the new tokens [1001,2000] through `burnToMint` function after they initialize burning.
+
+This is common in the NFT space, where the first NFTs to mint may be valuable, and the creator may need just to distribute the first NFTs to the old owners.
+
+{Reactions}
+👍 (3) 
+
+[11/09/2023 13:46] chainshield
+what is a `minterContract`
+
+
+[11/09/2023 13:55] tx.origin
+docs explain the architecture pretty well
+
+
+[11/09/2023 13:59] nmirchev8
+Why it is written that test coverage is 100%? Are there other tests?
+
+
+[11/09/2023 14:00] chainshield
+minter is different for all collections or not
+
+
+[11/09/2023 14:00] tx.origin
+its one minter
+
+
+[11/09/2023 14:02] chainshield
+for all collections right?
+
+
+[11/09/2023 14:02] tx.origin
+yes
+
+
+[11/09/2023 14:02] chainshield
+got it, thanks
+
+
+[11/09/2023 14:10] nmirchev8
+Why we have 3 primary addresses?
+
+
+[11/09/2023 14:12] piravlos
+gm, this is the indented design. artist can propose 3 addresses and set different splits per address, so funds will be distributed based on what he proposes if accepted.
+
+{Reactions}
+❤️ 
+
+[11/09/2023 15:45] al_qa_qa
+I think the tests are written by the devs, but they didn't include it in the code base.
+
+They did a pretty thing, they made the test file that is included in the context define all the contracts and functions, to make it easy for auditors to write tests related to any function, after their definition.
+
+So that auditors will not get lost in tons of lines of unit test code, I really liked this.
+
+{Reactions}
+✅ 
+
+[11/09/2023 15:58] 0xblackskull
+@piravlos  can i dm you?
+
+
+[11/09/2023 16:01] chainshield
+in the `mint` function of `minterContract.sol` if If the `minter` will mint then  `_delegator` value
+will be  0x0000000000000000000000000000000000000000, otherwise the delegator's address needs to be provided.
+
+
+am i right?
+
+
+[11/09/2023 16:08] piravlos
+Correct
+
+
+[11/09/2023 16:08] piravlos
+Of course
+
+
+[11/09/2023 19:18] debofx
+Hi @piravlos If I can read data via functions by using a valid tokenId, is that considered a bug of any kind like low or something?
+
+
+[11/09/2023 19:19] piravlos
+What do you mean mate? You can read data from the functions that we want to be public 🙂
+
+
+[11/09/2023 19:20] piravlos
+So this is not a bug
+
+
+[11/09/2023 19:22] debofx
+Lol, I just had to check, sorry.
+
+
+[11/09/2023 19:23] debofx
+What about setting values?
+
+
+[11/09/2023 19:24] piravlos
+Mate contract has many setter functions and only trusted roles can call those functions
+
+
+[11/09/2023 19:25] debofx
+So, if I can set them, I have found bugs or it depends?
+
+
+[11/09/2023 19:31] piravlos
+Set them without being an admin? If yes then its a bug but i dont think so 🙂
+
+{Reactions}
+👍 
+
+[11/09/2023 19:31] debofx
+Got it.
+
+{Reactions}
+🚀 
+
+[11/09/2023 19:31] debofx
+Any other roles besides admin?
+
+
+[11/09/2023 19:33] piravlos
+Everything is one the docs mate here https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/admin and kn the contest page see trusted roles 😉
+
+{Embed}
+https://seize-io.gitbook.io/nextgen/nextgen-smart-contracts/admin
+Admin
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/8Euba02Ks2obaL6hmQ5z-6D1D3.png
+
+{Reactions}
+👍 
+
+[11/09/2023 21:16] catscanaudit
+CollectionAdmins are trusted or nah?
+
+
+[11/09/2023 21:27] tx.origin
+all admin roles are
+
+
+[11/09/2023 21:28] catscanaudit
+Hm made sense collection admins to be the guys that actually create the collections which I thought can be normal users and not just protocol owners
+
+
+[11/09/2023 21:29] tx.origin
+we already had a long discussion regarding this as many people were asking quesitons about this but protocol team made it clear that all admin roles are trusted
+
+{Reactions}
+👍 
+
+[11/09/2023 21:49] viktor_cortess
+Has anybody tried to submit an issue? The button doesn't react
+
+
+[11/09/2023 21:54] mrbowtiedoriole
+You can tell me the issue, I'll submit it for you
+
+{Reactions}
+😂 (9) 
+
+[11/09/2023 21:54] gumgumzum
+Usually it's due to an issue with links I believe
+
+
+[11/09/2023 21:54] mrbowtiedoriole
+Just a joke nobody freak out
+
+
+[11/09/2023 21:56] viktor_cortess
+Thanks, it helped. Github links
+
+{Reactions}
+👍 
+
+[11/10/2023 04:58] funkornaut
+Can artist or collections set a max on how many tokens a user can mint in total?? 
+
+I see this in the collection data but this only pertains to the public mint "  * @param _maxCollectionPurchases Refers to the collection's max purchases/mints per address during public minting."
+
+
+[11/10/2023 05:40] 0xarav
+Sometimes the c4 website goes unresponsive. 
+Try reloading
+
+
+[11/10/2023 05:40] piravlos
+gm, total mints are separated into allowlist spots and _maxCollectionPurchases. _maxCollectionPurchases  are set on the contract while allowlist spots are used for the generation of the merkle proofs and are inserted as input parameter while calling the mint() function.
+
+
+[11/10/2023 06:25] inzinko
+@piravlos sent you a DM, check it out when you can
+
+
+[11/10/2023 06:54] danhapo
+@piravlos Can i DM you?
+
+
+[11/10/2023 07:25] piravlos
+Of course
+
+
+[11/10/2023 08:05] kawaicho
+When i write analyze how to add images?
+
+
+[11/10/2023 08:08] 0xsl1
+i think you can upload an image to github gist and link the gist in analysis
+
+
+[11/10/2023 08:09] kawaicho
+there isnt a easier way?
+
+
+[11/10/2023 08:10] 0xsl1
+not that i know of
+
+
+[11/10/2023 08:10] kawaicho
+Can I upload my word file in github gist?
+
+
+[11/10/2023 08:11] 0xsl1
+i think you can upload everything that you can upload to a simple github repo
+
+
+[11/10/2023 08:13] 0xsl1
+you can try uploading an image directly with an md.
+syntax: ![Link Name](Link URL)
+i just don’t know if code4rena supports it
+
+
+[11/10/2023 08:25] 0xsorrynotsorry
+Create a secret gist.
+upload your image in the comments
+Copy the raw version of the comment once you upload.
+Paste the copied text into analyses. It will be someting like ![image](someting.githubusercontent.com)
+
+
+[11/10/2023 08:30] 0xlemon
+`collectionEndMintCost` in the `Minter` contract is used to determine the price of the last token of the collection? Is that correct?
+
+
+[11/10/2023 08:32] piravlos
+Not only the last token, see our examples here
+
+{Reactions}
+👍 
+
+[11/10/2023 08:32] piravlos
+https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+
+{Embed}
+https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+Sales Models
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/LZvGJXJbrvBNJBj1kTuj-7D91F.png
+
+
+[11/10/2023 09:00] pontifex73
+Hi @piravlos @prxt ! Sent you a question in a private thread
+
+{Reactions}
+🚀 
+
+[11/10/2023 10:50] dimulski
+is the salesOption for a Fixed Price Sale supposed to be 1?
+
+
+[11/10/2023 10:51] piravlos
+yes
+
+{Reactions}
+👍 
+
+[11/10/2023 14:13] sp1cymeatball
+@piravlos no auction tests?
+
+
+[11/10/2023 14:35] piravlos
+no mate sorry 🙂
+
+{Reactions}
+👌 
+
+[11/10/2023 14:56] .akira0327
+Let me know how to create a secret gist.
+Should I create a new private repo based on this one?
+C4 explains what I want to create diff for a single file. 🥹
+
+
+[11/10/2023 14:56] zdravkohr
+https://gist.github.com/
+
+{Embed}
+https://gist.github.com/
+Discover gists
+GitHub Gist: instantly share code, notes, and snippets.
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/opengraph-563E5.png
+
+
+[11/10/2023 14:56] zdravkohr
+Log here and from the plus in the right top corner
+
+
+[11/10/2023 14:58] .akira0327
+So you mean I can create a secret gist and include the link within my submission?
+
+
+[11/10/2023 14:58] zdravkohr
+Yes
+
+
+[11/10/2023 14:59] .akira0327
+Thanks 😃 
+Good luck for this audit.
+
+
+[11/10/2023 15:09] zdravkohr
+Yw!
+
+
+[11/10/2023 18:11] ericwillworkforcryptopunks
+Anybody tried tweaking the contract(s) to test a POC? Anytime I change a line in a contract and run `npx hardhat test` I get an error like so:
+`Error: Transaction reverted: trying to deploy a contract whose code is too large`
+And this includes when I remove code making the contract actually smaller.
+
+Any ides on how to bypass?
+
+
+[11/10/2023 18:12] al_qa_qa
+add this in `hardhat.config.js` file.
+
+```
+networks: {
+    hardhat: {
+        allowUnlimitedContractSize: true,
+    },
+},
+```
+
+
+[11/10/2023 18:12] asui0944
+what does ``dmc.retrieveGlobalStatusOfDelegation`` do
+
+
+[11/10/2023 18:13] asui0944
+the delegate management contract is not in scope but in what way is it going to be used ?
+
+
+[11/10/2023 18:16] ericwillworkforcryptopunks
+This did the trick. Thank you sir:chefskiss:
+
+{Reactions}
+👍 
+
+[11/10/2023 18:17] al_qa_qa
+The delegation contract allows people (not NFT owners) to use NFTs owned by other people.
+
+But in order to do it, the owner should give the sender the authority for doing this, since he is using the owner NFT.
+
+These lines are used for checking that the caller has authority over this owner's NFT, if the caller is not the owner of the NFT.
+
+{Reactions}
+👍 
+
+[11/10/2023 18:20] asui0944
+mint function also calls this 
+does that mean the owner(to be) will have to approve(delegate) the sender first even before the token is minted?
+
+
+[11/10/2023 18:24] al_qa_qa
+Delegating is different from approving.
+
+Minting is creating an NFT which is not existed, so you can't approve and NFT which is not existed yet.
+
+delegating is done, when user_A wants to mint an NFT to user_B.
+
+You may not understand this logic, but this is done in the airdrop sale, so collection creators will choose certin peaple to mint in the airdrop period. And for the protocol to check this through `dmc.retrieveGlobalStatusOfDelegation`
+
+{Reactions}
+thankyou 
+
+[11/10/2023 19:08] lsaudit
+What's the difference between `collectionCirculationSupply` and `collectionTotalSupply`? When each should be increased/decreased?
+
+
+[11/10/2023 19:22] gumgumzum
+I believe:
+
+collectionCirculationSupply is the number of NFTs that were minted so far.
+
+collectionTotalSupply is the maximum number of NFTs that can be minted for that collection.
+
+
+[11/10/2023 19:31] lsaudit
+Hmm, `collectionCirculationSupply` - number of NTFs that were minted, or number of NTFs which already exists? E.g. if I burn() NTF, should `collectionCirculationSupply` decrease?
+
+
+[11/10/2023 19:37] gumgumzum
+Yeah, the name is confusing, but I think that should be `number of NTFs that were minted` mainly because of the presence of the totalSupplyOfCollection view function.
+
+
+[11/10/2023 19:38] lsaudit
+ok, thank you! @piravlos  could you please confirm that?
+
+
+[11/10/2023 19:44] al_qa_qa
+You will find a function in `NextGenCore` called `totalSupplyOfCollection()`. It returns the `collectionCirculationSupply` - the burned amount of this collection.
+
+Decreasing the `collectionCirculationSupply` will cause duplication error between new minted tokens and burned ones.
+
+So devs choosed to just increase the NFTs as they are, and when viewing the totalSupply, they suptract the two values.
+
+{Reactions}
+🚀 
+
+[11/10/2023 20:17] piravlos
+Hello mate please see my previous post here
+
+https://discord.com/channels/810916927919620096/1166760088963383336/1169711470712455240
+
+
+[11/11/2023 01:21] mangoeth
+Sent a dm.
+
+{Reactions}
+👍🏼 
+
+[11/11/2023 03:23] 00xsev
+@piravlos please check DM, thanks
+
+{Reactions}
+👍🏼 
+
+[11/11/2023 04:46] cu5t0mpeo
+@piravlos plz check DM
+
+{Reactions}
+👍🏼 
+
+[11/11/2023 07:12] 0xauditism
+So this will basically create one big collection ?
+
+
+[11/11/2023 07:12] norah7603
+@piravlos Pls check your DM
+
+{Reactions}
+👍🏼 
+
+[11/11/2023 07:16] piravlos
+No, the opposite create multiple collections under a single contract
+
+
+[11/11/2023 07:20] 0xauditism
+Can you register that on opensea ? Sorry if this a basic question I thought collections are defined by address
+
+
+[11/11/2023 07:22] piravlos
+Yes we wont have a problem as they are doing it already for Art Blocks
+
+
+[11/11/2023 07:29] asui0944
+if sales option is 2 the price decreases every time period 
+can someone please explain more on that math in a simpler way?
+
+
+[11/11/2023 07:35] 0xauditism
+Art Blocks is for the minting right ?
+
+
+[11/11/2023 07:36] piravlos
+Fren have you see our examples, 
+
+https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+
+{Embed}
+https://seize-io.gitbook.io/nextgen/for-creators/sales-models
+Sales Models
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/LZvGJXJbrvBNJBj1kTuj-7D91F.png
+
+{Reactions}
+👍 
+
+[11/11/2023 07:37] piravlos
+No fren AB is an example of multiple collection contracts that is supported by opensea
+
+
+[11/11/2023 07:45] 0xauditism
+Okay thank you for the replies on a Saturday 😄
+
+{Reactions}
+😆 🚀 
+
+[11/11/2023 09:32] sp1cymeatball
+Hey, @piravlos ! Can a collection be both traded with `mint` function and available for minting in exchange for burning another collection with `burnToMint`?
+
+
+[11/11/2023 10:27] noahfig.eth
+is salesOption = 3 a Periodic sale  ?
+
+
+[11/11/2023 10:30] 0xbtk
+yes
+
+
+[11/11/2023 11:26] piravlos
+yes but the process is that we first mint the collection and then we can burntomint on an another collection after X period passes. As you describe it its better to do only the minting of the second collection 🙂
+
+{Reactions}
+thankyou 
+
+[11/11/2023 13:34] asui0944
+users still has to pay eth to call burnTomint but doesn't get back eth for the previous token(the token to burn) right?
+
+
+[11/11/2023 13:35] asui0944
+And why would the users even use this function?
+
+
+[11/11/2023 13:35] zdravkohr
+This is a mintpass
+
+
+[11/11/2023 13:35] zdravkohr
+You get an NFT which you can later burn to obtain the real NFT
+
+
+[11/11/2023 13:38] asui0944
+but users still has to pay for the first token isn't or ?
+
+
+[11/11/2023 13:39] lsaudit
+what's the usage of `collectionArtistSecondaryAddresses` in MinterContract.sol ?
+
+
+[11/11/2023 13:46] alphacipher7
+@piravlos  can I DM?
+
+
+[11/11/2023 13:46] 0xbtk
+mint cost is optional. In 99% of these cases the cost will be set to 0 so users will burn and mint but the protocol can support the other 1% where users can burn + pay a fee and mint.
+
+{Reactions}
+🚀 (2) 
+
+[11/11/2023 13:47] piravlos
+Yes
+
+
+[11/11/2023 19:11] _killua69_
+Does anyone know how I can pass array inputs into a function in a foundry test without getting the ‘Invalid Implicit conversion from string[2] memory to string[]’ type error
+
+
+[11/11/2023 19:13] gumgumzum
+Try 
+```solidity
+string[] memory v = new string[](2);
+v[0] = "V0";
+v[1] = "V1";
+```
+
+{Reactions}
+4739_Skeletor 🎉 chefskiss 
+
+[11/11/2023 19:24] _killua69_
+That’s the workaround I’ve been using but there’s some functions with >4 array inputs and I was hoping there was a simpler way to do it. 
+
+Thanks tho
+
+{Reactions}
+👍 (2) 
+
+[11/11/2023 19:43] ustas.eth
+Types in Solidity can be nasty sometimes 😅
+
+{Reactions}
+👍 (4) 
+
+[11/11/2023 19:49] c0pp3rscr3w3r
+Why is NFTDelegation not in scope? 👀
+
+
+[11/11/2023 19:54] audityourcontracts
+There was mention of it already being covered in a previous audit I believe.
+
+
+[11/13/2023 08:28] 0xauditism
+different hashes might mint more valuable nft's, that's the logic right ?
+
+
+[11/13/2023 08:28] trachev
+@piravlos sent a dm
+
+{Reactions}
+👍🏼 
+
+[11/13/2023 10:54] asui0944
+what is the purpose of collectionRoyaltiesSecondarySplits
+it is never used in the contract
+
+
+[11/13/2023 10:55] gumgumzum
+https://discord.com/channels/810916927919620096/1166760088963383336/1171021915427704945
+
+{Reactions}
+👍 (2) 
+
+[11/13/2023 11:43] dimulski
+Somebody else facing problems, with updating/submitting issues
+
+
+[11/13/2023 11:55] tx.origin
+yup I can't submit
+
+
+[11/13/2023 12:00] t0x1c.c0de
+worked fine just a minute ago for me. Must be temporary
+
+
+[11/13/2023 12:05] tx.origin
+weird nothing happens when I click the create issue button
+
+
+[11/13/2023 12:05] t0x1c.c0de
+browser cache refresh/relaunch etc maybe?
+
+
+[11/13/2023 12:32] dimulski
+for me it was loading, and then throwing an error, but seems ot be working now
+
+
+[11/13/2023 13:11] maroutis
+@piravlos, I sent a dm in private thread.
+
+{Reactions}
+🚀 
+
+[11/13/2023 13:34] turvec_dev
+😂 Please do not in the claimAuction!
+
+{Reactions}
+🤣 4739_Skeletor 
+
+[11/13/2023 15:02] oceansky
+That's it folks!, goodluck on your submissions!
+
+
+[11/13/2023 15:08] sp1cymeatball
+https://tenor.com/view/palpatine-star-wars-emperor-do-it-go-for-it-gif-17446081
+
+{Embed}
+https://tenor.com/view/palpatine-star-wars-emperor-do-it-go-for-it-gif-17446081
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/palpatine-star-wars-1A8F8.png
+
+
+[11/13/2023 18:55] turvec_dev
+Anyone resolved this?, mine still happening and lol I don't think I can wait till it's fixed any longer considering the time
+
+
+[11/13/2023 18:56] droptpackets.eth
+Try signing out and signing in again
+
+{Reactions}
+👆 
+
+[11/13/2023 18:57] droptpackets.eth
+I was able to edit something just now, so should be working
+
+
+[11/13/2023 19:09] xariextz
+Try changing the browser also if you can
+
+
+[11/13/2023 20:00] hunter_w3b
+https://tenor.com/view/legion2010-legion-horror-movie-movie-angels-of-death-gif-24194827
+
+{Embed}
+https://tenor.com/view/legion2010-legion-horror-movie-movie-angels-of-death-gif-24194827
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/legion2010-legion-AD6AE.png
+
+
+[11/13/2023 20:01] piravlos
+On behalf of the entire 6529collections team we would like to express our deepest gratitude to all those who contributed to this open audit. It was a really nice experience for our team and we hope that we did our best to help you fully understand how everything works. We tried to maintain a 100% response rate to your questions/chats and I personally think that we have achieved it 🙂 We are sure that your expertise and insights will be valuable and will help us improve our project. We are truly grateful for your time and effort put on auditing the project as your contributions will help us make NextGen better and more secure.
+ 
+Feel free to join our community and be informed on when NextGen will be launched.
+ 
+https://discord.gg/join-om
+
+Thanks 🙂
+
+{Reactions}
+🙂 (9) ❤️ (18) 🔥 (7) hi5 (4) 💯 (3) 🎉 (3) 🫡 (8) 👍 
+
+[11/13/2023 20:01] 0x11singh99
+How many 😇 submissions  any backstage
+
+{Reactions}
+🙂 (2) 
+
+[11/13/2023 20:01] mosharaf
+there was an issue at last minute submission /
+
+
+[11/13/2023 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺wardens The **NextGen** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Keep an eye on #📢announcements for regular updates on how the audit is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a Contest-Admin if you have questions along the way!
+
+
+[11/13/2023 20:03] audityourcontracts
+Thanks for all your patience and help @piravlos 🙏
+
+{Reactions}
+10_10 (2) 🚀 (3) 
+
+[11/13/2023 20:03] .akira0327
+This was funny one for sophisticated protocol, @piravlos
+
+
+[11/13/2023 20:16] dimulski
+what do you guys think will we hit 3k submissions
+
+
+[11/13/2023 20:16] cryptothemex
+There was an issue at last time while submitting and now the submission appears as reported twice
+
+
+[11/13/2023 20:17] .akira0327
+I think this protocol will have less submissions than others.
+
+
+[11/13/2023 20:19] 0xarav
+Appreciate you for dealing with the sea of DMs from our wardens. 🙌
+
+{Reactions}
+🔥 
+
+[11/13/2023 20:21] 0xarav
+How many total submissions on this?
+Backstage boys ?
+
+
+[11/13/2023 20:21] shubh0412
+Approx 2k
+
+{Reactions}
+🚀 (5) 
+
+[11/13/2023 20:21] 0xarav
+Cool
+
+
+[11/13/2023 20:23] ubl4nk
+Many thanks to @piravlos for advanced support and great answers 🙂 I wish you the bests my friend
+
+{Reactions}
+🫡 (2) 🚀 (3) 
+
+[11/13/2023 20:32] olanre_waju
+I wish pre-sort and the judge good luck 💀💀💀
+
+{Reactions}
+💀 (3) 
+
+[11/13/2023 20:43] dimulski
+expect results next year 😄
+
+{Reactions}
+😲 thisisfine 😂 
+
+[11/13/2023 20:49] 6529
+thank you everyone who participated!
+
+{Reactions}
+👍 (16) 
+
+[11/13/2023 20:57] manchasss.eth
+Thanks to the sponsors for being so patient, particularly with the hundreds of questions about admins and artists being trusted 😂
+
+{Reactions}
+👍 
+
+[11/13/2023 21:05] lsaudit
+what's the exact number of submitted issues?
+
+
+[11/13/2023 22:03] talfao
+Message above
+
+
+[11/13/2023 22:28] 0xbtk
+Hey everyone, here is foundry setup for testing and experimenting. It could be handy for playing around with tests and might assist in sorting out false positives for the lookouts, https://github.com/0xbtk/NextGen-Setup
+
+{Embed}
+https://github.com/0xbtk/NextGen-Setup
+GitHub - 0xbtk/NextGen-Setup
+Contribute to 0xbtk/NextGen-Setup development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/NextGen-Setup-5729B
+
+{Reactions}
+chefskiss 
+
+[11/13/2023 22:32] ericwillworkforcryptopunks
+But were we supposed to just be able to trust them though?
+
+
+[11/13/2023 22:34] lsaudit
+thought there are predictions, not the exact number 😉
+
+
+[11/13/2023 23:22] manchasss.eth
+In the vast and treacherous realm of trust, one must navigate the turbulent waters of deception and broken promises. Trust, a concept as elusive as a cat on a hot tin roof, dances on the edge of reason, inviting us to plunge headlong into the abyss of vulnerability. Trust no one, they say. Trust everyone, they contradict. It's a paradoxical ballet of skepticism and naivety, leaving us mere mortals pondering the existential question: What does trust even mean?
+
+Picture this: a world where trust is as rare as a unicorn sighting. You extend your hand in friendship, only to have it bitten by the fangs of betrayal. Trusting someone is like playing a high-stakes game of poker with a deck stacked against you – the joker being the one you chose to trust. Yet, in this grand Shakespearean tragedy of trust, there is a paradoxical twist. They tell you not to trust anyone, but then insist that trust is the foundation of any meaningful relationship. It's as confusing as deciphering hieroglyphics in the dark.
+
+So, what does trust mean in this cacophony of contradictions? Is it a fragile glass sculpture destined to shatter with the slightest breeze, or a sturdy bridge leading to the promised land of genuine connections? The answer, my dear reader, lies somewhere between the realms of skepticism and blind faith, wrapped in a cloak of uncertainty. Trust, it seems, is a cryptic riddle with no definitive solution, leaving us to navigate this theatrical stage of life with a healthy dose of skepticism and a pinch of optimism...
+
+
+[11/13/2023 23:37] ericwillworkforcryptopunks
+Dude. That... was deep
+
+{Attachments}
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/9k-B8672.png
+
+
+[11/13/2023 23:46] manchasss.eth
+https://tenor.com/view/white-chicks-powder-gif-10742232
+
+{Embed}
+https://tenor.com/view/white-chicks-powder-gif-10742232
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/white-chicks-powder-52C6C.png
+
+
+[11/14/2023 00:02] coffiasd
+2k submissions :10_10:
+
+
+[11/14/2023 00:32] tx.origin
+yea
+
+
+[11/14/2023 01:27] 0xarav
+Is that gpt 5.0 ? Lol
+
+
+[11/14/2023 01:42] manchasss.eth
+@AvantGard 3 lol
+
+{Reactions}
+🫡 
+
+[11/14/2023 01:59] coffiasd
+special thanks to the sponsors @piravlos
+
+{Reactions}
+👍 🚀 (2) 
+
+[11/14/2023 06:06] loserdavictor
+im trans participant, so i ll take the thamk you🐧 🐧 
+i had the repo downloaded and was hallucinating the audit and it ended -> onto next thing
+
+
+[11/14/2023 18:50] neo_granicen
+hey
+
+{Reactions}
+👋 
+
+[12/04/2023 18:13] lsaudit
+hey, is there any approx. date when we should expect post judging qa and/or results?
+
+{Reactions}
+🕵️‍♂️ (2) 
+
+[12/05/2023 14:15] kimchi_the_dog
+Be patient, my friend.
+
+Money for tacos is coming soon. 😄
+
+
+[12/05/2023 17:46] manchasss.eth
+I'd expect a dopex like time frame, also lots of subs, maybe  mid Jan - early Feb
+ *Just a guess, not financial advice
+
+{Reactions}
+👀 (7) 
+
+[12/09/2023 11:20] fedebianu
+how does the escalation process work in c4?
+
+
+[12/09/2023 11:28] 0xsl1
+you have to have a backstage role in order to be able to escalate
+
+
+[12/09/2023 11:29] fedebianu
+ok thanks
+
+
+[12/09/2023 14:25] 0xsorrynotsorry
+Hey @darksnow,
+Nice to see you again fren!
+
+{Reactions}
+👋 
+
+[12/09/2023 14:27] fedebianu
+Hey! 👋
+
+
+[12/09/2023 16:44] cryptothemex
+how to get backstage role?
+
+
+[12/09/2023 16:56] tx.origin
+think you have to find 1 high or 3 mediums something like that 
+check out the c4 docs for the exact requirements
+
+{Reactions}
+👍 (2) 
+
+[12/11/2023 07:15] dimulski
+👀
+
+{Reactions}
+🕵️‍♂️ 
+
+[12/11/2023 15:22] droptpackets.eth
+What’s this about? 😂😂
+
+
+[12/11/2023 15:28] dimulski
+when results 😄
+
+
+[12/11/2023 16:07] tx.origin
+escalations still ongoin no?
+
+
+[12/11/2023 16:54] droptpackets.eth
+You have backstage, shouldn’t you know more than us? 😂🤣
+
+
+[12/11/2023 17:07] dimulski
+Why do you think my question is directed to you? 😄 PJQA is over, some guys still trying to escalate slowing down the process
+
+
+[12/11/2023 17:19] olanre_waju
+Is it possible to escalate after PJQA?
+
+
+[12/11/2023 17:29] 0xsl1
+there are still some comments left that were posted before the end of PJQA, no one has tried to escalate after PJQA
+
+
+[12/11/2023 17:35] dimulski
+Usually not
+
+
+[12/11/2023 17:38] ustas.eth
+You can make a request to set up a Supreme Court Committee of 3 judges for a deposit of 500 USD 🙂
+
+
+[12/11/2023 17:38] dimulski
+is it up for the next gen contest
+
+
+[12/11/2023 17:39] dimulski
+don't think they collected the 3k required deposit
+
+
+[12/11/2023 17:39] ustas.eth
+Though I'm not sure whether it is part of the PJQA or not
+
+
+[12/11/2023 17:40] ustas.eth
+Do you want to try to?
+
+
+[12/11/2023 17:40] dimulski
+nope, I see one issue that the guys keep disagreening with the judge
+
+
+[12/11/2023 17:41] al_qa_qa
+Guys sorry for interrupt, but what is PJQA proccess, and how it is going. can a warden defend his finding from getting canceled or downguarded at this time? And Is this true? `You can make a request to set up a Supreme Court Committee of 3 judges for a deposit of 500 USD`
+
+
+[12/11/2023 17:41] dimulski
+was just interested if it is up for this contest as I don't think the supreme court decisions was finalized when the contests started
+
+
+[12/11/2023 17:41] ustas.eth
+The process in only available for the backstage role
+
+
+[12/11/2023 17:42] dimulski
+the way I understand it, it is a faze after PJQA don't know how much time and in what duration
+
+
+[12/11/2023 17:42] ustas.eth
+I don't know the details, honestly, it was more of a joke, sorry if I confused you
+
+{Reactions}
+👌 
+
+[12/11/2023 17:43] al_qa_qa
+I know it is for backstagers, but I want to know how it is being done? can the warden provide more details and POCs to validate his finding at this time, or its related to QA issues only?
+
+
+[12/11/2023 17:45] ustas.eth
+Yes, you can provide your feedback to the judges with PoC and more explanations. If the judges decide that your arguments are sufficient, they will increase the severity
+
+
+[12/11/2023 17:47] al_qa_qa
+Interresting! thanks a lot ustas. Hope to get 1H or 3M in this context to open this rule, it seems interesting. and viewing reports after ending the context is good too.
+
+{Reactions}
+4739_Skeletor 
+
+[12/11/2023 17:52] 0xsorrynotsorry
+One can only provide additional context / POC if the Judge requests during the PJQA, so it will require at least a backstage role.
+
+The verdict is [here](https://docs.google.com/document/d/1Y2wJVt0d2URv8Pptmo7JqNd0DuPk_qF9EPJAj3iSQiE/edit#heading=h.hu7fwaaicfqa)
+
+```
+POC submitted during post-judging QA or during judge period 
+
+Has been addressed in a separate ruling.
+See: Standardization of additional warden output during QA
+```
+👇 
+
+```
+Standardization of additional warden output during QA
+
+No new information should be introduced and considered in PJQA. Elaborations of the already introduced information can be considered (e.g. tweaking a POC), from either the Judge or the Warden, but they will only count towards the validity of the issue, not its quality score.
+```
+
+{Reactions}
+🙏 👍 
+
+[12/12/2023 14:09] dimulski
+🫣
+
+
+[12/12/2023 14:10] droptpackets.eth
+Is it possible for someone with backstage to tell me if my submissions were accepted? Or still too early to know?
+
+
+[12/12/2023 14:16] .jacopod
+how do you see if your findings were rejected or accepted?
+
+
+[12/12/2023 14:16] dimulski
+do you wanna know how much you are going to earn
+
+{Reactions}
+🤣 
+
+[12/12/2023 14:16] dimulski
+I am a magician
+
+{Reactions}
+10_10 
+
+[12/12/2023 14:17] .jacopod
+haha I would love to , yes
+
+
+[12/12/2023 14:18] .jacopod
+Only if it doesn't take you much effort
+
+
+[12/12/2023 14:20] .jacopod
+JacoboLansac
+
+
+[12/12/2023 14:21] dimulski
+I am sorry guys, but my magic powers has been taken away
+
+
+[12/12/2023 14:21] .jacopod
+hahaha no worries, appreciated anyways
+
+
+[12/12/2023 14:21] .jacopod
+I can wait
+
+
+[12/12/2023 14:25] droptpackets.eth
+Just what’s been accepted - haha
+
+
+[12/12/2023 14:26] droptpackets.eth
+That’s what I was after yeah
+
+
+[12/12/2023 14:26] droptpackets.eth
+Saw a notification from someone just now but now can’t find it in discord 😂😂🤣
+
+
+[12/12/2023 14:26] droptpackets.eth
+I don’t care about payment amounts yet, just if my stuff was accepted
+
+
+[12/12/2023 14:27] dimulski
+you need the backstage role, but I can't disclose the state of your findings, I misunderstood some of the rules of the backstage role , so can't help you
+
+{Reactions}
+👍🏻 (2) 
+
+[12/12/2023 14:27] dimulski
+yeah it was from me but I deleted it
+
+{Reactions}
+👍 
+
+[12/12/2023 14:32] .jacopod
+yeah me too
+
+
+[12/12/2023 14:34] droptpackets.eth
+Totally understand - thanks ser! Hoping to get backstage after this hunt 🙂
+
+{Reactions}
+👍 
+
+[12/12/2023 14:35] auditsea
+In fact, backstage role isn't a hard challenge but once you get it, you can improve your skill-sets even more, like low hanging fruits
+
+
+[12/13/2023 12:36] young09778
+hi when will the result be out sir? Curious to know if my finding is accepted or not
+
+
+[12/13/2023 13:14] 0x3b
+The results will be out in a few days hopefully
+
+{Reactions}
+🙏 
+
+[12/13/2023 15:55] lsaudit
+usually a few days. Depends on the number of escalations I guess. Anyone with backstage role can please confirm if we should expect results soon?
+
+
+[12/13/2023 17:04] fulum
+Yes imo it's on good way for next fews days
+
+
+[12/14/2023 05:18] dimulski
+👀
+
+{Reactions}
+🕵️‍♂️ (6) 
+
+[12/14/2023 18:49] dimulski
+will we have results this week?
+
+{Reactions}
+👀 (7) 
+
+[12/15/2023 06:28] shubh0412
+Looks like people need money for Christmas shopping 😂
+
+{Reactions}
+❤️ (2) 
+
+[12/15/2023 06:33] dimulski
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q4-2023 - nextgen-oct30 [1166760088963383336].txt_Files/image-8B060.png
+
+{Reactions}
+👍 (6) 
+
+[12/15/2023 06:34] dimulski
+stolen from @7ashraf
+
+
+[12/15/2023 06:37] shubh0412
+I was talking abt u 😂 
+U have backstage but still impatient
+
+
+[12/15/2023 06:40] dimulski
+makes it even worse I think, how much time does running a script take 😄 😄
+
+
+[12/15/2023 07:25] 0x3b
+I am expecting someone from c4 to say "soon"
+
+{Reactions}
+🤣 
+
+[12/15/2023 07:25] 0x3b
+most likely @PaperParachute | C4
+
+
+[12/15/2023 07:44] 7a4raf
+U good bro😂👌
+
+{Reactions}
+4739_Skeletor 
+
+[12/15/2023 10:05] shubh0412
+Single digit reward is waiting for me 🫠
+
+
+[12/15/2023 10:51] coffiasd
+2 digit is enough for me to get a coffee tomorrow morning :4739_Skeletor:
+
+
+[12/15/2023 14:06] catellatech
+Yes or @thebrittfactor | C4 🤞
+
+
+[12/15/2023 14:10] 0x3b
+I though the rewards are out😭
+
+{Reactions}
+🤣 (2) 
+
+[12/15/2023 14:11] dimulski
+this a sufficient way to tag admins "unintentionally" 😄
+
+{Reactions}
+🤣 (2) 👀 
+
+[12/15/2023 14:16] catellatech
+Sorry🤣
+
+
+[12/15/2023 14:16] 0x3b
+no problem xD
+
+
+[12/15/2023 14:29] _paperparachute
+Please see [this](https://docs.code4rena.com/awarding/fairness-and-validity#if-you-disagree-with-a-judges-decision) section of the docs.
+
+
+[12/15/2023 14:30] _paperparachute
+Also, if you aren't backstage, and awards aren't announced, how are you aware a finding has been rejected?
+
+
+[12/15/2023 14:31] _paperparachute
+Ah, I see.
+
+
+[12/15/2023 14:33] _paperparachute
+That's unfortunate. You'll get 'em next time 🙂
+
+
+[12/15/2023 14:36] kimchi_the_dog
+Are you sure that this is the logo from current audit and not the previous one (if there was any)?
+And does it appear for everyone at the same time?
+
+
+[12/15/2023 14:37] 0xsl1
+you have to be certified to enable displaying logos on your profile
+
+
+[12/15/2023 14:40] kimchi_the_dog
+There were a lot of submissions, I wonder how many vulnerabilities there will be in the end.
+
+
+[12/15/2023 14:46] _paperparachute
+None of your findings for Dopex were "lost in the dark", each and every one was seen by both the lookout and the judge, and judged accordingly. The judges care about every valid issue submitted, and judge them all.
+
+
+[12/15/2023 14:48] kimchi_the_dog
+Yeah, kudus for judges and lookouts 🙌 
+Sorting all of these is not an easy task
+
+
+[12/15/2023 14:56] 0xlemon
+I see NextGen logo on my profile does that mean that I have a valid issue or just that I submitted some issues?
+
+
+[12/15/2023 14:57] dimulski
+damn, only I don't see a logo 😄
+
+
+[12/15/2023 14:58] cu5t0mpeo
+me too
+
+
+[12/15/2023 14:59] 0xlemon
+but is it true that I have a valid finding?
+
+
+[12/15/2023 14:59] dimulski
+I don't know, I know I have and I don't see a logo
+
+
+[12/15/2023 15:00] 0xlemon
+Ok I will just wait for the results
+
+
+[12/15/2023 15:01] shubh0412
+On the profile page, go to Edit.
+Slide the bar under "Audits you've participated in"
+
+{Reactions}
+👍 
+
+[12/15/2023 15:01] .akira0327
+Logo will be listed after when contest result is announced and you have valid findinging on it.
+
+
+[12/15/2023 15:01] timenov
+I think you should have a valid if you see the logo
+
+{Reactions}
+😀 
+
+[12/15/2023 15:55] _paperparachute
+🤑 🎉  Awards for **NextGen**:
+
+$6,215.78 USDC » @0x3b 
+$3,961.65 USDC » @AvantGard 
+$2,850.09 USDC » @lanrebayode77 
+$1,988.97 USDC » @immeas 
+$1,930.28 USDC » @ZdravkoHr 
+$1,659.89 USDC » dy 
+$1,589.42 USDC » @MrPotatoMagic 
+$1,386.76 USDC » @btk 
+$1,383.80 USDC » @7siech 
+$1,210.72 USDC » Krace 
+$1,063.79 USDC » @dimulski 
+$882.90 USDC » @t0x1c 
+$826.01 USDC » @degensec.eth 
+$801.17 USDC » @KupiaSec 
+$780.17 USDC » @Draiakoo 
+$778.91 USDC » @oakcobalt 
+$691.90 USDC » Myd 
+$679.36 USDC » @VAD37 
+$662.83 USDC » @Haipls 
+$628.94 USDC » @r0ck3tz 
+$616.47 USDC » The_Kakers (@juancito, @oxizo__) 
+$602.97 USDC » @gumgumzum 
+$593.25 USDC » @nuthan2x 
+$560.05 USDC » @trachev 
+$558.51 USDC » @0xlemon 
+$558.22 USDC » @fibonacci 
+$557.13 USDC » @Noro 
+$504.55 USDC » PetarTolev 
+$504.39 USDC » Udsen 
+$501.11 USDC » @ast3ros 
+$412.93 USDC » @REKCAH 
+$398.87 USDC » @00xSEV 
+$396.76 USDC » xAriextz 
+$371.83 USDC » @K42 Ψ 
+$311.47 USDC » @xuwinnie 
+$294.66 USDC » @alexfilippov314 
+$290.56 USDC » @mrudenko 
+$286.49 USDC » DeFiHackLabs (@SunSec, @AkshaySrivastav, @Sm4rty, @Cache_And_Burn, @ret2basic.eth, @zuhaibmohd, @sashik_eth, @Ronin, @iceBear) 
+$265.54 USDC » @Toshii 
+$262.69 USDC » @JohnnyTime 
+$262.69 USDC » @catellatech 
+$216.86 USDC » @smiling_heretic 
+$194.39 USDC » @Al-Qa-qa 
+$192.93 USDC » @Ruhum 
+$191.94 USDC » Jiamin 
+$191.47 USDC » @bart1e 
+$189.18 USDC » @Tadev 
+$176.99 USDC » @Rotcivegaf 
+$141.88 USDC » @rahul 
+$138.36 USDC » @BugzyVonBuggernaut 
+$137.89 USDC » @zach 
+$137.89 USDC » @0xblackskull 
+$137.89 USDC » @Stryder 
+$136.75 USDC » @lsaudit 
+$135.84 USDC » @SovaSlava 
+$133.69 USDC » @Fulum 
+$131.82 USDC » @Juntao🐾 
+$120.11 USDC » @c3phas 
+$109.14 USDC » @0xAnah 
+$109.14 USDC » @thekmj 
+$109.14 USDC » @JCK 
+$109.13 USDC » rishabh 
+$104.19 USDC » bird-flu 
+$98.50 USDC » @CaeraDenoir 
+$96.20 USDC » crunch 
+$96.20 USDC » circlelooper 
+$95.89 USDC » @ustas 
+$74.40 USDC » @evmboi32 
+$63.90 USDC » @Jaraxxus775 
+$46.74 USDC » phoenixV110 
+$41.68 USDC » @hunter_w3b 
+$41.10 USDC » @merlin 
+$38.63 USDC » @devival 
+$37.15 USDC » @PENGUN 
+$36.08 USDC » @twcctop 
+$35.61 USDC » @Jorgect 
+$35.61 USDC » @zhaojie 
+$35.61 USDC » DanielArmstrong 
+$30.72 USDC » Eigenvectors (@Cosine, @timo) 
+$30.46 USDC » @glcanvas 
+$29.08 USDC » @niki 
+$27.85 USDC » 3th 
+$27.85 USDC » @Kose 
+$27.69 USDC » @cats 
+$27.69 USDC » digitizeworx 
+$27.69 USDC » @ihtishamsudo 
+$27.69 USDC » @SAAJ 
+$27.69 USDC » clara
+
+{Reactions}
+🎉 🚀 
+
+[12/15/2023 15:55] _paperparachute
+$27.09 USDC » @funkornaut 
+$26.77 USDC » @Viktor_Cortess 
+$26.18 USDC » @00Decree 
+$25.75 USDC » @oualidpro 
+$25.39 USDC » @Jacopod 
+$25.24 USDC » @cartlex_ 
+$25.24 USDC » @Hama 
+$25.24 USDC » @Kaysoft 
+$25.24 USDC » @0xAadi 
+$25.24 USDC » @AS 
+$25.24 USDC » @Fitro 
+$25.24 USDC » @audinarey 
+$16.32 USDC » @audityourcontracts (AYC) 
+$15.25 USDC » @Arabadzhiev 
+$14.74 USDC » @HChang26 
+$14.41 USDC » SpicyMeatball 
+$14.34 USDC » @Madalad 
+$14.00 USDC » @openwide 
+$13.98 USDC » @epistkr 
+$13.98 USDC » @leegh 
+$13.98 USDC » @hihen 
+$13.98 USDC » @dharma09 
+$13.98 USDC » DavidGiladi 
+$13.98 USDC » @0xSolus 
+$13.98 USDC » @petrichor🦖 
+$13.39 USDC » @tpiliposian 
+$13.39 USDC » @pipidu83 
+$13.39 USDC » @ZanyBonzy 
+$13.39 USDC » @cheatc0d3 
+$12.62 USDC » @xiao 
+$11.91 USDC » @Neon2835 
+$11.44 USDC » @0xhuy0512 
+$11.12 USDC » @ayden 
+$11.12 USDC » ubl4nk 
+$11.12 USDC » @sces60107 | GimelSec 
+$11.05 USDC » @Kow 
+$10.97 USDC » @volodya 
+$6.91 USDC » innertia 
+$5.96 USDC » @Arno 
+$5.96 USDC » @Nyx 
+$5.56 USDC » mojito_auditor 
+$5.49 USDC » @ABA 
+$5.49 USDC » Zac
+$5.49 USDC » 0xMAKEOUTHILL 
+$5.49 USDC » @0xSwahili 
+$5.49 USDC » ohm 
+$3.39 USDC » @0xJuda 
+$3.39 USDC » @ke1caM 
+$2.92 USDC » DarkTower 
+$2.92 USDC » @codynhat 
+$2.77 USDC » @0xAsen 
+$2.77 USDC » @Noam Yakov 
+$2.77 USDC » @0xDetermination 
+$2.77 USDC » @Greed 
+$2.77 USDC » TuringConsulting 
+$2.77 USDC » @MaNcHaSsS 
+$2.77 USDC » @Vagner 
+$2.77 USDC » @NentoR 
+$2.77 USDC » Valix 
+$2.77 USDC » CSL 
+$2.77 USDC » @yojeff 
+$2.01 USDC » @Talfao 
+$2.01 USDC » @0xpiken 
+$1.54 USDC » @flacko 
+$1.42 USDC » @Soul22 
+$1.38 USDC » @rvierdiiev 
+$1.38 USDC » @0xWaitress 
+$1.38 USDC » @nmirchev8 
+$1.38 USDC » 0xhunter 
+$1.09 USDC » @_eperezok 
+$1.09 USDC » ChrisTina 
+$0.94 USDC » @bdmcbri 
+$0.94 USDC » @xeros 
+$0.94 USDC » @Bauchibred 
+$0.62 USDC » @bronze_pickaxe 
+$0.62 USDC » @alexxander 
+$0.62 USDC » Tricko 
+$0.55 USDC » @0x180db 
+$0.47 USDC » @amaechi eth 
+$0.47 USDC » Delvir0 
+$0.47 USDC » @0x_6a70 
+$0.47 USDC » @cu5t0mpeo 
+$0.47 USDC » @Timenov 
+$0.47 USDC » @Taylor_Webb 
+$0.47 USDC » @BugsFinder0x 
+$0.47 USDC » spark
+$0.47 USDC » @Ocean_Sky 
+$0.15 USDC » @droptpackets 
+$0.15 USDC » seeques 
+$0.15 USDC » @sl1 
+$0.15 USDC » @pontifex 
+$0.15 USDC » @836541 
+$0.15 USDC » @kk_krish 
+$0.15 USDC » @EricWWFCP 
+$0.15 USDC » @neo_granicen 
+$0.15 USDC » @stackachu 
+$0.15 USDC » @0x175 
+$0.15 USDC » @0xraion 
+$0.15 USDC » @code-cipher 
+$0.15 USDC » @ilchovski 
+$0.08 USDC » @critical-or-high 
+$0.08 USDC » @Beosin 
+$0.08 USDC » 0xAlix2 
+$0.08 USDC » @turvy_fuzz 
+$0.04 USDC » @y4y 
+$0.04 USDC » @kitano 
+$0.04 USDC » @danielles0xg 
+
+Findings Summary will be added shortly.
+
+Awards will be distributed on Polygon within the next week. Congratulations all!  💸 💸 💸
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+{Reactions}
+🎉 🚀 
+
+[12/15/2023 15:55] 0x3b
+GG
+
+
+[12/15/2023 15:56] catscanaudit
+good shit
+
+{Reactions}
+❤️ 
+
+[12/15/2023 15:57] _polex
+Congrats mate
+
+
+[12/15/2023 15:57] fulum
+good job all ✌️
+
+
+[12/15/2023 16:02] johnnytime
+Damn expected to be top 10, guess not 😅😅😅
+
+
+[12/15/2023 16:05] tx.origin
+gg guys
+
+
+[12/15/2023 16:05] johnnytime
+Gg
+
+
+[12/15/2023 16:08] kimchi_the_dog
+Congratulations to everyone. I'm very interested in the report.
+
+
+[12/15/2023 16:09] funkornaut
+NICE
+
+
+[12/15/2023 16:09] funkornaut
+Got my first payout on here lfg!
+
+
+[12/15/2023 16:09] 0xblackskull
+hey, can anyone tell me why i cant see Helped Secure logo on my profile? i already caught few bugs here
+
+
+[12/15/2023 16:10] tayzver
+gg guys
+
+
+[12/15/2023 16:11] ivanfitro
+My first Medium🥳
+
+
+[12/15/2023 16:18] tallo#5415
+9 submissions and not even on the leaderboards 😂
+
+
+[12/15/2023 16:19] tx.origin
+check your profile to see how many got confirmed
+
+
+[12/15/2023 16:19] tallo#5415
+2
+
+
+[12/15/2023 16:19] tx.origin
+i submitted a few things and only got 1 confirmed sadly
+
+
+[12/15/2023 16:19] tallo#5415
+considering i fully poc'd pretty much everything
+
+
+[12/15/2023 16:19] t0x1c.c0de
+✌🏻 🤟🏻
+
+
+[12/15/2023 16:20] shubh0412
+@PaperParachute | C4 Name not mentioned in the list even though I have a validated finding.
+
+
+[12/15/2023 16:22] kimchi_the_dog
+same here
+
+
+[12/15/2023 16:22] 0x11singh99
+Because of 0.00  $ Reward
+
+
+[12/15/2023 16:23] 0x11singh99
+It will show in results page of the contest when updated
+
+
+[12/15/2023 16:23] 0xblackskull
+same here, i submitted 2H and 2M but only 1M confirmed 😦
+
+
+[12/15/2023 16:23] kimchi_the_dog
+so detecting one of the 4 confirmed highs gave no reward? xD
+
+
+[12/15/2023 16:24] shubh0412
+yup
+
+
+[12/15/2023 16:24] dimulski
+192 dups 😄
+
+{Reactions}
+😱 (2) 
+
+[12/15/2023 16:24] kimchi_the_dog
+xD
+
+
+[12/15/2023 16:24] tx.origin
+well I submitted a help desk request so hope I get backstage soon and check out what happened lol
+
+
+[12/15/2023 16:25] _paperparachute
+I reached the character limit on the second post, so heres the Findings summary:
+
+🏁 Findings summary
+--------------------------------------—
+High risk findings: 4 unique (303 total)
+Med risk findings: 10 unique (183 total)
+Gas reports: 19 (Best: rahul)
+QA reports: 29 (Best: The_Kakers)
+Advanced analysis reports: 19 (Best: MrPotatoMagic)
+
+
+[12/15/2023 16:25] hisoul22
+found all 4 highs and got 1.42 USDC
+
+{Reactions}
+🤣 (3) 🥲 
+
+[12/15/2023 16:25] _paperparachute
+That'll be the 303 dupes :4739_Skeletor:
+
+{Reactions}
+😆 
+
+[12/15/2023 16:25] kimchi_the_dog
+xD nice
+
+{Reactions}
+😄 
+
+[12/15/2023 16:27] _polex
+LOL
+
+
+[12/15/2023 16:27] kimchi_the_dog
+@MrPotatoMagic friend, share advice on how to create such a good analysis! 😄
+
+{Reactions}
+👀 (2) 
+
+[12/15/2023 16:28] _paperparachute
+You can read it when the report is out!
+
+
+[12/15/2023 16:28] tadev0
+hey, 
+just found i'm in the leaderboard (around 190 dollars), but cannot find more info about my findings. On my profil, i can see the ''help secure" at the bottom, but i don't see details about my finding at the top, how can i know about my findings?
+
+
+[12/15/2023 16:28] tallo#5415
+when the report is out in about 6 months youll be able to see
+
+{Reactions}
+😂 (5) 
+
+[12/15/2023 16:29] droptpackets.eth
+Umm I submitted several high?? Why am I credited with peanuts??
+
+
+[12/15/2023 16:29] droptpackets.eth
+Same
+
+
+[12/15/2023 16:29] tadev0
+for other contests, i can see my findings at the top on the right. If you're right, how people know right which findings of theirs were validated?
+
+
+[12/15/2023 16:30] _paperparachute
+Deleted for profanity
+
+
+[12/15/2023 16:30] tx.origin
+the more peole find the bugs the less are the rewards
+its simple guys
+
+
+[12/15/2023 16:30] .akira0327
+low awards, but I think you made a good stuff. 💪
+
+
+[12/15/2023 16:30] droptpackets.eth
+Sorry forgot not allowed
+
+{Reactions}
+thankyou 
+
+[12/15/2023 16:30] kimchi_the_dog
+I would like tips so that I can implement them in current contests
+
+
+[12/15/2023 16:30] tadev0
+now i see it, thanks!
+
+
+[12/15/2023 16:31] droptpackets.eth
+I need an explanation
+
+
+[12/15/2023 16:31] droptpackets.eth
+I worked hard on POC for findings that are high severity and get no credit
+
+{Reactions}
+😂 
+
+[12/15/2023 16:31] droptpackets.eth
+You have to understand how messed up that is
+
+
+[12/15/2023 16:32] tx.origin
+@droptpackets my guy if 200 people find something of course the rewards are low
+Check out c4 docs to see how rewards are calculated
+
+
+[12/15/2023 16:32] kimchi_the_dog
+@droptpackets It's not about working hard - it's about working smart and according to the rules that are what they are
+
+
+[12/15/2023 16:33] tadev0
+there might be a reason. there is always one 🙂
+
+
+[12/15/2023 16:33] mrpotatomagic
+depends contest to contest but nothing specific tbh, might wanna take a look at the C4 docs for what is expected
+
+
+[12/15/2023 16:33] inzinko
+@0xraion we can apply for backstage through the helpdesk right ?
+
+
+[12/15/2023 16:33] tx.origin
+yup
+
+
+[12/15/2023 16:33] droptpackets.eth
+Understood. I will learn from this. Frustrated, but will learn.
+
+
+[12/15/2023 16:33] _paperparachute
+See [here](https://docs.code4rena.com/awarding/incentive-model-and-awards) for further info about award calculation.
+
+
+[12/15/2023 16:33] droptpackets.eth
+I have read it thoroughly before
+
+
+[12/15/2023 16:34] kimchi_the_dog
+I looked and I have the impression that I gave sensible advice there. I don't know if it's about the number of these tips, the format or something else.
+
+The docs are quite vague, and I don't see any feedback from previous contests about what was wrong.
+
+
+[12/15/2023 16:35] _paperparachute
+Well, the explanation is the math provided. Also, finding 4 highs basically immediately makes you elegible for backstage, if you've participated in 3+ audits. That alone is worth a lot.
+
+{Reactions}
+👍 (2) 
+
+[12/15/2023 16:35] oualidpro
+Please how long does it takes to get the backstage role ?
+
+
+[12/15/2023 16:36] neo_granicen
+what does backstage make you able to do?
+
+
+[12/15/2023 16:36] _paperparachute
+Like MrPotatoMagic said, it ranges hugely from audit to audit. Some high severity findings pay out thousands, others "peanuts" as you describe.
+
+
+[12/15/2023 16:36] tadev0
+inzinko i'm eligible to backstage now, where should i go to apply for it ?
+
+
+[12/15/2023 16:36] _paperparachute
+Once you've applied normally <24h
+
+
+[12/15/2023 16:36] tx.origin
+I have a question regarding the 3+ audits thing.
+How does that get tracked if I dont submit anything on 2-3 contests and find my first high == my first submission at all afterwards
+
+
+[12/15/2023 16:36] _paperparachute
+create a [helpdesk](https://code4rena.com/help) query.
+
+
+[12/15/2023 16:36] tadev0
+thank you @PaperParachute | C4
+
+
+[12/15/2023 16:38] _paperparachute
+Sorry I don't understand your question here. You have to have participated in 3 audits, and have at least 1H or 3Ms, or some other criteria found [here](https://docs.code4rena.com/roles/certified-contributors/backstage-wardens#to-request-+backstage-access)
+
+
+[12/15/2023 16:38] neo_granicen
+how long will it take for the findings to appear in my Past findings?
+
+
+[12/15/2023 16:38] inzinko
+i am also intrested, are these three audits where you got confirmed findings
+
+
+[12/15/2023 16:38] tx.origin
+I mean if I participated in 3 contests but didn't find anything before theres no proof I participated in 3 contests
+
+
+[12/15/2023 16:39] _paperparachute
+Well, you have to have submitted _something_ which staff can see.
+
+
+[12/15/2023 16:40] _paperparachute
+Analysing the codebase and not submitting anything wouldn't count as participating. I'd call that studying.
+
+
+[12/15/2023 16:40] neo_granicen
+how long will it take for the findings to appear in my Past findings?
+@PaperParachute | C4
+
+
+[12/15/2023 16:41] _paperparachute
+Sorry, it normally updates in about an hour
+
+
+[12/15/2023 16:43] mrpotatomagic
+probably all of that, you should check past reports on the C4 site to see how you could make them better
+
+
+[12/15/2023 16:45] tadev0
+@PaperParachute | C4  i made my backstage request  with ''warden registration", and i just received the mail for registration (for KYC). i guess i should have chosen ''others'', sorry for that
+
+
+[12/15/2023 16:49] _paperparachute
+Not seeing the request, can you resubmit please.
+
+
+[12/15/2023 16:50] oxtenma
+@PaperParachute | C4 How long does it take to process backstage role after the application?
+
+
+[12/15/2023 16:50] saint6704
+one of my QA's is a high risk issue but it is not shown in my profile @PaperParachute | C4
+
+
+[12/15/2023 16:51] _paperparachute
+<24h normally
+
+{Reactions}
+👍 
+
+[12/15/2023 16:51] _paperparachute
+You mean severity was increased during judging?
+
+
+[12/15/2023 16:51] oxtenma
+Sent the request.
+
+
+[12/15/2023 16:51] adeolu
+Top 3, congratulations @lanrebayode77 👏🏾😁 🎉
+
+
+[12/15/2023 16:52] olanre_waju
+Thanks brother 🫡
+
+{Reactions}
+❤️ 
+
+[12/15/2023 16:52] saint6704
+yes
+
+
+[12/15/2023 16:53] adeolu
+Jaiye lo baba
+
+{Reactions}
+🍻 
+
+[12/15/2023 16:53] olanre_waju
+cheers to the first top 3 🎉
+
+{Reactions}
+❤️ (3) 
+
+[12/15/2023 16:55] tadev0
+just resubmitted, thanks
+
+
+[12/15/2023 16:55] _paperparachute
+received 🙂
+
+
+[12/15/2023 16:56] tadev0
+great, thanks 🙂
+
+
+[12/15/2023 16:57] _polex
+@PaperParachute | C4 finding a QA in a contest count for the minimum of 3 participation in audit contests for the backstage role?
+
+
+[12/15/2023 16:58] _paperparachute
+Any valid submission counts as participation, yes.
+
+
+[12/15/2023 16:58] _polex
+okay nice
+
+
+[12/15/2023 16:58] _polex
+Thank you
+
+
+[12/15/2023 17:02] filmptz
+@PaperParachute | C4 Hi, Does the `backstage` role criteria consider only the valid issues found during solo audits, or does it also include valid issues identified as a team?
+
+
+[12/15/2023 17:02] _paperparachute
+includes team submissions
+
+{Reactions}
+🫡 
+
+[12/15/2023 17:03] oualidpro
+Me too
+
+
+[12/15/2023 17:43] 0x1118641
+Can someone with backstage access check if my submission are all dups or just wrong please ? Lol
+
+
+[12/15/2023 17:44] 0x1118641
+i was expecting at least see my name in the results but I dont : (
+
+
+[12/15/2023 17:45] 0xarav
+Congrats everyone
+
+
+[12/15/2023 17:46] 0xarav
+Hi @PaperParachute | C4  mate, 
+
+Can you add me to the backstage please 🙂
+
+
+[12/15/2023 17:50] _paperparachute
+Not at my PC right now, I shared a helpdesk link above ^
+
+
+[12/15/2023 17:50] young09778
+Yes it’s the same thing for me. Very frustrating
+
+
+[12/15/2023 17:50] itsmetechjay
+While I can understand wanting to know your results sooner, backstage wardens need to keep the information about findings private until the repos are open.
+
+
+[12/15/2023 17:51] 0x1118641
+I submitted the query through the helpdesk, thank you @PaperParachute | C4
+
+
+[12/15/2023 17:51] _paperparachute
+Info about your findings won't be shared until report release
+
+
+[12/15/2023 17:53] cryptothemex
+If a finsing is selected to be included in report, whats the reward differenec with other dups?
+
+
+[12/15/2023 17:54] 0x1118641
+So does backstage allows you to see how judge dealt with your own submissions ?
+
+
+[12/15/2023 17:54] 0xsmartcontractsamurai
+I too was expecting at least one valid submission, but got nothing. If it's my mistake, I learn & improve.
+If it's because I might not have submitted an analysis report... 💩 Didnt get to it unfortunately.
+
+Learning & improving is good.
+But I thought my bugs were good too...
+
+👊
+
+{Reactions}
+🔥 (3) 
+
+[12/15/2023 17:57] 0xarav
+Ah ok.  I sent the query 
+
+Thanks : )
+
+
+[12/15/2023 18:09] jvorex
+hey @PaperParachute | C4 not sure you're close to the keyboard atm but i just put in a request for backstage. when you get some time, please look into it
+
+
+[12/15/2023 18:10] itsmetechjay
+Just a note since I know a lot of you are submitting backstage requests right now.  We will get to them within one business day, so if you don't hear today, we'll get to you early next week.  Really appreciate your patience.
+
+
+[12/15/2023 18:28] .akira0327
+Congrats your top five, @ZdravkoHr
+
+{Reactions}
+❤️ 
+
+[12/15/2023 18:31] zdravkohr
+Thank you 😄
+
+
+[12/15/2023 18:31] .akira0327
+When can we meet on top 5? 😆
+
+
+[12/15/2023 18:31] .akira0327
+Just one medium finding. zzz
+
+
+[12/15/2023 18:31] zdravkohr
+Hopefully soon 😄
+
+{Reactions}
+💪 (2) 
+
+[12/15/2023 18:32] zdravkohr
+That's good, next time more
+
+
+[12/15/2023 18:33] zdravkohr
+A little bit shifting, me 4 you 5 haha
+
+{Reactions}
+🤝 (2) 
+
+[12/15/2023 18:33] stakog
+How much time does it usually take to see the findings publicly?
+
+
+[12/15/2023 20:05] audityourcontracts
+Got 3/4 highs. The money must be in the mediums. Can't wait to see what I missed.
+
+
+[12/15/2023 23:01] oceansky
+oh my, the competition is really stiff, you got high risk and still got zero, oh man 😭
+
+{Reactions}
+🫠 (3) 
+
+[12/16/2023 01:29] tx.origin
+the High risk findings got hella dupes compared to the mediums
+
+{Reactions}
+4739_Skeletor (2) 
+
+[12/16/2023 02:50] 00decree
+Pog my first precious 26.18
+
+
+[12/16/2023 03:13] 00decree
+didn't submit analysis report too. but my all my 1H/2M got accepted
+
+
+[12/16/2023 04:50] aerialraider
+I got a 1/4 High findings, no mention of payment
+
+
+[12/16/2023 07:13] dimulski
+👀
+
+
+[12/16/2023 08:17] dimulski
+do you think he makes the calculations by hand 😄
+
+
+[12/16/2023 09:25] 0xnirlin
+@0x3b good work
+
+
+[12/16/2023 09:39] 0x3b
+Thanks nirlin
+
+
+[12/16/2023 11:35] tpiliposian
+How can I find out why my reported issues haven't been validated? Only one out of the four high issues was validated. 🧐
+
+
+[12/16/2023 12:31] 7a4raf
+@dimulski 🔥🔥👌
+
+{Reactions}
+🫣 💪🏻 
+
+[12/16/2023 16:45] aycozy
+Omoiya @lanrebayode77  Congratulations chief🎉
+
+{Reactions}
+🫡 
+
+[12/16/2023 16:49] aycozy
+@adeolu dm ser
+
+
+[12/16/2023 20:32] tx.origin
+need backstage role
+
+{Reactions}
+🙌 
+
+[12/16/2023 20:47] _polex
+Do you guys know which are the requirements to obtain the leaderboard role in discord?
+
+
+[12/16/2023 22:41] 836541#7294
+This contest shows how important is to make escalations phase less restricted in the future
+
+
+[12/17/2023 08:21] tpiliposian
+Thank you, I have already written to the helpdesk.
+
+
+[12/18/2023 10:24] noro9954
+when we will receive the awards ?
+
+
+[12/18/2023 15:16] noro9954
+@PaperParachute | C4
+
+
+[12/18/2023 15:17] itsmetechjay
+Awards are typically sent within one week of award announcement.
+
+{Reactions}
+thankyou (3) 
+
+[12/18/2023 15:52] stakog
+Response?
+
+
+[12/18/2023 16:00] tallo#5415
+in this case likely 6 months.
+
+
+[12/18/2023 16:15] 0xsmartcontractsamurai
+Thought none of my submissions got validated, because my name isnt in the list, but alas, one medium severity validated, with $0 earned.🫡 
+
+👊
+
+
+[12/18/2023 18:11] cryptothemex
+I got one high with $0 😀
+
+{Reactions}
+💩 (2) 👊 (4) 
+
+[12/18/2023 20:10] aerialraider
+@cryptoThemeX me too
+
+{Reactions}
+👍 
+
+[12/18/2023 20:15] stakog
+Seriously? does it generally take months till the reports go public?
+
+
+[12/18/2023 20:31] mrpotatomagic
+sometimes it's released quickly but depends on when the staff gets the green light
+
+
+[12/18/2023 20:40] stakog
+I'm just wondering... If the contest (including judging and all) ended, prizes are sent and the protocol is not on mainnet yet, what prevents c4 from releasing the report?
+
+
+[12/18/2023 20:49] mrpotatomagic
+Maybe the C4 team can answer this better but it's mostly after sponsor has applied all mitigations and launched the codebase. It can be earlier as well if the sponsor wishes.
+
+{Reactions}
+👍 
+
+[12/19/2023 19:29] 0xaleko
+Who can explain it? One high with 0$ payout. Hoow?
+
+
+[12/19/2023 20:21] unclejeff4407
+dups
+
+
+[12/20/2023 10:26] rekcah5105
+@dimulski about 270 wardens has reported that bug
+
+
+[12/20/2023 11:01] dimulski
+why do you tag me?
+
+
+[12/20/2023 11:14] rekcah5105
+@dimulski excuse me
+
+{Reactions}
+😂 (5) 
+
+[12/20/2023 22:43] audityourcontracts
+I'm wondering whether this had an impact on the highs being devalued so much, or it's just $COPE on my part.  "Hundreds of discussions about reentrancy" was a pretty good indicator there was re-entrancy 😉 https://discord.com/channels/810916927919620096/1166760088963383336/1171983418238705737
+
+
+[02/24/2024 02:47] itsmetechjay
+ℹ️ This channel is pending archive.  As a result, any private threads will be permanently deleted on Saturday, 02 March 2024. Please make sure to grab anything you might need from those before then.
+
+
+[02/29/2024 22:34] itsmetechjay
+ℹ️ Reminder: this channel will be deleted in 24 hours.
+
+
+==============================================================
+Exported 964 message(s)
+==============================================================
